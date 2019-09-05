@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>校网环境下的私人服务器解决方案 | NCJ-Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="NetworkGeekServer">
+  
+  
+  
+  
+  <meta name="description" content="CS狗一枚，几乎每天都需要携带电脑。最近感觉轻薄本性能不太够用，但是游戏本又太厚太重、散热续航也不太行，于是想到在寝室部署一台台式机，然后远程访问计算资源的方案。考虑到校网拓扑的复杂以及供电等原因，最近先进行了一些理论验证，并成功组建了一个个人网络以及一些个人网络服务。以下是过程的简单记录。  一、路由器的必要性与选购在ZJU，寝室要想访问外网，只有两个方案——学校的WiFi或者有线网VPN拨号。">
+<meta name="keywords" content="Network,Geek,Server">
+<meta property="og:type" content="article">
+<meta property="og:title" content="校网环境下的私人服务器解决方案">
+<meta property="og:url" content="https://ncj.wiki/2019/07/10/2019-07-10_Dorm_Server/index.html">
+<meta property="og:site_name" content="NCJ-Blog">
+<meta property="og:description" content="CS狗一枚，几乎每天都需要携带电脑。最近感觉轻薄本性能不太够用，但是游戏本又太厚太重、散热续航也不太行，于是想到在寝室部署一台台式机，然后远程访问计算资源的方案。考虑到校网拓扑的复杂以及供电等原因，最近先进行了一些理论验证，并成功组建了一个个人网络以及一些个人网络服务。以下是过程的简单记录。  一、路由器的必要性与选购在ZJU，寝室要想访问外网，只有两个方案——学校的WiFi或者有线网VPN拨号。">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-09-05T13:38:45.732Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="校网环境下的私人服务器解决方案">
+<meta name="twitter:description" content="CS狗一枚，几乎每天都需要携带电脑。最近感觉轻薄本性能不太够用，但是游戏本又太厚太重、散热续航也不太行，于是想到在寝室部署一台台式机，然后远程访问计算资源的方案。考虑到校网拓扑的复杂以及供电等原因，最近先进行了一些理论验证，并成功组建了一个个人网络以及一些个人网络服务。以下是过程的简单记录。  一、路由器的必要性与选购在ZJU，寝室要想访问外网，只有两个方案——学校的WiFi或者有线网VPN拨号。">
+  
+    <link rel="alternate" href="/atom.xml" title="NCJ-Blog" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt; src:url("css/fonts/FuturaPTBold.otf") format("woff");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt-light; src:url("css/fonts/FuturaPTBook.otf") format("woff");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt-italic; src:url("css/fonts/FuturaPTBookOblique.otf") format("woff");font-weight:400;font-style:italic;}
+}
+
+  </style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css">
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css">
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css">
+  
+
+</head>
+</html>
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  
+                    <li> <a class="main-nav-link" href="/">Home</a> </li>
+                  
+                  
+                
+                  
+                    <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                  
+                  
+                
+                  
+                    <li> <a class="main-nav-link" href="https://ncj.wiki/Projects_Show">Projects</a> </li>
+                  
+                  
+                
+                  
+                    <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                  
+                  
+                
+                  
+                    <li> <a class="main-nav-link" href="/about">About</a> </li>
+                  
+                  
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-2019-07-10_Dorm_Server" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      校网环境下的私人服务器解决方案
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2019/07/10/2019-07-10_Dorm_Server/" class="article-date">
+	  <time datetime="2019-07-10T02:05:16.000Z" itemprop="datePublished">2019-07-10</time>
+	</a>
+
+      
+      
+      
+
+      </br></br>
+      WordCount: 
+      <span class="post-count">1.8k</span>
+      Min2Read: 
+      <span class="post-count">6</span>
+      <!-- <span class="post-count">26.5k</span> -->
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>CS狗一枚，几乎每天都需要携带电脑。最近感觉轻薄本性能不太够用，但是游戏本又太厚太重、散热续航也不太行，于是想到在寝室部署一台台式机，然后远程访问计算资源的方案。考虑到校网拓扑的复杂以及供电等原因，最近先进行了一些理论验证，并成功组建了一个个人网络以及一些个人网络服务。以下是过程的简单记录。</p>
+<hr>
+<h1 id="一、路由器的必要性与选购"><a href="#一、路由器的必要性与选购" class="headerlink" title="一、路由器的必要性与选购"></a>一、路由器的必要性与选购</h1><p>在ZJU，寝室要想访问外网，只有两个方案——学校的WiFi或者有线网VPN拨号。考虑到ZJUWLAN严重的丢包问题，以及时不时被踢下需要重新验证的问题，我毫不犹豫地选择了有线网。</p>
+<p>但是由于学校的另一条规定——每个VPN账号只能在一台电脑上登录，而我手上的需要联网的设备远不止两台，因此路由器的出现就很有必要了。</p>
+<p>使用路由器的另一个好处是如果VPN掉线会自动重新拨号，在之后的服务搭建中，虚拟服务器功能也起到了极大的作用。因此路由器是非常必要的。</p>
+<p>至于选购的话，其实只要支持L2TP即可，不过最近很多家用路由器都取消了这个功能，所以采购的时候还是留点心为好，至少不要以为所有路由器都支持这玩意。</p>
+<h1 id="二、网络拓扑的设计以及IP地址的获取"><a href="#二、网络拓扑的设计以及IP地址的获取" class="headerlink" title="二、网络拓扑的设计以及IP地址的获取"></a>二、网络拓扑的设计以及IP地址的获取</h1><h2 id="1-有线连接与无线连接的选择"><a href="#1-有线连接与无线连接的选择" class="headerlink" title="1. 有线连接与无线连接的选择"></a>1. 有线连接与无线连接的选择</h2><p>寝室需要一直联网的设备：</p>
+<ul>
+<li>Windows电脑一台</li>
+<li>树莓派3b+</li>
+</ul>
+<p>这两个设备均采用有线连接，特别是Windows电脑，因为RDP需要传输图像，并且出于鲁棒性考虑同时也连接了无线网，以免出现有线网卡莫名出故障导致无法访问的意外</p>
+<p>树莓派连有线是因为需要高带宽，毕竟作为下载机（校内P2P下载）</p>
+<p>当我回到寝室时，可能iPhone和小米都要联网，以及我的kindle和Ubuntu笔记本</p>
+<p>这些设备直接使用无线网连接好了，毕竟连接外网的带宽也就12Mbps，有线网带宽可谓是绰绰有余</p>
+<h2 id="2-不使用DMZ的原因"><a href="#2-不使用DMZ的原因" class="headerlink" title="2. 不使用DMZ的原因"></a>2. 不使用DMZ的原因</h2><ol>
+<li>不安全，直接把某一台电脑的所有端口直接暴露在外网中是一件极其危险的事情</li>
+<li>DMZ只能转发请求到一台设备，但是我的Windows和Pi都需要跑服务，各自有不同的端口需要转发，这是DMZ不支持的</li>
+</ol>
+<p>因此，我选择使用虚拟服务器进行配置</p>
+<h2 id="3-虚拟服务器实现端口转发"><a href="#3-虚拟服务器实现端口转发" class="headerlink" title="3. 虚拟服务器实现端口转发"></a>3. 虚拟服务器实现端口转发</h2><p>目前需要的服务：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>服务</th>
+<th>端口号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Windows上的RDP</td>
+<td>3389</td>
+</tr>
+<tr>
+<td>Windows上WSL中的Jupyter Lab</td>
+<td>8080</td>
+</tr>
+<tr>
+<td>Windows上WSL的SSH</td>
+<td>22</td>
+</tr>
+<tr>
+<td>Pi上的FTP</td>
+<td>21</td>
+</tr>
+<tr>
+<td>Pi上的BT下载监控</td>
+<td>9091</td>
+</tr>
+<tr>
+<td>Pi上的Web服务</td>
+<td>8080</td>
+</tr>
+<tr>
+<td>Pi上的SSH</td>
+<td>22</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>将相应端口进行分别转发即可</p>
+<p>对于Windows上Lab和Pi上Web等端口相同的问题，直接在外网设置不同的端口，再分别转发即可，甚至出于安全考虑，更加推荐避免内外端口一致，以防闲的没事的人（<del>暗指某室友</del>）突然访问你的各种服务……（当然他要是知道了我的IP还是可以一个端口一个端口逐个扫描……）</p>
+<p>好在他并不知道我的IP，甚至如果我在外面的话，自己都不太方便知道自己的IP……</p>
+<p>这就引出了下面的重磅话题——</p>
+<h2 id="4-查看IP地址的方法"><a href="#4-查看IP地址的方法" class="headerlink" title="4. 查看IP地址的方法"></a>4. 查看IP地址的方法</h2><p>不要问我为什么不申请固定IP……（<del>手慢无</del> 被申请完了……)</p>
+<p>另外申请的固定IP其实是比公网IP低一级的，而对于我这种直接通过VPN拨号访问外网的用户，即使申请到了固定IP也是没法用到L2TP拨号中的，因为我是直接连到学校总对外网关上的，跳过了宿舍网关这一层（这也导致直接通过宿舍有线网是无法ping通我的）</p>
+<p>同时，每次路由器掉线重拨后，IP地址都会变。这就令人十分窒息，因为有时候就算早上出门前瞅一眼路由器的IP，中午的时候它可能就又变了……</p>
+<p>于是就有了以下几种可能的方案：</p>
+<h3 id="1-在大致的网段范围内逐个扫描"><a href="#1-在大致的网段范围内逐个扫描" class="headerlink" title="1. 在大致的网段范围内逐个扫描"></a>1. 在大致的网段范围内逐个扫描</h3><p>效率多低、多慢就不用说吧……</p>
+<h3 id="2-定时推送最新IP"><a href="#2-定时推送最新IP" class="headerlink" title="2. 定时推送最新IP"></a>2. 定时推送最新IP</h3><p>推送的方式有无数种，如QQ、微信、邮件等，此处不赘述</p>
+<p>对于推送的时间，之前设想的是每天早上上电之后推送，但是现在发现IP居然可以一日多变……</p>
+<p>半小时一推的话，如果IP变化恰好处在了06:30:19之类的时间，那就干等半小时吧</p>
+<p>5min一推怕是跟骚扰信息一样……</p>
+<p>比较好的方案应该是5min获取一次IP，然后跟上次的比对，如果不同再推送</p>
+<p><strong>但是</strong></p>
+<p>如何获取IP呢？</p>
+<p>不要以为这个问题很简单，如果你试着ifconfig的话，会发现得到的是自己小网络里面的ip……</p>
+<p>如果用网上给出的方法，用爬虫爬一些IP查询网站，会发现给你的是公网IP，而不是学校网关分配给你的那个……</p>
+<p>哦豁！</p>
+<p>我目前的想法是，直接爬虫登录路由器管理页面，然后找出里面的IP信息……</p>
+<blockquote>
+<p>如果有更好的方案，请让我知道，谢谢</p>
+</blockquote>
+<h3 id="3-内网穿透"><a href="#3-内网穿透" class="headerlink" title="3. 内网穿透"></a>3. 内网穿透</h3><p>域名我是有的，构建的流程也基本上清楚，但是如果内网的IP总是在变的话，也没法穿透……</p>
+<h3 id="3-直接使用路由器厂商的外网管理服务"><a href="#3-直接使用路由器厂商的外网管理服务" class="headerlink" title="3. 直接使用路由器厂商的外网管理服务"></a>3. 直接使用路由器厂商的外网管理服务</h3><p>最简单粗暴，但是最有效</p>
+<p>于是我就选了这个最没有技术含量的方案……（<del>太菜了没办法</del>……）</p>
+<p>能找到寝室路由器（或者叫网关更贴切）后，就可以开始下面的各项工作了</p>
+<h1 id="三、远程桌面服务的配置"><a href="#三、远程桌面服务的配置" class="headerlink" title="三、远程桌面服务的配置"></a>三、远程桌面服务的配置</h1><p>Win10专业版可以直接开启RDP</p>
+<p>Win10家庭版可以通过GItHub上的开源工具(<a href="https://github.com/stascorp/rdpwrap" target="_blank" rel="noopener">https://github.com/stascorp/rdpwrap</a> )开启RDP，但是不太稳定（每次连接前需要使用工具手动开启一下）</p>
+<blockquote>
+<p>server机的缩放最好设为100%，不然client机连接之后可能会出现菜单显示很奇怪的问题</p>
+</blockquote>
+<h1 id="四、Jupyter-Lab的配置"><a href="#四、Jupyter-Lab的配置" class="headerlink" title="四、Jupyter Lab的配置"></a>四、Jupyter Lab的配置</h1><p>跑在Windows主机下的WSL中，因为Windows下开发环境实在是太难配置了</p>
+<p>当然，如果之后的使用中发现WSL有明显的性能损失的话，不排除还是会回归纯Linux</p>
+<h1 id="四、基于树莓派的下载机"><a href="#四、基于树莓派的下载机" class="headerlink" title="四、基于树莓派的下载机"></a>四、基于树莓派的下载机</h1><h2 id="1-Aria2"><a href="#1-Aria2" class="headerlink" title="1. Aria2"></a>1. Aria2</h2><p>主要用于普通链接的下载</p>
+<h2 id="2-Transmission-BT下载机"><a href="#2-Transmission-BT下载机" class="headerlink" title="2. Transmission BT下载机"></a>2. Transmission BT下载机</h2><p>主要用于HND上面的校内BT资源下载</p>
+<hr>
+<p>目前这套方案运作良好，如果之后有改进会在后续文章中介绍</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="/js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://gitee.com/iamncj/Picture_Bed/raw/master/Money_Tips/Wechat_QR.PNG',
+  alipayImage: 'https://gitee.com/iamncj/Picture_Bed/raw/master/Money_Tips/Wechat_QR.PNG'
+});
+</script>
+      
+      
+      <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>Post author:  </strong>NCJ</a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>Post link:  </strong>
+          <a href="/2019/07/10/2019-07-10_Dorm_Server/" target="_blank" title="校网环境下的私人服务器解决方案">https://ncj.wiki/2019/07/10/2019-07-10_Dorm_Server/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>Copyright Notice:   </strong>
+            All articles in this blog are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            unless stating additionally.
+          </li>
+         
+        </ul>
+<div>
+
+      
+      
+      
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Geek/">Geek</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Network/">Network</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Server/">Server</a></li></ul>
+
+      
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/04/08/2019-04-08_April-thoughts/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">四月随想</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、路由器的必要性与选购"><span class="nav-number">1.</span> <span class="nav-text">一、路由器的必要性与选购</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、网络拓扑的设计以及IP地址的获取"><span class="nav-number">2.</span> <span class="nav-text">二、网络拓扑的设计以及IP地址的获取</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-有线连接与无线连接的选择"><span class="nav-number">2.1.</span> <span class="nav-text">1. 有线连接与无线连接的选择</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-不使用DMZ的原因"><span class="nav-number">2.2.</span> <span class="nav-text">2. 不使用DMZ的原因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-虚拟服务器实现端口转发"><span class="nav-number">2.3.</span> <span class="nav-text">3. 虚拟服务器实现端口转发</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-查看IP地址的方法"><span class="nav-number">2.4.</span> <span class="nav-text">4. 查看IP地址的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-在大致的网段范围内逐个扫描"><span class="nav-number">2.4.1.</span> <span class="nav-text">1. 在大致的网段范围内逐个扫描</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-定时推送最新IP"><span class="nav-number">2.4.2.</span> <span class="nav-text">2. 定时推送最新IP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-内网穿透"><span class="nav-number">2.4.3.</span> <span class="nav-text">3. 内网穿透</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-直接使用路由器厂商的外网管理服务"><span class="nav-number">2.4.4.</span> <span class="nav-text">3. 直接使用路由器厂商的外网管理服务</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、远程桌面服务的配置"><span class="nav-number">3.</span> <span class="nav-text">三、远程桌面服务的配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、Jupyter-Lab的配置"><span class="nav-number">4.</span> <span class="nav-text">四、Jupyter Lab的配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、基于树莓派的下载机"><span class="nav-number">5.</span> <span class="nav-text">四、基于树莓派的下载机</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Aria2"><span class="nav-number">5.1.</span> <span class="nav-text">1. Aria2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Transmission-BT下载机"><span class="nav-number">5.2.</span> <span class="nav-text">2. Transmission BT下载机</span></a></li></ol></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2018 - 2019 NCJ-Blog All Rights Reserved.</p>
+	      
+	      
+  		   	<p id="copyRightCn">NCJ hold copyright</p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            NCJ-Blog
+          </div>
+          <div class="panel-body">
+            Copyright © 2019 NCJ All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

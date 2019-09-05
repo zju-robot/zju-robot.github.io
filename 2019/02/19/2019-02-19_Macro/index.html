@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>c语言的宏运算符 | NCJ-Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="CGrammar">
+  
+  
+  
+  
+  <meta name="description" content="这题还是MSC决赛的一题，原题题干已经交代得很清楚了（我懒……），直接搬过来好了  宏&amp;amp;宏函数简介宏是 C 语言中极为强大，也极具魅力的一个功能。宏为极其贴近机器语言的 C 提供了一定程度上的元编程能力。程序员们能够利用宏来减少代码中的重复，或是解决一些条件编译之类的问题。 宏、或者说 C 预处理器，实际上干的事情就是进行字符串拼接和处理，其中比较简单的就是普通的字符串替换： #defi">
+<meta name="keywords" content="C,Grammar">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C语言的宏运算符">
+<meta property="og:url" content="https://ncj.wiki/2019/02/19/2019-02-19_Macro/index.html">
+<meta property="og:site_name" content="NCJ-Blog">
+<meta property="og:description" content="这题还是MSC决赛的一题，原题题干已经交代得很清楚了（我懒……），直接搬过来好了  宏&amp;amp;宏函数简介宏是 C 语言中极为强大，也极具魅力的一个功能。宏为极其贴近机器语言的 C 提供了一定程度上的元编程能力。程序员们能够利用宏来减少代码中的重复，或是解决一些条件编译之类的问题。 宏、或者说 C 预处理器，实际上干的事情就是进行字符串拼接和处理，其中比较简单的就是普通的字符串替换： #defi">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-09-05T13:38:45.730Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C语言的宏运算符">
+<meta name="twitter:description" content="这题还是MSC决赛的一题，原题题干已经交代得很清楚了（我懒……），直接搬过来好了  宏&amp;amp;宏函数简介宏是 C 语言中极为强大，也极具魅力的一个功能。宏为极其贴近机器语言的 C 提供了一定程度上的元编程能力。程序员们能够利用宏来减少代码中的重复，或是解决一些条件编译之类的问题。 宏、或者说 C 预处理器，实际上干的事情就是进行字符串拼接和处理，其中比较简单的就是普通的字符串替换： #defi">
+  
+    <link rel="alternate" href="/atom.xml" title="NCJ-Blog" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt; src:url("css/fonts/FuturaPTBold.otf") format("woff");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt-light; src:url("css/fonts/FuturaPTBook.otf") format("woff");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt-italic; src:url("css/fonts/FuturaPTBookOblique.otf") format("woff");font-weight:400;font-style:italic;}
+}
+
+  </style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css">
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css">
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css">
+  
+
+</head>
+</html>
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  
+                    <li> <a class="main-nav-link" href="/">Home</a> </li>
+                  
+                  
+                
+                  
+                    <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                  
+                  
+                
+                  
+                    <li> <a class="main-nav-link" href="https://ncj.wiki/Projects_Show">Projects</a> </li>
+                  
+                  
+                
+                  
+                    <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                  
+                  
+                
+                  
+                    <li> <a class="main-nav-link" href="/about">About</a> </li>
+                  
+                  
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-2019-02-19_Macro" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      C语言的宏运算符
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2019/02/19/2019-02-19_Macro/" class="article-date">
+	  <time datetime="2019-02-19T15:06:08.000Z" itemprop="datePublished">2019-02-19</time>
+	</a>
+
+      
+      
+      
+
+      </br></br>
+      WordCount: 
+      <span class="post-count">2.2k</span>
+      Min2Read: 
+      <span class="post-count">9</span>
+      <!-- <span class="post-count">26.5k</span> -->
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>这题还是MSC决赛的一题，原题题干已经交代得很清楚了（<del>我懒……</del>），直接搬过来好了</p>
+</blockquote>
+<h1 id="宏-amp-宏函数简介"><a href="#宏-amp-宏函数简介" class="headerlink" title="宏&amp;宏函数简介"></a>宏&amp;宏函数简介</h1><p>宏是 C 语言中极为强大，也极具魅力的一个功能。宏为极其贴近机器语言的 C 提供了一定程度上的元编程能力。程序员们能够利用宏来减少代码中的重复，或是解决一些条件编译之类的问题。</p>
+<p>宏、或者说 C 预处理器，实际上干的事情就是进行字符串拼接和处理，其中比较简单的就是普通的字符串替换：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> abc efg</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> one 1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INT int</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DENGYU</span></span><br><span class="line">INT abc DENGYU one; <span class="comment">// -&gt; int efg = 1;</span></span><br></pre></td></tr></table></figure>
+<p>为了防止替换的过程无法结束，通过这种方式定义的宏在它的(和它的递归)展开内容中是不会再对其本身进行替换</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> abc abc efg</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> efg abc hij</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> hij efg abc</span></span><br><span class="line">	abc <span class="comment">// (所有东西都可以被展开)</span></span><br><span class="line">-&gt;  abc efg <span class="comment">// (abc 不会再被展开)</span></span><br><span class="line">-&gt;  abc abc hij <span class="comment">// (abc efg 不会再被展开)</span></span><br><span class="line">-&gt;  abc abc efg abc</span><br></pre></td></tr></table></figure>
+<p>另一种则是<strong>宏函数</strong>，规则稍微复杂一些。宏函数首先会对它的参数进行宏展开，如果参数中存在 <code>#</code> 或者 <code>##</code> (具体作用后面会提及)， 那么不再对这个参数进行递归展开，然后再按照宏的定义将参数进行拼接，得到这一次展开的结果；之后对结果进行下一次展开。这次展开和之前说的展开规则类似，不再会对生成的结果中相同的宏函数进行展开。</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> foo(a, b) a b</span></span><br><span class="line">foo(<span class="number">1</span>+, <span class="number">2</span>) <span class="comment">// -&gt; 1 + 2</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> foo2(a, b) foo(a) foo(b)</span></span><br><span class="line">foo2(<span class="number">1</span>+, <span class="number">2</span>) <span class="comment">// -&gt; foo(1+) foo(2) -&gt; 1+ 1+ 2 2</span></span><br></pre></td></tr></table></figure>
+<p>C 预处理器提供了一些方法来生成特殊的字符串，例如 <code>#</code> 和 <code>##</code>.</p>
+<p><code>##</code> 能将它两边的内容直接连接起来，去除中间的空格，可以用来拼接新的宏或者标识符等</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> CONCAT(X, Y) X ## Y</span></span><br><span class="line"><span class="keyword">int</span> a = CONCAT(x, <span class="number">1</span>); <span class="comment">// -&gt; int a = x1;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ADD_PREFIX_AND_SUFFIX(X) pre ## X ## suf</span></span><br><span class="line"><span class="keyword">int</span> b = ADD_PREFIX_AND_SUFFIX(X); <span class="comment">// int a = preXsuf;</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> IF(COND, PASS, FAIL) IF_ ## COND (PASS, FAIL)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> IF_0(PASS, FAIL) FAIL</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> IF_1(PASS, FAIL) PASS</span></span><br><span class="line"></span><br><span class="line">IF(<span class="number">0</span>, A, B) <span class="comment">// -&gt; B</span></span><br><span class="line">IF(<span class="number">1</span>, A, B) <span class="comment">// -&gt; A</span></span><br></pre></td></tr></table></figure>
+<p><code>#</code> 能作用于它右边的宏参数，把它转化为一个 C 语言字符串字面量。而 C 语言也提供了“自动拼接相邻两个字符串字面量”的语法糖，使得我们可以在 编译期完成拼接字符串字面量的操作</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> TO_C_STR(X) #X</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ADD_C_STR_SUFFIX(X, Y) X TO_C_STR(Y)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">char</span>* c_str = ADD_C_STR_SUFFIX(<span class="string">"abc"</span>, efg); <span class="comment">// -&gt; const char* c_str = "abc" "efg"; === const char* c_str = "abcefg";</span></span><br></pre></td></tr></table></figure>
+<p>宏也提供了可变参数的宏函数。简单的说，配合 <code>__VA_ARGS__</code> 它可以将传入的参数按原样替换到内容里。 相比与 C 语言的可变参数函数，宏函数不需要”至少有一个固定参数”。 在宏函数的替换内容中，可以使用 <code>__VA_ARGS__</code> 来代表它获得的可变参数. 可以使用 <code>, ##__VA_ARGS__</code>来实现对 0 个可变参数的适配。可变参数 <code>...</code> 只能在参数列表中出现一次。 下面是一些例子：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PRINT(...) printf(__VA_ARGS__)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PRINTF(FMT, ...) printf(FMT, ##__VA_ARGS__)</span></span><br><span class="line"></span><br><span class="line">PRINT(<span class="string">"123"</span>); <span class="comment">// -&gt; printf("123");</span></span><br><span class="line">PRINT(<span class="string">"%d"</span>, <span class="number">1</span>); <span class="comment">// -&gt; printf("%d", 1);</span></span><br><span class="line">PRINTF(<span class="string">"123"</span>); <span class="comment">// -&gt; printf("123");</span></span><br><span class="line">PRINTF(<span class="string">"%d"</span>, <span class="number">1</span>); <span class="comment">// -&gt; printf("%d", 1);</span></span><br></pre></td></tr></table></figure>
+<h1 id="宏函数有什么用？"><a href="#宏函数有什么用？" class="headerlink" title="宏函数有什么用？"></a>宏函数有什么用？</h1><blockquote>
+<p>偶读翁恺老师博客上的文章，看到<a href="http://wengkai.github.io/cmacro/cmacro.html" target="_blank" rel="noopener">这样一篇</a></p>
+</blockquote>
+<p>在讲到编译预处理指令的宏运算符<code>##</code>时，同学们都不太理解这东西有什么用。今天恰好在Arduino的Ethernet库的头文件里看到了活的例子。在Arduino的Ethernet库的<code>w5100.cpp</code>里有这样的函数调用：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">writeTMSR(<span class="number">0x55</span>);</span><br></pre></td></tr></table></figure>
+<p>但是遍寻整个<code>.cpp</code>和对应的<code>w5100.h</code>也找不到这个<code>writeTMSR()</code>函数，即使把所有的源代码目录拿来搜索一遍都没有。但是，编译显然是通过了的，那么，这个函数在哪里呢？</p>
+<p>在<code>w5100.h</code>，我们发现了这样的代码：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> __GP_REGISTER8(name, address)             \</span></span><br><span class="line">  <span class="keyword">static</span> <span class="keyword">inline</span> <span class="keyword">void</span> write#<span class="meta">#name(uint8_t _data) &#123; \</span></span><br><span class="line">    write(address, _data);                        \</span><br><span class="line">  &#125;                                               \</span><br><span class="line">  <span class="keyword">static</span> <span class="keyword">inline</span> <span class="keyword">uint8_t</span> read#<span class="meta">#name() &#123;            \</span></span><br><span class="line">    <span class="keyword">return</span> read(address);                         \</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>这个宏定义是说，如果你提供一个name和一个address，那么宏<code>__GP_REGISTER8</code>就会被展开为两个函数，一个的名字是write后面跟上name，另一个是read后面跟上name。</p>
+<p>于是，在<code>w5100.h</code>里接下去的代码：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">__GP_REGISTER8 (TMSR,   <span class="number">0x001B</span>);    <span class="comment">// Transmit memory size</span></span><br></pre></td></tr></table></figure>
+<p>在编译预处理后，就会被展开成为：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">writeTMSR</span><span class="params">(<span class="keyword">uint8_t</span> _data)</span> </span>&#123; </span><br><span class="line">  write(<span class="number">0x001B</span>, _data);                        </span><br><span class="line">&#125;                                               </span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">inline</span> uint8_t <span class="title">readTMSR</span><span class="params">()</span> </span>&#123;            </span><br><span class="line">  <span class="keyword">return</span> read(<span class="number">0x001B</span>);                         </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>看，这就是活生生的宏运算符的例子。</p>
+<h1 id="宏函数的技巧性使用"><a href="#宏函数的技巧性使用" class="headerlink" title="宏函数的技巧性使用"></a>宏函数的技巧性使用</h1><h2 id="题目-MAX"><a href="#题目-MAX" class="headerlink" title="题目-MAX()"></a>题目-<code>MAX()</code></h2><blockquote>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>实现一个可以接受可变参数的宏函数 <code>MAX</code>, 它返回其中的最大值。</p>
+<p>保证传入的参数为合法的 C 表达式，且类型为 <code>int</code>，个数在 1 ~ 5 之间，中间用逗号分隔</p>
+<p>保证传入的表达式无副作用</p>
+<h2 id="函数接口定义"><a href="#函数接口定义" class="headerlink" title="函数接口定义"></a>函数接口定义</h2><p>虽然并不是函数</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">&gt; <span class="meta">#<span class="meta-keyword">define</span> MAX(...)</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<h2 id="裁判测试程序样例"><a href="#裁判测试程序样例" class="headerlink" title="裁判测试程序样例"></a>裁判测试程序样例</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">&gt; <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line">&gt; </span><br><span class="line">&gt; <span class="comment">// your code here</span></span><br><span class="line">&gt; </span><br><span class="line">&gt; <span class="keyword">int</span> data[<span class="number">10</span>];</span><br><span class="line">&gt; </span><br><span class="line">&gt; <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">&gt;   <span class="keyword">int</span> n;</span><br><span class="line">&gt;   <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">&gt;   <span class="keyword">int</span> x, y, z, w, u;</span><br><span class="line">&gt;   <span class="keyword">switch</span>(n) &#123;</span><br><span class="line">&gt;     <span class="keyword">case</span> <span class="number">1</span>: <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;x); <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, MAX(x)); <span class="keyword">break</span>;</span><br><span class="line">&gt;     <span class="keyword">case</span> <span class="number">2</span>: <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>, &amp;x, &amp;y); <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, MAX(x, y)); <span class="keyword">break</span>;</span><br><span class="line">&gt;     <span class="keyword">case</span> <span class="number">3</span>: <span class="built_in">scanf</span>(<span class="string">"%d %d %d"</span>, &amp;x, &amp;y, &amp;z); <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, MAX(x, y, z)); <span class="keyword">break</span>;</span><br><span class="line">&gt;     <span class="keyword">case</span> <span class="number">4</span>: <span class="built_in">scanf</span>(<span class="string">"%d %d %d %d"</span>, &amp;x, &amp;y, &amp;z, &amp;w); <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, MAX(x, y, z, w)); <span class="keyword">break</span>;</span><br><span class="line">&gt;     <span class="keyword">case</span> <span class="number">5</span>: <span class="built_in">scanf</span>(<span class="string">"%d %d %d %d %d"</span>, &amp;x, &amp;y, &amp;z, &amp;w, &amp;u); <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, MAX(x, y, z, w, u)); <span class="keyword">break</span>;</span><br><span class="line">&gt;     <span class="keyword">default</span>: <span class="keyword">break</span>;</span><br><span class="line">&gt;   &#125;</span><br><span class="line">&gt;   <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>样例仅供参考</p>
+<h2 id="样例1"><a href="#样例1" class="headerlink" title="样例1"></a>样例1</h2><h3 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; 4 1 3 2 1</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<h3 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; 3</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<h2 id="样例2"><a href="#样例2" class="headerlink" title="样例2"></a>样例2</h2><h3 id="输入-1"><a href="#输入-1" class="headerlink" title="输入"></a>输入</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; 1 0</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<h3 id="输出-1"><a href="#输出-1" class="headerlink" title="输出"></a>输出</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; 0</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<h2 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h2><ul>
+<li>具体的规则最好自己实验一下， 使用 <code>gcc -E test.c</code> 可以打印出 <code>test.c</code> 经过预处理后的代码</li>
+<li>宏函数的参数使用时在不影响语义的情况下尽量在两边加上 <code>()</code> ，一个常见的错误例子就是：</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">&gt; <span class="meta">#<span class="meta-keyword">define</span> MUL(A, B) A * B</span></span><br><span class="line">&gt; MUL(<span class="number">1</span> + <span class="number">2</span>, <span class="number">3</span> + <span class="number">4</span>) <span class="comment">// -&gt; 1 + 2 * 3 + 4 </span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<ul>
+<li>在预处理器进行处理的过程中, 可以产生一些临时参数，但它们很快就在下一次替换过程消失，而不会导致生成非法的表达式。</li>
+<li>你可能需要一个形式类似于 <code>#define FOO(_USELESS_PARAMETER, ...) BLAHBLAH</code> 的宏</li>
+</ul>
+</blockquote>
+<h2 id="思路-amp-题解"><a href="#思路-amp-题解" class="headerlink" title="思路&amp;题解"></a>思路&amp;题解</h2><p>我曾经想过将宏函数里的参数全部传到另一个变参函数中（上一篇文章讲的就是变参函数），但是<code>MAX()</code>的实现需要知道参数的个数，而这一点又是变参函数无法实现的（原因见上一篇文章），因此此思路失败。</p>
+<p>但是请注意，<strong><code>MAX()</code>的实现需要知道参数的个数</strong>，这句话其实提醒了我们，<strong>此题的突破口其实就是如何让程序知道参数的个数</strong>。</p>
+<p>看到这里你要是还没有思路的话，其实太正常了——因为这题技巧性很强，解法也很漂亮。</p>
+<p>直接放代码好了，看了代码一定会有豁然开朗的感觉。</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX1(A) (A)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX2(A,B) (A)&gt;(B)?(A):(B)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX3(A,B,C) MAX2(MAX2(A,B),(C))</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX4(A,B,C,D) MAX2(MAX3(A,B,C),(D))</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX5(A,B,C,D,E) MAX2(MAX4(A,B,C,D),(E))</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> GETMAX(A,B,C,D,E,MAXNAME,...) MAXNAME</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX(...) GETMAX(__VA_ARGS__,MAX5,MAX4,MAX3,MAX2,MAX1)(__VA_ARGS__)</span></span><br></pre></td></tr></table></figure>
+<p>这里其实就是利用参数个数的不同，<strong>使固定位置上获取的参数不同</strong>，从而实现基于参数个数的宏函数重载</p>
+<p><del>这解法太骚了</del>不过其局限性在于依然只能处理一定数量以内的参数，这也是此题给出个数在1~5之间的限制的原因。</p>
+<h1 id="启示"><a href="#启示" class="headerlink" title="启示"></a>启示</h1><ol>
+<li><p>存在即合理</p>
+<p>C语言中有大量对于底层的奇怪操作，尽管看起来奇怪，但是其在特定场合依然有很大作用</p>
+</li>
+<li><p>多看源码可以学到很多</p>
+<p><code>##</code>宏运算符的例子就是在Arduino的源码中发现的，由此可见阅读高质量源码的意义之大</p>
+</li>
+<li><p>阅读大牛的博客可以收获很多</p>
+<p><code>##</code>宏运算符的例子就是在<a href="http://wengkai.github.io/" target="_blank" rel="noopener">翁恺老师的博客</a>中发现的……</p>
+</li>
+</ol>
+<p>MSC的语法题差不多说完了，本来计划把其他算法题也谈谈的，但是我最终放弃了，原因有二：</p>
+<ol>
+<li>寒假太忙了……</li>
+<li>在接触了许多其他题目后，我意识到决赛时碰到的题目，只是万千算法题中微不足道的几题。算法是一个极其庞大的课题，需要慢慢修炼，因此计划转为系统地整理一套算法笔记。</li>
+</ol>
+<p>之后我遇到有意思的题目时，依然会分享在博客上的，敬请关注。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="/js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://gitee.com/iamncj/Picture_Bed/raw/master/Money_Tips/Wechat_QR.PNG',
+  alipayImage: 'https://gitee.com/iamncj/Picture_Bed/raw/master/Money_Tips/Wechat_QR.PNG'
+});
+</script>
+      
+      
+      <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>Post author:  </strong>NCJ</a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>Post link:  </strong>
+          <a href="/2019/02/19/2019-02-19_Macro/" target="_blank" title="C语言的宏运算符">https://ncj.wiki/2019/02/19/2019-02-19_Macro/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>Copyright Notice:   </strong>
+            All articles in this blog are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            unless stating additionally.
+          </li>
+         
+        </ul>
+<div>
+
+      
+      
+      
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Grammar/">Grammar</a></li></ul>
+
+      
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/02/19/2019-02-20_a_flag_about_Discrete_Mathematics/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          【预告&amp;Flag】离散数学详解
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/01/20/2019-01-20_variadic-function/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Variadic Function in C</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#宏-amp-宏函数简介"><span class="nav-number">1.</span> <span class="nav-text">宏&amp;宏函数简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#宏函数有什么用？"><span class="nav-number">2.</span> <span class="nav-text">宏函数有什么用？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#宏函数的技巧性使用"><span class="nav-number">3.</span> <span class="nav-text">宏函数的技巧性使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目-MAX"><span class="nav-number">3.1.</span> <span class="nav-text">题目-MAX()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述"><span class="nav-number">3.2.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数接口定义"><span class="nav-number">3.3.</span> <span class="nav-text">函数接口定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#裁判测试程序样例"><span class="nav-number">3.4.</span> <span class="nav-text">裁判测试程序样例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#样例1"><span class="nav-number">3.5.</span> <span class="nav-text">样例1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#输入"><span class="nav-number">3.5.1.</span> <span class="nav-text">输入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输出"><span class="nav-number">3.5.2.</span> <span class="nav-text">输出</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#样例2"><span class="nav-number">3.6.</span> <span class="nav-text">样例2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#输入-1"><span class="nav-number">3.6.1.</span> <span class="nav-text">输入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输出-1"><span class="nav-number">3.6.2.</span> <span class="nav-text">输出</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#提示"><span class="nav-number">3.7.</span> <span class="nav-text">提示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思路-amp-题解"><span class="nav-number">3.8.</span> <span class="nav-text">思路&amp;题解</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#启示"><span class="nav-number">4.</span> <span class="nav-text">启示</span></a></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2018 - 2019 NCJ-Blog All Rights Reserved.</p>
+	      
+	      
+  		   	<p id="copyRightCn">NCJ hold copyright</p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            NCJ-Blog
+          </div>
+          <div class="panel-body">
+            Copyright © 2019 NCJ All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

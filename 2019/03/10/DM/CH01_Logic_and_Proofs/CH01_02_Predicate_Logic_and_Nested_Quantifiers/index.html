@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>【dm】ch01-02 predicate logic and nested quantifiers | NCJ-Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="Discrete Math">
+  
+  
+  
+  
+  <meta name="description" content="Chapter 01 Logic and Proofs 逻辑与证明 Part 02 Predicate Logic and Nested Quantifiers Covering1.4 ~ 1.5  Predicate Logic 谓词逻辑Predicate and Quantifiers 谓词和量词的概念Predicate 谓词A predicate (propositional functio">
+<meta name="keywords" content="Discrete Math">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【DM】CH01-02 Predicate Logic and Nested Quantifiers">
+<meta property="og:url" content="https://ncj.wiki/2019/03/10/DM/CH01_Logic_and_Proofs/CH01_02_Predicate_Logic_and_Nested_Quantifiers/index.html">
+<meta property="og:site_name" content="NCJ-Blog">
+<meta property="og:description" content="Chapter 01 Logic and Proofs 逻辑与证明 Part 02 Predicate Logic and Nested Quantifiers Covering1.4 ~ 1.5  Predicate Logic 谓词逻辑Predicate and Quantifiers 谓词和量词的概念Predicate 谓词A predicate (propositional functio">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/DM_illustrations/img/CH01/007.png">
+<meta property="og:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/DM_illustrations/img/CH01/008.png">
+<meta property="og:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/DM_illustrations/img/CH01/009.png">
+<meta property="og:updated_time" content="2019-09-05T13:38:45.734Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【DM】CH01-02 Predicate Logic and Nested Quantifiers">
+<meta name="twitter:description" content="Chapter 01 Logic and Proofs 逻辑与证明 Part 02 Predicate Logic and Nested Quantifiers Covering1.4 ~ 1.5  Predicate Logic 谓词逻辑Predicate and Quantifiers 谓词和量词的概念Predicate 谓词A predicate (propositional functio">
+<meta name="twitter:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/DM_illustrations/img/CH01/007.png">
+  
+    <link rel="alternate" href="/atom.xml" title="NCJ-Blog" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt; src:url("css/fonts/FuturaPTBold.otf") format("woff");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt-light; src:url("css/fonts/FuturaPTBook.otf") format("woff");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt-italic; src:url("css/fonts/FuturaPTBookOblique.otf") format("woff");font-weight:400;font-style:italic;}
+}
+
+  </style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css">
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css">
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css">
+  
+
+</head>
+</html>
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  
+                    <li> <a class="main-nav-link" href="/">Home</a> </li>
+                  
+                  
+                
+                  
+                    <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                  
+                  
+                
+                  
+                    <li> <a class="main-nav-link" href="https://ncj.wiki/Projects_Show">Projects</a> </li>
+                  
+                  
+                
+                  
+                    <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                  
+                  
+                
+                  
+                    <li> <a class="main-nav-link" href="/about">About</a> </li>
+                  
+                  
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-DM/CH01_Logic_and_Proofs/CH01_02_Predicate_Logic_and_Nested_Quantifiers" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      【DM】CH01-02 Predicate Logic and Nested Quantifiers
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2019/03/10/DM/CH01_Logic_and_Proofs/CH01_02_Predicate_Logic_and_Nested_Quantifiers/" class="article-date">
+	  <time datetime="2019-03-10T12:00:29.000Z" itemprop="datePublished">2019-03-10</time>
+	</a>
+
+      
+      
+      
+
+      </br></br>
+      WordCount: 
+      <span class="post-count">1.7k</span>
+      Min2Read: 
+      <span class="post-count">10</span>
+      <!-- <span class="post-count">26.5k</span> -->
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Chapter 01 Logic and Proofs 逻辑与证明</p>
+<p>Part 02 Predicate Logic and Nested Quantifiers</p>
+<p>Covering1.4 ~ 1.5</p>
+<hr>
+<h1 id="Predicate-Logic-谓词逻辑"><a href="#Predicate-Logic-谓词逻辑" class="headerlink" title="Predicate Logic 谓词逻辑"></a>Predicate Logic 谓词逻辑</h1><h2 id="Predicate-and-Quantifiers-谓词和量词的概念"><a href="#Predicate-and-Quantifiers-谓词和量词的概念" class="headerlink" title="Predicate and Quantifiers 谓词和量词的概念"></a>Predicate and Quantifiers 谓词和量词的概念</h2><h3 id="Predicate-谓词"><a href="#Predicate-谓词" class="headerlink" title="Predicate 谓词"></a>Predicate 谓词</h3><p>A predicate (<strong>propositional function 命题函数</strong>) is a statement that contains variables. </p>
+<p>Once the values of the variables are specified, the function has a truth value.</p>
+<p>$P(x_1,x_2,…,x_n)$ n-place (n-ary) predicate <strong>n位谓词（n元谓词）</strong></p>
+<h3 id="Quantifiers-量词"><a href="#Quantifiers-量词" class="headerlink" title="Quantifiers 量词"></a>Quantifiers 量词</h3><p>We need quantifiersto express the meaning of English words including all and some.</p>
+<h4 id="Universal-Quantifier-全称量词"><a href="#Universal-Quantifier-全称量词" class="headerlink" title="Universal Quantifier 全称量词"></a>Universal Quantifier 全称量词</h4><p>“For all”</p>
+<p>∀</p>
+<p>∀x P(x) is read as “For all x, P(x)” or “For every x, P(x)”</p>
+<blockquote>
+<p>The universal quantification of P(x) create a proposition from a propositional function.</p>
+</blockquote>
+<h4 id="Existential-Quantifier-存在量词"><a href="#Existential-Quantifier-存在量词" class="headerlink" title="Existential Quantifier 存在量词"></a>Existential Quantifier 存在量词</h4><p>“There exists”</p>
+<p>∃</p>
+<p>∃x P(x) is read as “For some x, P(x)”, or as “There is an xsuch that P(x)”, or “For at least one x, P(x).”</p>
+<h4 id="Properties-of-Quantifiers-量词性质"><a href="#Properties-of-Quantifiers-量词性质" class="headerlink" title="Properties of Quantifiers 量词性质"></a>Properties of Quantifiers 量词性质</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><strong>Statement</strong></th>
+<th style="text-align:center"><strong>When true?</strong></th>
+<th style="text-align:center"><strong>When false?</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$∀x P(x)$</td>
+<td style="text-align:center">P(x) is true for every x.</td>
+<td style="text-align:center">There is an x for which P(x) is false.</td>
+</tr>
+<tr>
+<td style="text-align:center">$∃x P(x)$</td>
+<td style="text-align:center">There is an x for which P(x) is true.</td>
+<td style="text-align:center">P(x) is false for every x.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="Thinking-about-Quantifiers-深入理解量词"><a href="#Thinking-about-Quantifiers-深入理解量词" class="headerlink" title="Thinking about Quantifiers 深入理解量词"></a>Thinking about Quantifiers 深入理解量词</h4><h5 id="Loop-循环"><a href="#Loop-循环" class="headerlink" title="Loop 循环"></a>Loop 循环</h5><p>When <strong>the domain of discourse is finite</strong>, we can think of quantification as <strong>looping through the elements of the domain</strong>.</p>
+<ol>
+<li>To evaluate ∀x P(x) loop through all x in the domain</li>
+</ol>
+<ul>
+<li>If at every step P(x) is true, then ∀x P(x) is true</li>
+<li>If at a step P(x) is false, then ∀x P(x) is false and the loop terminates</li>
+</ul>
+<ol>
+<li>To evaluate ∃x P(x) loop through all xin the domain</li>
+</ol>
+<ul>
+<li>If at some step, P(x) is true, then ∃x P(x) is true and the loop terminates</li>
+<li>If the loop ends without finding an xfor which P(x) is true, then ∃x P(x) is false</li>
+</ul>
+<blockquote>
+<p>Even if the domains are infinite, we can still think of the quantifiers this fashion, but the loops will not terminate in some cases.</p>
+</blockquote>
+<h5 id="Conjunctions-and-Disjunctions-合取、析取"><a href="#Conjunctions-and-Disjunctions-合取、析取" class="headerlink" title="Conjunctions and Disjunctions 合取、析取"></a>Conjunctions and Disjunctions 合取、析取</h5><p>If the <strong>domain is finite</strong>, a universally quantified proposition is equivalent to <strong>a conjunction of propositions</strong> without quantifiers and an existentially quantified proposition is equivalent to <strong>a disjunction of propositions</strong> without quantifiers.</p>
+<p>If U consists of the integers 1,2, and 3</p>
+<p>$∀x P(x) ≡ P(1) ∧ P(2) ∧ P(3)​$</p>
+<p>$∃x P(x) ≡ P(1) ∨ P(2) ∨ P(3)​$</p>
+<blockquote>
+<p>Even if the domains are infinite, you can still think of the quantifiers in this fashion, but the equivalent expressions without quantifiers will be infinitely long.</p>
+</blockquote>
+<h4 id="Other-Quantifiers-其他量词"><a href="#Other-Quantifiers-其他量词" class="headerlink" title="Other Quantifiers 其他量词"></a>Other Quantifiers 其他量词</h4><p> Uniqueness quantifier 唯一性量词</p>
+<p>$∃!$ or $∃_1​$</p>
+<p>∃!x P(x) means that P(x) is true for <strong>one and only one x</strong> in the universe of discourse.</p>
+<h4 id="Precedence-of-Quantifiers-量词优先级"><a href="#Precedence-of-Quantifiers-量词优先级" class="headerlink" title="Precedence of Quantifiers 量词优先级"></a>Precedence of Quantifiers 量词优先级</h4><p>The quantifiers ∀and ∃have <strong>higher</strong> precedence than <strong>all the logical operators</strong>.</p>
+<h4 id="Binding-Variables-量词绑定"><a href="#Binding-Variables-量词绑定" class="headerlink" title="Binding Variables 量词绑定"></a>Binding Variables 量词绑定</h4><h5 id="Bound-Variable-约束的量词"><a href="#Bound-Variable-约束的量词" class="headerlink" title="Bound Variable 约束的量词"></a>Bound Variable 约束的量词</h5><p>a variable is bound if it is known or quantified.</p>
+<h5 id="Free-Variable-自由的量词"><a href="#Free-Variable-自由的量词" class="headerlink" title="Free Variable 自由的量词"></a>Free Variable 自由的量词</h5><p>a variable neither quantified nor specified with a value</p>
+<blockquote>
+<p>All the variables that occur in a propositional function must be bound or set equal to a particular value to turn it into a proposition.</p>
+<p>In the statement ∃x(x + y = 1), the variable x is bound by the existential quantification ∃x, but the variable y is free because it is not bound by a quantifier and no value is assigned to this variable. This illustrates that in the statement ∃x(x + y = 1), x is bound, but y is free.</p>
+<p>However, this statement is not a proposition since y is undefined and we can’t tell whether it is true or false.</p>
+</blockquote>
+<h2 id="Logical-Equivalences-Involving-Quantifiers-涉及量词的逻辑等价式"><a href="#Logical-Equivalences-Involving-Quantifiers-涉及量词的逻辑等价式" class="headerlink" title="Logical Equivalences Involving Quantifiers 涉及量词的逻辑等价式"></a>Logical Equivalences Involving Quantifiers 涉及量词的逻辑等价式</h2><p>Statements involving predicates and quantifiers are <strong>logically equivalent</strong> <strong><em>iff</em></strong> they have the same truth</p>
+<p>x is not occuring in P</p>
+<ul>
+<li>量词辖域的扩张</li>
+</ul>
+<p>$∀xP(x)∨A ≡ ∀x(P(x)∨A)​$</p>
+<p>$∀xP(x)∧A ≡ ∀x(P(x)∧A)​$</p>
+<p>$∃xP(x)∨A ≡ ∃x(P(x)∨A)​$</p>
+<p>$∃xP(x)∧A ≡ ∃x(P(x)∧A)​$</p>
+<ul>
+<li>量词辖域的收缩</li>
+</ul>
+<p>$∀x(A→P(x)) ≡ A→∀xP(x)​$</p>
+<p>$∃x(A→P(x)) ≡ A→∃xP(x)​$</p>
+<p>（下面的两个式子很重要）</p>
+<p>$∀x(P(x)→A) ≡ ∃xP(x)→A​$</p>
+<p>$∃x(P(x)→A) ≡ ∀xP(x)→A$</p>
+<h2 id="Negating-Quantified-Expressions-量化表达式的否定"><a href="#Negating-Quantified-Expressions-量化表达式的否定" class="headerlink" title="Negating Quantified Expressions 量化表达式的否定"></a>Negating Quantified Expressions 量化表达式的否定</h2><h3 id="De-Morgan’s-Laws-for-Quantifiers-量词的德·摩根律"><a href="#De-Morgan’s-Laws-for-Quantifiers-量词的德·摩根律" class="headerlink" title="De Morgan’s Laws for Quantifiers 量词的德·摩根律"></a>De Morgan’s Laws for Quantifiers 量词的德·摩根律</h3><p>$¬∀x P(x) ≡ ∃x ¬P(x)​$</p>
+<p>$¬∃x P(x) ≡ ∀x ¬P(x)​$</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><strong>Negation</strong></th>
+<th style="text-align:center"><strong>Equivalent Statement</strong></th>
+<th style="text-align:center"><strong>When is Negation True?</strong></th>
+<th style="text-align:center"><strong>When False?</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$¬∃x P(x)$</td>
+<td style="text-align:center">$∀x ¬P(x)$</td>
+<td style="text-align:center">P(x) is false for every x</td>
+<td style="text-align:center">There is an x for which P(x) is true</td>
+</tr>
+<tr>
+<td style="text-align:center">$¬∀x P(x)$</td>
+<td style="text-align:center">$∃x ¬P(x)$</td>
+<td style="text-align:center">There is an x for which P(x) is false</td>
+<td style="text-align:center">P(x) is true for every x</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/DM_illustrations/img/CH01/007.png" alt></p>
+<h2 id="Translating-from-English-into-Logical-Expressions"><a href="#Translating-from-English-into-Logical-Expressions" class="headerlink" title="Translating from English into Logical Expressions"></a>Translating from English into Logical Expressions</h2><p>The very first step is to decide on the domain U.</p>
+<blockquote>
+<p>Translate the following sentence into predicate logic<br>“Every student in this class has taken a course in Java.”</p>
+<p>First decide on the domain U.</p>
+<p>Solution 1<br>If U is all students in this class, define a propositional function J(x) denoting “x has taken a course in Java” and translate as ∀x J(x).</p>
+<p>Solution 2<br>But if U is all people, also define a propositional function S(x) denoting “x is a student in this class” and translate as ∀x (S(x)→ J(x)).</p>
+</blockquote>
+<h3 id="A-Very-Important-Notice"><a href="#A-Very-Important-Notice" class="headerlink" title="A Very Important Notice!!!"></a>A Very Important Notice!!!</h3><ol>
+<li><p>Every student in this class has taken a course in Java</p>
+<p>if U is all people, also define a propositional function S(x) denoting “x is a student in this class”</p>
+<p>$∀x (S(x) ∧J(x))​$ is <strong>not</strong> correct!!!</p>
+<p>if there is <strong>one</strong> x that does not belong to this class, then <strong>the whole statement is false</strong>!</p>
+</li>
+<li><p>Some student in this class has taken a course in Java</p>
+<p>if U is all people</p>
+<p>$∃x (S(x)→ J(x))$ is <strong>not</strong> correct!!!</p>
+<p>if there is <strong>one</strong> x that does not brlong to this class, the <strong>the whole statement is true</strong>!</p>
+</li>
+</ol>
+<h2 id="Premises-and-Conclusion-前提和结论"><a href="#Premises-and-Conclusion-前提和结论" class="headerlink" title="Premises and Conclusion 前提和结论"></a>Premises and Conclusion 前提和结论</h2><p>Lewis Carroll Example</p>
+<p>An argument</p>
+<ol>
+<li>“All lions are fierce.”</li>
+<li>“Some lions do not drink coffee.”</li>
+<li>“Some fierce creatures do not drink coffee.”</li>
+</ol>
+<p>The first two are called <strong>premises</strong>（<strong>前提</strong>） and the third is called the <strong>conclusion</strong>（<strong>结论</strong>）.The entire set is called an <strong>argument</strong>（论证）.</p>
+<p>One way to translate these statements to predicate logic</p>
+<p>Let p(x), q(x), and r(x) be the propositional functions “xis a lion,” “xis fierce,” and “xdrinks coffee,” respectively. Domain of x: All creatures.</p>
+<ol>
+<li>∀x (p(x)→ q(x))</li>
+<li>∃x (p(x) ∧¬r(x))</li>
+<li>∃x (q(x) ∧¬r(x))</li>
+</ol>
+<p>Later we will see how to prove that the conclusion follows from the premises.</p>
+<h1 id="Nested-Quantifiers-嵌套量词"><a href="#Nested-Quantifiers-嵌套量词" class="headerlink" title="Nested Quantifiers 嵌套量词"></a>Nested Quantifiers 嵌套量词</h1><h2 id="Definition-定义"><a href="#Definition-定义" class="headerlink" title="Definition 定义"></a>Definition 定义</h2><p>Two quantifiers are nested if one is within the scope of the other.</p>
+<p>e.g. $∀x∃yC(x,y)​$</p>
+<h2 id="Translating-from-Nested-Quantifiers-into-English"><a href="#Translating-from-Nested-Quantifiers-into-English" class="headerlink" title="Translating from Nested Quantifiers into English"></a>Translating from Nested Quantifiers into English</h2><blockquote>
+<p>Translate the statement $∀x(C(x)∨∃y(C(y)∧F(x,y)))$ into English, where C(x) is “x has a computer,” F(x,y) is “x and y are friends,” and the domain for both x and y consists of all students at ZJU. </p>
+<p><em>Solution</em></p>
+<ol>
+<li><p>Use <strong>variables</strong> in the translatint result (Easy and clear)</p>
+<p>For every student <strong><em>x</em></strong> at ZJU, <strong><em>x</em></strong> has a computer or there is a student <strong><em>y</em></strong> such that <strong><em>y</em></strong> has a computer and <strong><em>x</em></strong> and <strong><em>y</em></strong> are friends.</p>
+</li>
+<li><p>Understand the <strong>meaning</strong> and <strong>report</strong> it in English</p>
+<p>Every student at ZJU has a computer or has a friend who has a computer.</p>
+</li>
+</ol>
+</blockquote>
+<h2 id="Translating-English-into-Logical-Expressions-Involving-Nested-Quantifiers"><a href="#Translating-English-into-Logical-Expressions-Involving-Nested-Quantifiers" class="headerlink" title="Translating English into Logical Expressions Involving Nested Quantifiers"></a>Translating English into Logical Expressions Involving Nested Quantifiers</h2><blockquote>
+<p>Express the statement “Everyone has exactly one best friend” as a logical expression with a domain consisting of all people</p>
+<p><em>Solution</em></p>
+<p>Rewrite the original statement as <strong>For every person <em>x</em> , <em>x</em> has exactly one best friend.</strong></p>
+<p>There is a person <strong><em>y</em></strong> who is the best friend of <strong><em>x</em></strong>, and furthermore, that for every person <strong><em>z</em></strong>, if <strong><em>z</em></strong> is not <strong><em>y</em></strong>, then <strong><em>z</em></strong> is not the best friend of <strong><em>x</em></strong>.</p>
+<p>Let <em>B</em>(<em>x, y</em>) be the statement <em>y</em> is the best friend of <em>x</em>.</p>
+<p>$∀x∃y∀z(B(x,y)∧((z≠y)→¬B(x,z)))​$</p>
+</blockquote>
+<h2 id="The-Order-of-Quantifiers-量词顺序"><a href="#The-Order-of-Quantifiers-量词顺序" class="headerlink" title="The Order of Quantifiers 量词顺序"></a>The Order of Quantifiers 量词顺序</h2><p>The order of nested quantifiers <strong>matters</strong> if quantifiers are of <strong>different types</strong></p>
+<p>e.g.</p>
+<p>$∀x∀yP(x,y) ≡ ∀y∀xP(x,y)$</p>
+<p>However</p>
+<p>$∃x∀yP(x,y)​$ is not the same as $∀y∃xP(x,y)​$</p>
+<blockquote>
+<p><strong>Explanation</strong></p>
+<p>Assume P(<em>x</em>,<em>y</em>) denote “<em>x</em> loves <em>y</em>“, where the domain for variables <em>x</em> and <em>y</em> consists of all people</p>
+<p>$∃x∀yP(x,y)$ —&gt; There is someone who loves everyone.</p>
+<p>$∀y∃xP(x,y)$ —&gt; Everybodyi s loved by somebody.</p>
+</blockquote>
+<h2 id="Negating-Nested-Quantifiers-嵌套量词的否定"><a href="#Negating-Nested-Quantifiers-嵌套量词的否定" class="headerlink" title="Negating Nested Quantifiers 嵌套量词的否定"></a>Negating Nested Quantifiers 嵌套量词的否定</h2><p>Negating nested quantifiers by successively applying the rules for negating statements involving a single quantifier</p>
+<p>e.g.</p>
+<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/DM_illustrations/img/CH01/008.png" alt></p>
+<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/DM_illustrations/img/CH01/009.png" alt></p>
+<h2 id="Quantifications-of-Two-Variables-两个变量的量化式"><a href="#Quantifications-of-Two-Variables-两个变量的量化式" class="headerlink" title="Quantifications of Two Variables 两个变量的量化式"></a>Quantifications of Two Variables 两个变量的量化式</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Statement</th>
+<th style="text-align:center">When True?</th>
+<th style="text-align:center">When False?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$∀x∀yP(x, y)\∀y∀xP(x, y)$</td>
+<td style="text-align:center">P(x, y) is true for every pair x, y.</td>
+<td style="text-align:center">There is a pair x, y for which P(x, y) is false.</td>
+</tr>
+<tr>
+<td style="text-align:center">$∀x∃yP(x, y)$</td>
+<td style="text-align:center">For every x there is a y for which P(x, y) is true.</td>
+<td style="text-align:center">There is an x such that P(x, y) is false for every y.</td>
+</tr>
+<tr>
+<td style="text-align:center">$∃x∀yP(x, y)$</td>
+<td style="text-align:center">There is an x for which P(x, y) is true for every y.</td>
+<td style="text-align:center">For every x there is a y for which P(x, y) is false.</td>
+</tr>
+<tr>
+<td style="text-align:center">$∃x∃yP(x, y)\∃y∃xP(x, y)$</td>
+<td style="text-align:center">There is a pair x, y for which P(x, y) is true.</td>
+<td style="text-align:center">P(x, y) is false for every pair x, y.</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="/js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://gitee.com/iamncj/Picture_Bed/raw/master/Money_Tips/Wechat_QR.PNG',
+  alipayImage: 'https://gitee.com/iamncj/Picture_Bed/raw/master/Money_Tips/Wechat_QR.PNG'
+});
+</script>
+      
+      
+      <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>Post author:  </strong>NCJ</a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>Post link:  </strong>
+          <a href="/2019/03/10/DM/CH01_Logic_and_Proofs/CH01_02_Predicate_Logic_and_Nested_Quantifiers/" target="_blank" title="【DM】CH01-02 Predicate Logic and Nested Quantifiers">https://ncj.wiki/2019/03/10/DM/CH01_Logic_and_Proofs/CH01_02_Predicate_Logic_and_Nested_Quantifiers/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>Copyright Notice:   </strong>
+            All articles in this blog are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            unless stating additionally.
+          </li>
+         
+        </ul>
+<div>
+
+      
+      
+      
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Discrete-Math/">Discrete Math</a></li></ul>
+
+      
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/03/10/DM/CH01_Logic_and_Proofs/CH01_03_Normal_Form/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          【DM】CH01-03 Normal Form
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/03/10/DM/CH01_Logic_and_Proofs/CH01_01_Proposition_Logic_and_Propositional_Equivalences/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">【DM】CH01-01 Proposition Logic and Propositional Equivalences</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Predicate-Logic-谓词逻辑"><span class="nav-number">1.</span> <span class="nav-text">Predicate Logic 谓词逻辑</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Predicate-and-Quantifiers-谓词和量词的概念"><span class="nav-number">1.1.</span> <span class="nav-text">Predicate and Quantifiers 谓词和量词的概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Predicate-谓词"><span class="nav-number">1.1.1.</span> <span class="nav-text">Predicate 谓词</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Quantifiers-量词"><span class="nav-number">1.1.2.</span> <span class="nav-text">Quantifiers 量词</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Universal-Quantifier-全称量词"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">Universal Quantifier 全称量词</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Existential-Quantifier-存在量词"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">Existential Quantifier 存在量词</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Properties-of-Quantifiers-量词性质"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">Properties of Quantifiers 量词性质</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Thinking-about-Quantifiers-深入理解量词"><span class="nav-number">1.1.2.4.</span> <span class="nav-text">Thinking about Quantifiers 深入理解量词</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Loop-循环"><span class="nav-number">1.1.2.4.1.</span> <span class="nav-text">Loop 循环</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Conjunctions-and-Disjunctions-合取、析取"><span class="nav-number">1.1.2.4.2.</span> <span class="nav-text">Conjunctions and Disjunctions 合取、析取</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Other-Quantifiers-其他量词"><span class="nav-number">1.1.2.5.</span> <span class="nav-text">Other Quantifiers 其他量词</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Precedence-of-Quantifiers-量词优先级"><span class="nav-number">1.1.2.6.</span> <span class="nav-text">Precedence of Quantifiers 量词优先级</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Binding-Variables-量词绑定"><span class="nav-number">1.1.2.7.</span> <span class="nav-text">Binding Variables 量词绑定</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Bound-Variable-约束的量词"><span class="nav-number">1.1.2.7.1.</span> <span class="nav-text">Bound Variable 约束的量词</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Free-Variable-自由的量词"><span class="nav-number">1.1.2.7.2.</span> <span class="nav-text">Free Variable 自由的量词</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Logical-Equivalences-Involving-Quantifiers-涉及量词的逻辑等价式"><span class="nav-number">1.2.</span> <span class="nav-text">Logical Equivalences Involving Quantifiers 涉及量词的逻辑等价式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Negating-Quantified-Expressions-量化表达式的否定"><span class="nav-number">1.3.</span> <span class="nav-text">Negating Quantified Expressions 量化表达式的否定</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#De-Morgan’s-Laws-for-Quantifiers-量词的德·摩根律"><span class="nav-number">1.3.1.</span> <span class="nav-text">De Morgan’s Laws for Quantifiers 量词的德·摩根律</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Translating-from-English-into-Logical-Expressions"><span class="nav-number">1.4.</span> <span class="nav-text">Translating from English into Logical Expressions</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#A-Very-Important-Notice"><span class="nav-number">1.4.1.</span> <span class="nav-text">A Very Important Notice!!!</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Premises-and-Conclusion-前提和结论"><span class="nav-number">1.5.</span> <span class="nav-text">Premises and Conclusion 前提和结论</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Nested-Quantifiers-嵌套量词"><span class="nav-number">2.</span> <span class="nav-text">Nested Quantifiers 嵌套量词</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Definition-定义"><span class="nav-number">2.1.</span> <span class="nav-text">Definition 定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Translating-from-Nested-Quantifiers-into-English"><span class="nav-number">2.2.</span> <span class="nav-text">Translating from Nested Quantifiers into English</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Translating-English-into-Logical-Expressions-Involving-Nested-Quantifiers"><span class="nav-number">2.3.</span> <span class="nav-text">Translating English into Logical Expressions Involving Nested Quantifiers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-Order-of-Quantifiers-量词顺序"><span class="nav-number">2.4.</span> <span class="nav-text">The Order of Quantifiers 量词顺序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Negating-Nested-Quantifiers-嵌套量词的否定"><span class="nav-number">2.5.</span> <span class="nav-text">Negating Nested Quantifiers 嵌套量词的否定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Quantifications-of-Two-Variables-两个变量的量化式"><span class="nav-number">2.6.</span> <span class="nav-text">Quantifications of Two Variables 两个变量的量化式</span></a></li></ol></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2018 - 2019 NCJ-Blog All Rights Reserved.</p>
+	      
+	      
+  		   	<p id="copyRightCn">NCJ hold copyright</p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            NCJ-Blog
+          </div>
+          <div class="panel-body">
+            Copyright © 2019 NCJ All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

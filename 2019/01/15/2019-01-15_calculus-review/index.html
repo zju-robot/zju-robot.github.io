@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>calculus review | NCJ-Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="MathCalculusReview Notes">
+  
+  
+  
+  
+  <meta name="description" content="极限函数&amp;amp;预备知识 参数方程 极坐标方程 二项式展开 和差化积公式 …  数列极限定义$\xi - N$ （用于验证） 性质&amp;amp;四则运算两大定理&amp;amp;$e$ 夹逼定理 单调有界定理  函数极限定义 $\xi - \delta​$   $\xi - X$   归结原理、左右极限性质&amp;amp;四则运算两大定理？ 夹逼定理（仍然成立） 单调有界？（No Longer Exist）">
+<meta name="keywords" content="Math,Calculus,Review Notes">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Calculus Review">
+<meta property="og:url" content="https://ncj.wiki/2019/01/15/2019-01-15_calculus-review/index.html">
+<meta property="og:site_name" content="NCJ-Blog">
+<meta property="og:description" content="极限函数&amp;amp;预备知识 参数方程 极坐标方程 二项式展开 和差化积公式 …  数列极限定义$\xi - N$ （用于验证） 性质&amp;amp;四则运算两大定理&amp;amp;$e$ 夹逼定理 单调有界定理  函数极限定义 $\xi - \delta​$   $\xi - X$   归结原理、左右极限性质&amp;amp;四则运算两大定理？ 夹逼定理（仍然成立） 单调有界？（No Longer Exist）">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-09-05T13:38:45.730Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Calculus Review">
+<meta name="twitter:description" content="极限函数&amp;amp;预备知识 参数方程 极坐标方程 二项式展开 和差化积公式 …  数列极限定义$\xi - N$ （用于验证） 性质&amp;amp;四则运算两大定理&amp;amp;$e$ 夹逼定理 单调有界定理  函数极限定义 $\xi - \delta​$   $\xi - X$   归结原理、左右极限性质&amp;amp;四则运算两大定理？ 夹逼定理（仍然成立） 单调有界？（No Longer Exist）">
+  
+    <link rel="alternate" href="/atom.xml" title="NCJ-Blog" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt; src:url("css/fonts/FuturaPTBold.otf") format("woff");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt-light; src:url("css/fonts/FuturaPTBook.otf") format("woff");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt-italic; src:url("css/fonts/FuturaPTBookOblique.otf") format("woff");font-weight:400;font-style:italic;}
+}
+
+  </style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css">
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css">
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css">
+  
+
+</head>
+</html>
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  
+                    <li> <a class="main-nav-link" href="/">Home</a> </li>
+                  
+                  
+                
+                  
+                    <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                  
+                  
+                
+                  
+                    <li> <a class="main-nav-link" href="https://ncj.wiki/Projects_Show">Projects</a> </li>
+                  
+                  
+                
+                  
+                    <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                  
+                  
+                
+                  
+                    <li> <a class="main-nav-link" href="/about">About</a> </li>
+                  
+                  
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-2019-01-15_calculus-review" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      Calculus Review
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2019/01/15/2019-01-15_calculus-review/" class="article-date">
+	  <time datetime="2019-01-15T07:54:13.000Z" itemprop="datePublished">2019-01-15</time>
+	</a>
+
+      
+      
+      
+
+      </br></br>
+      WordCount: 
+      <span class="post-count">671</span>
+      Min2Read: 
+      <span class="post-count">2</span>
+      <!-- <span class="post-count">26.5k</span> -->
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- ![](https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/calculus_I.jpg) -->
+<h1 id="极限"><a href="#极限" class="headerlink" title="极限"></a>极限</h1><h2 id="函数-amp-预备知识"><a href="#函数-amp-预备知识" class="headerlink" title="函数&amp;预备知识"></a>函数&amp;预备知识</h2><ol>
+<li>参数方程</li>
+<li>极坐标方程</li>
+<li>二项式展开</li>
+<li>和差化积公式</li>
+<li>…</li>
+</ol>
+<h2 id="数列极限"><a href="#数列极限" class="headerlink" title="数列极限"></a>数列极限</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>$\xi - N$ （用于验证）</p>
+<h3 id="性质-amp-四则运算"><a href="#性质-amp-四则运算" class="headerlink" title="性质&amp;四则运算"></a>性质&amp;四则运算</h3><h3 id="两大定理-amp-e"><a href="#两大定理-amp-e" class="headerlink" title="两大定理&amp;$e$"></a>两大定理&amp;$e$</h3><ol>
+<li>夹逼定理</li>
+<li>单调有界定理</li>
+</ol>
+<h2 id="函数极限"><a href="#函数极限" class="headerlink" title="函数极限"></a>函数极限</h2><h3 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h3><ol>
+<li><p>$\xi - \delta​$ </p>
+</li>
+<li><p>$\xi - X$</p>
+</li>
+</ol>
+<h4 id="归结原理、左右极限"><a href="#归结原理、左右极限" class="headerlink" title="归结原理、左右极限"></a>归结原理、左右极限</h4><h3 id="性质-amp-四则运算-1"><a href="#性质-amp-四则运算-1" class="headerlink" title="性质&amp;四则运算"></a>性质&amp;四则运算</h3><h3 id="两大定理？"><a href="#两大定理？" class="headerlink" title="两大定理？"></a>两大定理？</h3><ol>
+<li>夹逼定理（仍然成立）</li>
+<li>单调有界？（No Longer Exist）</li>
+</ol>
+<h3 id="两大重要极限"><a href="#两大重要极限" class="headerlink" title="两大重要极限"></a>两大重要极限</h3><ol>
+<li>$\lim_{x \to 0}\frac{x}{sinx} = 1$</li>
+<li>$\lim_{x \to \infty}(1 + \frac{1}{x})^x = e​$</li>
+</ol>
+<h2 id="连续"><a href="#连续" class="headerlink" title="连续"></a>连续</h2><h3 id="定义-2"><a href="#定义-2" class="headerlink" title="定义"></a>定义</h3><p>$\lim_{x \to x_0}f(x) = f(x_0)​$</p>
+<h3 id="有限闭区间上的连续函数的性质"><a href="#有限闭区间上的连续函数的性质" class="headerlink" title="有限闭区间上的连续函数的性质"></a>有限闭区间上的连续函数的性质</h3><ol>
+<li>有界性</li>
+<li>最大最小值定理</li>
+<li>零点存在定理</li>
+<li><strong>介值定理</strong> （常用于证明$F(\xi) = 0​$ )</li>
+</ol>
+<h3 id="o-、O-、等价替换"><a href="#o-、O-、等价替换" class="headerlink" title="o()、O()、等价替换"></a>o()、O()、等价替换</h3><p>$o(x) + o(x^2) = o(x)$</p>
+<p>$o()$代表”一类“量，因此”=“不是传统意义上的”等于“</p>
+<h1 id="导数"><a href="#导数" class="headerlink" title="导数"></a>导数</h1><h2 id="定义-3"><a href="#定义-3" class="headerlink" title="定义"></a>定义</h2><h3 id="lim-x-to-x-0-frac-f-x-f-x-0-x-x-0-A-f’-x-0"><a href="#lim-x-to-x-0-frac-f-x-f-x-0-x-x-0-A-f’-x-0" class="headerlink" title="$\lim_{x \to x_0}\frac{f(x) - f(x_0)}{x - x_0} = A = f’(x_0)$"></a>$\lim_{x \to x_0}\frac{f(x) - f(x_0)}{x - x_0} = A = f’(x_0)$</h3><h3 id="切线"><a href="#切线" class="headerlink" title="切线"></a>切线</h3><p>割线斜率的极限</p>
+<h3 id="f’-x-0-gt-0-的意义"><a href="#f’-x-0-gt-0-的意义" class="headerlink" title="$f’(x_0) &gt; 0$ 的意义"></a>$f’(x_0) &gt; 0$ 的意义</h3><p>在$x_0$右边的一小块邻域内，$f(x) &gt; f(x_0)$</p>
+<h2 id="高阶导数"><a href="#高阶导数" class="headerlink" title="高阶导数"></a>高阶导数</h2><ol>
+<li><p>$\frac{ax + b}{cx + d}$</p>
+</li>
+<li><p>$x^nf(x)$</p>
+</li>
+<li><p>$arctan^{(100)}(0)$</p>
+<p>$arcsin^{(100)}(0)$</p>
+</li>
+<li><p>泰勒</p>
+<p>$x^2sinx$求100阶导</p>
+</li>
+</ol>
+<h2 id="其他函数"><a href="#其他函数" class="headerlink" title="其他函数"></a>其他函数</h2><h3 id="反函数"><a href="#反函数" class="headerlink" title="反函数"></a>反函数</h3><p>到底对谁求导</p>
+<h3 id="复合函数"><a href="#复合函数" class="headerlink" title="复合函数"></a>复合函数</h3><h3 id="参数方程"><a href="#参数方程" class="headerlink" title="参数方程"></a>参数方程</h3><h3 id="隐函数"><a href="#隐函数" class="headerlink" title="隐函数"></a>隐函数</h3><h1 id="微分"><a href="#微分" class="headerlink" title="微分"></a>微分</h1><h2 id="定义-4"><a href="#定义-4" class="headerlink" title="定义"></a>定义</h2><p>一阶微分的形式不变性</p>
+<h2 id="微商"><a href="#微商" class="headerlink" title="微商"></a>微商</h2>
+$\frac{{d}y}{{d}x}​$
+
+<h3 id="高阶"><a href="#高阶" class="headerlink" title="高阶"></a>高阶</h3>
+$\frac{{d^2}y}{{d}x^2} = \frac{{d}{(\frac{{d}y}{{d}x}})}{{d}x}$
+
+<h1 id="微分定理"><a href="#微分定理" class="headerlink" title="微分定理"></a>微分定理</h1><h2 id="中值定理"><a href="#中值定理" class="headerlink" title="中值定理"></a>中值定理</h2><h3 id="极值-amp-凹凸性"><a href="#极值-amp-凹凸性" class="headerlink" title="极值&amp;凹凸性"></a>极值&amp;凹凸性</h3><ol>
+<li>极值&amp;费马定理</li>
+<li>罗尔定理</li>
+<li>拉格朗日中值定理</li>
+<li>柯西中值定理</li>
+</ol>
+<h3 id="主要用于证明-F’-xi-0"><a href="#主要用于证明-F’-xi-0" class="headerlink" title="主要用于证明$F’(\xi) = 0$"></a>主要用于证明$F’(\xi) = 0$</h3><h2 id="泰勒定理"><a href="#泰勒定理" class="headerlink" title="泰勒定理"></a>泰勒定理</h2><h3 id="展开"><a href="#展开" class="headerlink" title="展开"></a>展开</h3><ol>
+<li>展开点</li>
+<li>带入点</li>
+</ol>
+<h4 id="复合函数展开"><a href="#复合函数展开" class="headerlink" title="复合函数展开"></a>复合函数展开</h4><h4 id="主要用于证明-F’’-xi-、-F’’’-xi"><a href="#主要用于证明-F’’-xi-、-F’’’-xi" class="headerlink" title="主要用于证明$F’’(\xi)$ 、$F’’’(\xi)$"></a>主要用于证明$F’’(\xi)$ 、$F’’’(\xi)$</h4><p>给出高阶导数值的点往往是展开点！</p>
+<h2 id="洛必达法则"><a href="#洛必达法则" class="headerlink" title="洛必达法则"></a>洛必达法则</h2><blockquote>
+<p><strong>洛</strong>就完了！</p>
+</blockquote>
+<h1 id="不定积分"><a href="#不定积分" class="headerlink" title="不定积分"></a>不定积分</h1><h2 id="第一积分换元法"><a href="#第一积分换元法" class="headerlink" title="第一积分换元法"></a>第一积分换元法</h2><p>凑微分法</p>
+<p><strong>调整$dx$</strong></p>
+<h2 id="第二积分换元法"><a href="#第二积分换元法" class="headerlink" title="第二积分换元法"></a>第二积分换元法</h2><h3 id="去根号"><a href="#去根号" class="headerlink" title="去根号"></a>去根号</h3><ol>
+<li>三角换元</li>
+<li>整体换$t$</li>
+</ol>
+<h3 id="倒带换"><a href="#倒带换" class="headerlink" title="倒带换"></a>倒带换</h3><h2 id="分部积分"><a href="#分部积分" class="headerlink" title="分部积分"></a>分部积分</h2><ol>
+<li>直接计算</li>
+<li>构造循环</li>
+<li>形成递推</li>
+</ol>
+<h2 id="特殊函数"><a href="#特殊函数" class="headerlink" title="特殊函数"></a>特殊函数</h2><ol>
+<li>有理函数 -&gt; 裂项</li>
+<li>三角有理函数 -&gt; 万能公式</li>
+<li>其他特殊 -&gt; 换元</li>
+</ol>
+<h1 id="定积分"><a href="#定积分" class="headerlink" title="定积分"></a>定积分</h1><h2 id="定义（黎曼和）"><a href="#定义（黎曼和）" class="headerlink" title="定义（黎曼和）"></a>定义（黎曼和）</h2>
+$\int_{a}^{b} f(x)dx = \lim_{x \to 0^+} \sum_{i = 1}^{n} f(\xi_i) \Delta x_i​$
+
+<ol>
+<li>分割</li>
+<li>取点</li>
+<li>求和</li>
+<li>求极限</li>
+</ol>
+<h3 id="对称"><a href="#对称" class="headerlink" title="对称"></a>对称</h3><h3 id="和式转化"><a href="#和式转化" class="headerlink" title="和式转化"></a>和式转化</h3><h2 id="变上限函数的导数"><a href="#变上限函数的导数" class="headerlink" title="变上限函数的导数"></a>变上限函数的导数</h2><ol>
+<li>普通</li>
+<li>$\int_{}^{\phi(x)}​$</li>
+<li>$\int_{}^{x} f(x - y) dy$  -&gt;换元</li>
+</ol>
+<h2 id="微积分基本定理"><a href="#微积分基本定理" class="headerlink" title="微积分基本定理"></a>微积分基本定理</h2><h3 id="不定积分-1"><a href="#不定积分-1" class="headerlink" title="不定积分"></a>不定积分</h3><h3 id="特殊类型"><a href="#特殊类型" class="headerlink" title="特殊类型"></a>特殊类型</h3><ol>
+<li>奇偶函数 $\int<em>{-a}^{a} f(x) dx = \int</em>{0}^{a} [f(x) + f(- x)]dx$</li>
+<li>$\int<em>{0}^{\frac{\pi}{2}}​$ 、 $\int</em>{0}^{\frac{\pi}{4}}​$ 、$\int_{0}^{\pi}​$  换元</li>
+<li>其他</li>
+</ol>
+<h3 id="反常积分"><a href="#反常积分" class="headerlink" title="反常积分"></a>反常积分</h3><ol>
+<li>区间无限</li>
+<li>函数无界</li>
+</ol>
+<h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><ol>
+<li>数学</li>
+<li>物理</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="/js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://gitee.com/iamncj/Picture_Bed/raw/master/Money_Tips/Wechat_QR.PNG',
+  alipayImage: 'https://gitee.com/iamncj/Picture_Bed/raw/master/Money_Tips/Wechat_QR.PNG'
+});
+</script>
+      
+      
+      <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>Post author:  </strong>NCJ</a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>Post link:  </strong>
+          <a href="/2019/01/15/2019-01-15_calculus-review/" target="_blank" title="Calculus Review">https://ncj.wiki/2019/01/15/2019-01-15_calculus-review/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>Copyright Notice:   </strong>
+            All articles in this blog are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            unless stating additionally.
+          </li>
+         
+        </ul>
+<div>
+
+      
+      
+      
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Calculus/">Calculus</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Math/">Math</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Review-Notes/">Review Notes</a></li></ul>
+
+      
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/01/20/2019-01-20_variadic-function/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Variadic Function in C
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/12/31/2018-12-31_python3/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Python3 Learning Notes</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#极限"><span class="nav-number">1.</span> <span class="nav-text">极限</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#函数-amp-预备知识"><span class="nav-number">1.1.</span> <span class="nav-text">函数&amp;预备知识</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数列极限"><span class="nav-number">1.2.</span> <span class="nav-text">数列极限</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义"><span class="nav-number">1.2.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#性质-amp-四则运算"><span class="nav-number">1.2.2.</span> <span class="nav-text">性质&amp;四则运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#两大定理-amp-e"><span class="nav-number">1.2.3.</span> <span class="nav-text">两大定理&amp;$e$</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数极限"><span class="nav-number">1.3.</span> <span class="nav-text">函数极限</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义-1"><span class="nav-number">1.3.1.</span> <span class="nav-text">定义</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#归结原理、左右极限"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">归结原理、左右极限</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#性质-amp-四则运算-1"><span class="nav-number">1.3.2.</span> <span class="nav-text">性质&amp;四则运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#两大定理？"><span class="nav-number">1.3.3.</span> <span class="nav-text">两大定理？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#两大重要极限"><span class="nav-number">1.3.4.</span> <span class="nav-text">两大重要极限</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#连续"><span class="nav-number">1.4.</span> <span class="nav-text">连续</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义-2"><span class="nav-number">1.4.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#有限闭区间上的连续函数的性质"><span class="nav-number">1.4.2.</span> <span class="nav-text">有限闭区间上的连续函数的性质</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#o-、O-、等价替换"><span class="nav-number">1.4.3.</span> <span class="nav-text">o()、O()、等价替换</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#导数"><span class="nav-number">2.</span> <span class="nav-text">导数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义-3"><span class="nav-number">2.1.</span> <span class="nav-text">定义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#lim-x-to-x-0-frac-f-x-f-x-0-x-x-0-A-f’-x-0"><span class="nav-number">2.1.1.</span> <span class="nav-text">$\lim_{x \to x_0}\frac{f(x) - f(x_0)}{x - x_0} = A = f’(x_0)$</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#切线"><span class="nav-number">2.1.2.</span> <span class="nav-text">切线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#f’-x-0-gt-0-的意义"><span class="nav-number">2.1.3.</span> <span class="nav-text">$f’(x_0) &gt; 0$ 的意义</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#高阶导数"><span class="nav-number">2.2.</span> <span class="nav-text">高阶导数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他函数"><span class="nav-number">2.3.</span> <span class="nav-text">其他函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#反函数"><span class="nav-number">2.3.1.</span> <span class="nav-text">反函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#复合函数"><span class="nav-number">2.3.2.</span> <span class="nav-text">复合函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参数方程"><span class="nav-number">2.3.3.</span> <span class="nav-text">参数方程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#隐函数"><span class="nav-number">2.3.4.</span> <span class="nav-text">隐函数</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#微分"><span class="nav-number">3.</span> <span class="nav-text">微分</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义-4"><span class="nav-number">3.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#微商"><span class="nav-number">3.2.</span> <span class="nav-text">微商</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#高阶"><span class="nav-number">3.2.1.</span> <span class="nav-text">高阶</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#微分定理"><span class="nav-number">4.</span> <span class="nav-text">微分定理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#中值定理"><span class="nav-number">4.1.</span> <span class="nav-text">中值定理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#极值-amp-凹凸性"><span class="nav-number">4.1.1.</span> <span class="nav-text">极值&amp;凹凸性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主要用于证明-F’-xi-0"><span class="nav-number">4.1.2.</span> <span class="nav-text">主要用于证明$F’(\xi) = 0$</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#泰勒定理"><span class="nav-number">4.2.</span> <span class="nav-text">泰勒定理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#展开"><span class="nav-number">4.2.1.</span> <span class="nav-text">展开</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#复合函数展开"><span class="nav-number">4.2.1.1.</span> <span class="nav-text">复合函数展开</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#主要用于证明-F’’-xi-、-F’’’-xi"><span class="nav-number">4.2.1.2.</span> <span class="nav-text">主要用于证明$F’’(\xi)$ 、$F’’’(\xi)$</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#洛必达法则"><span class="nav-number">4.3.</span> <span class="nav-text">洛必达法则</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#不定积分"><span class="nav-number">5.</span> <span class="nav-text">不定积分</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一积分换元法"><span class="nav-number">5.1.</span> <span class="nav-text">第一积分换元法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二积分换元法"><span class="nav-number">5.2.</span> <span class="nav-text">第二积分换元法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#去根号"><span class="nav-number">5.2.1.</span> <span class="nav-text">去根号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#倒带换"><span class="nav-number">5.2.2.</span> <span class="nav-text">倒带换</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分部积分"><span class="nav-number">5.3.</span> <span class="nav-text">分部积分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特殊函数"><span class="nav-number">5.4.</span> <span class="nav-text">特殊函数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#定积分"><span class="nav-number">6.</span> <span class="nav-text">定积分</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义（黎曼和）"><span class="nav-number">6.1.</span> <span class="nav-text">定义（黎曼和）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#对称"><span class="nav-number">6.1.1.</span> <span class="nav-text">对称</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#和式转化"><span class="nav-number">6.1.2.</span> <span class="nav-text">和式转化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变上限函数的导数"><span class="nav-number">6.2.</span> <span class="nav-text">变上限函数的导数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#微积分基本定理"><span class="nav-number">6.3.</span> <span class="nav-text">微积分基本定理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#不定积分-1"><span class="nav-number">6.3.1.</span> <span class="nav-text">不定积分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特殊类型"><span class="nav-number">6.3.2.</span> <span class="nav-text">特殊类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#反常积分"><span class="nav-number">6.3.3.</span> <span class="nav-text">反常积分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#应用"><span class="nav-number">6.3.4.</span> <span class="nav-text">应用</span></a></li></ol></li></ol></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2018 - 2019 NCJ-Blog All Rights Reserved.</p>
+	      
+	      
+  		   	<p id="copyRightCn">NCJ hold copyright</p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            NCJ-Blog
+          </div>
+          <div class="panel-body">
+            Copyright © 2019 NCJ All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

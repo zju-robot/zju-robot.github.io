@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>【dm】ch01-04 rules of inference and proofs | NCJ-Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="Discrete Math">
+  
+  
+  
+  
+  <meta name="description" content="Chapter 01 Logic and Proofs 逻辑与证明 Part 04 Rules of Inference and Proofs Covering 1.6~1.8  Rules of Inference 推理规则 Proofs in mathematics are valid arguments An argument（论证） is a sequence of statements">
+<meta name="keywords" content="Discrete Math">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【DM】CH01-04 Rules of Inference and Proofs">
+<meta property="og:url" content="https://ncj.wiki/2019/03/13/DM/CH01_Logic_and_Proofs/CH01_04_Rules_of_Inference_and_Proofs/index.html">
+<meta property="og:site_name" content="NCJ-Blog">
+<meta property="og:description" content="Chapter 01 Logic and Proofs 逻辑与证明 Part 04 Rules of Inference and Proofs Covering 1.6~1.8  Rules of Inference 推理规则 Proofs in mathematics are valid arguments An argument（论证） is a sequence of statements">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/DM_illustrations/img/CH01/015.png">
+<meta property="og:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/DM_illustrations/img/CH01/016.png">
+<meta property="og:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/DM_illustrations/img/CH01/017.png">
+<meta property="og:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/DM_illustrations/img/CH01/018.png">
+<meta property="og:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/DM_illustrations/img/CH01/019.png">
+<meta property="og:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/DM_illustrations/img/CH01/020.png">
+<meta property="og:updated_time" content="2019-09-05T13:38:45.734Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【DM】CH01-04 Rules of Inference and Proofs">
+<meta name="twitter:description" content="Chapter 01 Logic and Proofs 逻辑与证明 Part 04 Rules of Inference and Proofs Covering 1.6~1.8  Rules of Inference 推理规则 Proofs in mathematics are valid arguments An argument（论证） is a sequence of statements">
+<meta name="twitter:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/DM_illustrations/img/CH01/015.png">
+  
+    <link rel="alternate" href="/atom.xml" title="NCJ-Blog" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt; src:url("css/fonts/FuturaPTBold.otf") format("woff");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt-light; src:url("css/fonts/FuturaPTBook.otf") format("woff");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt-italic; src:url("css/fonts/FuturaPTBookOblique.otf") format("woff");font-weight:400;font-style:italic;}
+}
+
+  </style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css">
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css">
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css">
+  
+
+</head>
+</html>
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  
+                    <li> <a class="main-nav-link" href="/">Home</a> </li>
+                  
+                  
+                
+                  
+                    <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                  
+                  
+                
+                  
+                    <li> <a class="main-nav-link" href="https://ncj.wiki/Projects_Show">Projects</a> </li>
+                  
+                  
+                
+                  
+                    <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                  
+                  
+                
+                  
+                    <li> <a class="main-nav-link" href="/about">About</a> </li>
+                  
+                  
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-DM/CH01_Logic_and_Proofs/CH01_04_Rules_of_Inference_and_Proofs" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      【DM】CH01-04 Rules of Inference and Proofs
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2019/03/13/DM/CH01_Logic_and_Proofs/CH01_04_Rules_of_Inference_and_Proofs/" class="article-date">
+	  <time datetime="2019-03-13T12:45:29.000Z" itemprop="datePublished">2019-03-13</time>
+	</a>
+
+      
+      
+      
+
+      </br></br>
+      WordCount: 
+      <span class="post-count">2.5k</span>
+      Min2Read: 
+      <span class="post-count">14</span>
+      <!-- <span class="post-count">26.5k</span> -->
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Chapter 01 Logic and Proofs 逻辑与证明</p>
+<p>Part 04 Rules of Inference and Proofs</p>
+<p>Covering 1.6~1.8</p>
+<hr>
+<h1 id="Rules-of-Inference-推理规则"><a href="#Rules-of-Inference-推理规则" class="headerlink" title="Rules of Inference 推理规则"></a>Rules of Inference 推理规则</h1><blockquote>
+<p>Proofs in mathematics are <strong><em>valid arguments</em></strong></p>
+<p>An <strong><em>argument</em></strong>（<strong>论证</strong>） is a sequence of statements that end with a conclusion</p>
+<p>By <strong><em>valid</em></strong>（<strong>有效性</strong>）, we mean the conclusion must follow from the truth of the preceding statements (premises（<strong>前提</strong>）)</p>
+</blockquote>
+<h2 id="Valid-Arguments-in-Propositional-Logic-命题逻辑的有效论证"><a href="#Valid-Arguments-in-Propositional-Logic-命题逻辑的有效论证" class="headerlink" title="Valid Arguments in Propositional Logic 命题逻辑的有效论证"></a>Valid Arguments in Propositional Logic 命题逻辑的有效论证</h2><p>An <strong>argument</strong> in propositional logic is a sequence of  propositions. </p>
+<p>All but the final proposition in the argument are called <strong>premises</strong> and the final proposition is called the <strong>conclusion</strong>. </p>
+<p><strong>An argument</strong> <strong>is</strong> <strong>valid</strong> if the truth of all its premises implies that the conclusion is true.</p>
+<p>An <strong>argument form</strong>（<strong>论证形式</strong>） in propositional logic is a sequence of compound propositions involving propositional variables.</p>
+<p><strong>An argument form is valid</strong> if no matter which particular propositions are substituted for the propositional variables in its premises, the conclusion is true if the premises are all true. </p>
+<p>$p_1\\p_2\\…\\p_n\\ - \\∴q​$</p>
+<p>An argument in propositional logic is valid when <strong>its argument form is valid</strong>.</p>
+<p>e.g.</p>
+<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/DM_illustrations/img/CH01/015.png" alt></p>
+<h2 id="Rules-of-Inference-推理原则"><a href="#Rules-of-Inference-推理原则" class="headerlink" title="Rules of Inference 推理原则"></a>Rules of Inference 推理原则</h2><h3 id="Rules-of-Inference-for-Propositional-Logic-命题逻辑的推理原则"><a href="#Rules-of-Inference-for-Propositional-Logic-命题逻辑的推理原则" class="headerlink" title="Rules of Inference for Propositional Logic 命题逻辑的推理原则"></a>Rules of Inference for Propositional Logic 命题逻辑的推理原则</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Rule of Inference</th>
+<th style="text-align:center">Tautology</th>
+<th style="text-align:center">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$p\\p → q\\ —- \\∴q$</td>
+<td style="text-align:center">$(p ∧ (p → q)) → q$</td>
+<td style="text-align:center">Modus ponens 假言推理</td>
+</tr>
+<tr>
+<td style="text-align:center">$¬q\\p → q\\—-\\∴ ¬p$</td>
+<td style="text-align:center">$(¬q ∧ (p → q))→¬p$</td>
+<td style="text-align:center">Modus tollens 取拒式</td>
+</tr>
+<tr>
+<td style="text-align:center">$p → q\\q → r\\—-\\∴ p → r$</td>
+<td style="text-align:center">$((p → q) ∧ (q → r)) → (p → r)$</td>
+<td style="text-align:center">Hypothetical syllogism 假言三段论</td>
+</tr>
+<tr>
+<td style="text-align:center">$p ∨ q\\¬p\\—-\\∴ q$</td>
+<td style="text-align:center">$((p ∨ q)∧¬p) → q$</td>
+<td style="text-align:center">Disjunctive syllogism 析取三段论</td>
+</tr>
+<tr>
+<td style="text-align:center">$p\\—-\\∴ p ∨ q$</td>
+<td style="text-align:center">$p → (p ∨ q)$</td>
+<td style="text-align:center">Addition 附加律</td>
+</tr>
+<tr>
+<td style="text-align:center">$p ∧ q\\—-\\∴ p$</td>
+<td style="text-align:center">$(p ∧ q) → p$</td>
+<td style="text-align:center">Simplification 化简律</td>
+</tr>
+<tr>
+<td style="text-align:center">$p\\q\\—-\\∴ p ∧ q$</td>
+<td style="text-align:center">$((p) ∧ (q)) → (p ∧ q)$</td>
+<td style="text-align:center">Conjunction 合取律</td>
+</tr>
+<tr>
+<td style="text-align:center">$p ∨ q\\¬p ∨ r\\—-\\∴ q ∨ r$</td>
+<td style="text-align:center">$((p ∨ q) ∧ (¬p ∨ r)) → (q ∨ r)$</td>
+<td style="text-align:center">Resolution 消解律（<strong>Pay Attention!</strong>This rule has been used widely in many programmes）</td>
+</tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<p><strong><em>A valid argument can lead to an incorrect conclusion if one of its premises is wrong/false!</em></strong></p>
+</blockquote>
+<h4 id="Resolution-消解律"><a href="#Resolution-消解律" class="headerlink" title="Resolution 消解律"></a>Resolution 消解律</h4><blockquote>
+<p>Computer programs have been developed to automate the task of reasoning and proving theorems. Many of these programs make use of a rule of inference known as resolution. This rule of inference is based on the tautology</p>
+</blockquote>
+<p>$((p ∨ q) ∧ (¬p ∨ r)) → (q ∨ r)$</p>
+<p>The final disjunction in the resolution rule, $q ∨ r$, is called the <strong>resolvent</strong>（消解式）</p>
+<blockquote>
+<p>Resolution is very important in AI!</p>
+</blockquote>
+<h3 id="Rules-of-Inference-for-Quantified-Statements-量化命题的推理规则"><a href="#Rules-of-Inference-for-Quantified-Statements-量化命题的推理规则" class="headerlink" title="Rules of Inference for Quantified Statements 量化命题的推理规则"></a>Rules of Inference for Quantified Statements 量化命题的推理规则</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Rule of Inference</th>
+<th style="text-align:center">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$∀xP(x)\\—-\\∴ P(c)$</td>
+<td style="text-align:center">Universal instantiation 全称实例</td>
+</tr>
+<tr>
+<td style="text-align:center">$P(c) for\ an\ arbitrary\ c\\—————\\∴ ∀xP(x)$</td>
+<td style="text-align:center">Universal generalization 全称引入</td>
+</tr>
+<tr>
+<td style="text-align:center">$∃xP(x)\\——————\\∴ P(c)\ for\ some\ element\ c$</td>
+<td style="text-align:center">Existential instantiation 存在实例</td>
+</tr>
+<tr>
+<td style="text-align:center">$P(c)\ for\ some\ element\ c\\—————-\\∴ ∃xP(x)$</td>
+<td style="text-align:center">Existential generalization 存在引入</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="Combining-Rules-of-Inference-for-Propositions-and-Quantified-Statements-命题和量化命题的组合使用"><a href="#Combining-Rules-of-Inference-for-Propositions-and-Quantified-Statements-命题和量化命题的组合使用" class="headerlink" title="Combining Rules of Inference for Propositions and Quantified Statements 命题和量化命题的组合使用"></a>Combining Rules of Inference for Propositions and Quantified Statements 命题和量化命题的组合使用</h3><h4 id="Universal-Modus-Ponens-全称假言推理"><a href="#Universal-Modus-Ponens-全称假言推理" class="headerlink" title="Universal Modus Ponens 全称假言推理"></a>Universal Modus Ponens 全称假言推理</h4><p>$∀x(P(x) → Q(x))\\P(a),\ where\ a\ is\ a\ particular\ element\ in\ the\ domain\\————————————\\∴ Q(a)​$</p>
+<h4 id="Universal-Modus-Tollens-全称取拒式"><a href="#Universal-Modus-Tollens-全称取拒式" class="headerlink" title="Universal Modus Tollens 全称取拒式"></a>Universal Modus Tollens 全称取拒式</h4><p>$∀x(P(x) → Q(x))\\¬Q(a),\ where\ a\ is\ a\ particular\ element\ in\ the\ domain\\————————————\\∴ ¬P(a)$</p>
+<h2 id="Using-Rules-of-Inference-to-Build-Arguments-使用推理规则建立论证"><a href="#Using-Rules-of-Inference-to-Build-Arguments-使用推理规则建立论证" class="headerlink" title="Using Rules of Inference to Build Arguments 使用推理规则建立论证"></a>Using Rules of Inference to Build Arguments 使用推理规则建立论证</h2><blockquote>
+<p>To prove that an argument is valid</p>
+<ul>
+<li><p>Assume the premises are true</p>
+</li>
+<li><p>Use the rules of inference and logical equivalences to determine that the conclusion is true</p>
+</li>
+</ul>
+</blockquote>
+<h3 id="e-g-1-Propositional-Logic-命题逻辑"><a href="#e-g-1-Propositional-Logic-命题逻辑" class="headerlink" title="e.g.1 Propositional Logic 命题逻辑"></a>e.g.1 Propositional Logic 命题逻辑</h3><p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/DM_illustrations/img/CH01/016.png" alt></p>
+<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/DM_illustrations/img/CH01/017.png" alt></p>
+<p><strong>Note</strong>: the second example added an additional premise for the conclusion is always true when r is false, so all we need to proove if that it’s true when r is true!</p>
+<p><strong>Note</strong>: If the conclusion is given in a form of $p → q$ , we can convert the argument $p_1∧p_2∧…∧p_n→(p→q)$ to $p_1∧p_2∧…∧p_n∧p→q$ , because they are logically equivalent</p>
+<h3 id="e-g-2-Quantified-Statements-量化命题"><a href="#e-g-2-Quantified-Statements-量化命题" class="headerlink" title="e.g.2 Quantified Statements 量化命题"></a>e.g.2 Quantified Statements 量化命题</h3><p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/DM_illustrations/img/CH01/018.png" alt></p>
+<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/DM_illustrations/img/CH01/019.png" alt></p>
+<h3 id="e-g-3-Combination-组合使用"><a href="#e-g-3-Combination-组合使用" class="headerlink" title="e.g.3 Combination 组合使用"></a>e.g.3 Combination 组合使用</h3><p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/DM_illustrations/img/CH01/020.png" alt></p>
+<p><strong><em>Invalid!!!</em></strong></p>
+<p>For <strong>c</strong> depends on <strong>a</strong>!</p>
+<h2 id="Fallacies-谬误"><a href="#Fallacies-谬误" class="headerlink" title="Fallacies 谬误"></a>Fallacies 谬误</h2><p>Several common fallacies arise in incorrect arguments. These fallacies resemble rules of inference,<br>but are based on contingencies rather than tautologies.</p>
+<h3 id="Fallacy-of-denying-the-hypothesis-否定假设的谬误"><a href="#Fallacy-of-denying-the-hypothesis-否定假设的谬误" class="headerlink" title="Fallacy of denying the hypothesis 否定假设的谬误"></a>Fallacy of denying the hypothesis 否定假设的谬误</h3><blockquote>
+<p>If you overslept, you’ll be late.</p>
+<p>You didn’t oversleep.</p>
+<p>Therefore: You aren’t late.</p>
+</blockquote>
+<p><strong>WRONG!!</strong></p>
+<p>$p→q\\¬p\\—-\\∴¬q$</p>
+<h3 id="Fallacy-of-affirming-the-conclusion-肯定结论的谬误"><a href="#Fallacy-of-affirming-the-conclusion-肯定结论的谬误" class="headerlink" title="Fallacy of affirming the conclusion 肯定结论的谬误"></a>Fallacy of affirming the conclusion 肯定结论的谬误</h3><blockquote>
+<p>If you are in China, you’re in Asia.</p>
+<p>You are in Asia.</p>
+<p>Therefore: You are in China.</p>
+</blockquote>
+<p><strong>WRONG!!</strong></p>
+<p>$p→q\\q\\—-\\∴p$</p>
+<h1 id="Introduction-to-Proofs-证明导论"><a href="#Introduction-to-Proofs-证明导论" class="headerlink" title="Introduction to Proofs 证明导论"></a>Introduction to Proofs 证明导论</h1><blockquote>
+<p>The construction of a valid proof is an art, honed after much practice.</p>
+</blockquote>
+<h2 id="Some-Terminology-一些专业术语"><a href="#Some-Terminology-一些专业术语" class="headerlink" title="Some Terminology 一些专业术语"></a>Some Terminology 一些专业术语</h2><p>A <strong>proof</strong>（<strong>证明</strong>） is a valid argument that establishes the truth of a mathematical statement</p>
+<p>A <strong>theorem</strong>（<strong>定理</strong>） (<strong>proposition</strong>（命题）/<strong>fact</strong>（事实）/<strong>result</strong>（结论）) is a statement that can be shown to be true</p>
+<p><strong>Axioms</strong>（公理） (<strong>postulates</strong>（假设）) are statements we assume to be true</p>
+<p>A <strong>lemma</strong>（引理） is a less important theorem that is helpful in the proof of other results</p>
+<p>A <strong>corollary</strong>（推论） is a theorem that can be established directly from a theorem that has been proved</p>
+<p>A <strong>conjecture</strong>（猜想） is a statement that is being proposed to be a true statement</p>
+<blockquote>
+<p><strong><em>A conjecture becomes a theorem once it has been proved to be true</em></strong></p>
+</blockquote>
+<h2 id="Understanding-How-Theorems-Are-Stated-理解定理是如何陈述的"><a href="#Understanding-How-Theorems-Are-Stated-理解定理是如何陈述的" class="headerlink" title="Understanding How Theorems Are Stated 理解定理是如何陈述的"></a>Understanding How Theorems Are Stated 理解定理是如何陈述的</h2><h3 id="Implied-Universal-Quantifiers-隐含全称量词"><a href="#Implied-Universal-Quantifiers-隐含全称量词" class="headerlink" title="Implied Universal Quantifiers 隐含全称量词"></a>Implied Universal Quantifiers 隐含全称量词</h3><p>e.g.</p>
+<p>“if <em>x</em>&gt;<em>y</em>, where x and y are positive real numbers, then $x^2&gt;y^2$.”</p>
+<p><strong>For all positive real numbers <em>x</em> and <em>y</em></strong>, if <em>x</em>&gt;<em>y</em>, then $x^2&gt;y^2$.</p>
+<h3 id="Implicit-Implications-暗示关系"><a href="#Implicit-Implications-暗示关系" class="headerlink" title="Implicit Implications 暗示关系"></a>Implicit Implications 暗示关系</h3><p>e.g.</p>
+<p>“The square of an odd integer is odd.”</p>
+<p>“<strong>if</strong> an integer <em>n</em> is odd, <strong>then</strong> $n^2$ is odd.”</p>
+<p> “<strong>For all integer <em>n</em></strong>, if <em>n</em> is odd, then $n^2$ is odd.”</p>
+<h2 id="Methods-of-Proving-Theorems-证明方法"><a href="#Methods-of-Proving-Theorems-证明方法" class="headerlink" title="Methods of Proving Theorems 证明方法"></a>Methods of Proving Theorems 证明方法</h2><h3 id="Formal-Proofs-形式化证明"><a href="#Formal-Proofs-形式化证明" class="headerlink" title="Formal Proofs 形式化证明"></a>Formal Proofs 形式化证明</h3><ul>
+<li><p>Can be extremely long</p>
+</li>
+<li><p>May be hard to follow</p>
+</li>
+</ul>
+<h3 id="Informal-Proofs-非形式化证明"><a href="#Informal-Proofs-非形式化证明" class="headerlink" title="Informal Proofs 非形式化证明"></a>Informal Proofs 非形式化证明</h3><ul>
+<li><p>Each step may involve multiple rules of inference;</p>
+</li>
+<li><p>Steps may be skipped;</p>
+</li>
+<li><p>The axioms being assumed and the rules of inference used are not explicitly stated. </p>
+</li>
+</ul>
+<h2 id="Mistakes-in-Proofs-证明中的错误"><a href="#Mistakes-in-Proofs-证明中的错误" class="headerlink" title="Mistakes in Proofs 证明中的错误"></a>Mistakes in Proofs 证明中的错误</h2><p>Many mistakes result from the introduction of steps that do not logically follow from those that precede it.</p>
+<p>Many incorrect arguments are based on a fallacy called <strong><em>begging the question</em></strong> (<strong>circular reasoning</strong>（<strong>循环论证</strong>）)</p>
+<h1 id="Proof-Methods-证明方法"><a href="#Proof-Methods-证明方法" class="headerlink" title="Proof Methods 证明方法"></a>Proof Methods 证明方法</h1><h2 id="Direct-Proofs-直接证明"><a href="#Direct-Proofs-直接证明" class="headerlink" title="Direct Proofs 直接证明"></a>Direct Proofs 直接证明</h2><p>A direct proof shows that a conditional statement p → q is true by showing that if p is true, then q must also be true</p>
+<h2 id="Indirect-Proofs-间接证明"><a href="#Indirect-Proofs-间接证明" class="headerlink" title="Indirect Proofs 间接证明"></a>Indirect Proofs 间接证明</h2><h3 id="Proof-by-Contraposition-反证法"><a href="#Proof-by-Contraposition-反证法" class="headerlink" title="Proof by Contraposition 反证法"></a>Proof by Contraposition 反证法</h3><p>$P→Q≡¬Q→¬P​$</p>
+<h4 id="Vacuous-Proof-空证明"><a href="#Vacuous-Proof-空证明" class="headerlink" title="Vacuous Proof 空证明"></a>Vacuous Proof 空证明</h4><p>If we know <em>P</em> is false then  <em>P</em> → <em>Q</em> is <strong><em>vacuously</em></strong> true.</p>
+<p>F → T and F → F are both true.</p>
+<blockquote>
+<p>e.g. If Tom is both handsome and ugly then he feels unhappy.</p>
+</blockquote>
+<h4 id="Trivial-Proof-平凡证明"><a href="#Trivial-Proof-平凡证明" class="headerlink" title="Trivial Proof 平凡证明"></a>Trivial Proof 平凡证明</h4><p>If we know <em>Q</em> is true, then <em>P</em> → <em>Q</em> is <strong><em>trivially</em></strong> true</p>
+<p>F → T and T → T are both true.</p>
+<blockquote>
+<p>e.g. If it’s raining today then the empty set is a subset of every set.</p>
+</blockquote>
+<h3 id="Proof-by-Contradiction-归谬证明法"><a href="#Proof-by-Contradiction-归谬证明法" class="headerlink" title="Proof by Contradiction 归谬证明法"></a>Proof by Contradiction 归谬证明法</h3><p>$¬p→(q∧¬q)$</p>
+<p>直接的说，就是先假设p为假，然后推出两个相矛盾的结论</p>
+<p>它与反证法的差别就在于反证法是找到与假设相悖的结论，而归谬证明法是由假设推出两个相悖的结论，即<strong>矛盾的产生处不同</strong></p>
+<blockquote>
+<p><strong>Example</strong>:</p>
+<p>Prove there is no largest prime number.</p>
+<p><strong>Proof</strong>:</p>
+<p>Let <em>p</em> be the proposition “there is no largest prime number.”</p>
+<p>Assume that ¬<em>p</em> is true, namely, there is a largest prime number, denoted by <em>s</em>.</p>
+<p>Hence, the set of all primes lie between 2 and <em>s</em>. </p>
+<p>Form the product of these primes:</p>
+<script type="math/tex; mode=display">
+r=2×3×5×7×11×…×s</script><p>But <em>r</em> + 1 is a prime or has a prime factor larger than s. </p>
+<p>This is a contradiction since we have shown that ¬<em>p</em> implies both <em>q</em> and ¬<em>q</em> where <em>q</em> is the statement that <em>s</em> is the largest prime number.</p>
+<p>Hence, ¬<em>p</em> is false, so that <em>p</em>, “there is no largest prime number,” is true. </p>
+<p>Q.E.D.</p>
+</blockquote>
+<h4 id="Proof-p-→-q-by-Contradiction-运用归谬证明法证明蕴含关系"><a href="#Proof-p-→-q-by-Contradiction-运用归谬证明法证明蕴含关系" class="headerlink" title="Proof  p → q by Contradiction 运用归谬证明法证明蕴含关系"></a>Proof  <em>p</em> → <em>q</em> by Contradiction 运用归谬证明法证明蕴含关系</h4><ol>
+<li><p>assumes that both <em>p</em> and <em>¬q</em> are true</p>
+</li>
+<li><p>shows that $(p∧¬q)→F​$</p>
+</li>
+</ol>
+<h4 id="Proofs-of-Equivalence-by-Contradiction-运用归谬证明法的等价证明法"><a href="#Proofs-of-Equivalence-by-Contradiction-运用归谬证明法的等价证明法" class="headerlink" title="Proofs of Equivalence by Contradiction 运用归谬证明法的等价证明法"></a>Proofs of Equivalence by Contradiction 运用归谬证明法的等价证明法</h4><p>$p↔q≡(p→q)∧(q→p)​$</p>
+<p>$[p_1↔p_2↔…p_n]≡[(p_1→p_2)∧(p_2→p_3)∧…∧(p_n→p_1)]$</p>
+<h3 id="Counterexamples-反例证明法"><a href="#Counterexamples-反例证明法" class="headerlink" title="Counterexamples 反例证明法"></a>Counterexamples 反例证明法</h3><p>When presented with a statement of the form ∀xP(x), which we believe to be false or which has resisted all proof attempts, we look for a counterexample.</p>
+<h2 id="Proof-by-Cases-分情形证明法"><a href="#Proof-by-Cases-分情形证明法" class="headerlink" title="Proof by Cases 分情形证明法"></a>Proof by Cases 分情形证明法</h2><p>就是分类讨论</p>
+<p><strong>Notice</strong>:</p>
+<p>You have to ——</p>
+<ul>
+<li>Convince the reader that the cases are inclusive (i.e., they exhaust all possibilities)</li>
+<li>Establish all implications</li>
+</ul>
+<blockquote>
+<p><strong>Example</strong>:</p>
+<p>Prove that if <em>n</em> is an integer not divisible by 2 or 3, then <em>n</em>2-1 is divisible by 24.</p>
+<p><strong>Solution</strong>:</p>
+<ul>
+<li><p><em>n</em> = 6<em>k</em>+1</p>
+</li>
+<li><p><em>n</em> = 6<em>k</em>+5</p>
+</li>
+</ul>
+</blockquote>
+<h2 id="Exhaustive-Proof-穷举证明法"><a href="#Exhaustive-Proof-穷举证明法" class="headerlink" title="Exhaustive Proof 穷举证明法"></a>Exhaustive Proof 穷举证明法</h2><p>An <strong><em>exhaustive proof</em></strong> is a special type of proof by cases where each case involves checking a single example</p>
+<blockquote>
+<p><strong>Example</strong>:</p>
+<p>Show that there are no solutions in integers <em>x</em> and <em>y</em> of $x^2 + 3y^2=8$</p>
+<script type="math/tex; mode=display">
+x = -2,-1,0,1,2</script><script type="math/tex; mode=display">
+y = -1,0,1</script><p>By exhausting every possible situation, we can draw the conclusion that this pair of x and y does not exist.</p>
+</blockquote>
+<h2 id="Existence-Proof-存在性证明"><a href="#Existence-Proof-存在性证明" class="headerlink" title="Existence Proof 存在性证明"></a>Existence Proof 存在性证明</h2><h3 id="Constructive-Existence-Proof-构造性证明"><a href="#Constructive-Existence-Proof-构造性证明" class="headerlink" title="Constructive Existence Proof 构造性证明"></a>Constructive Existence Proof 构造性证明</h3><ol>
+<li>Establish <em>P</em>(<em>c</em>) is true for some <em>c</em> in the domain</li>
+<li>Then ∀xP(x) is true by Existential Generalization (EG)</li>
+</ol>
+<blockquote>
+<p><strong>Example</strong>:</p>
+<p>Show that there are <em>n</em> consecutive composite positive integers for every positive integer <em>n</em></p>
+<p><strong>Explanation</strong>:</p>
+<p>$∀n∃x((x+i)\ is\ composite\ for\ i\ = 1,2,…,n)$</p>
+<p><strong>Proof</strong>:</p>
+<p>Let <em>x</em> = (<em>n</em> + 1)! + 1.</p>
+<p>Consider the integers x + 1, x + 2, … , x + n. </p>
+<p>Note that i + 1 divides $x + i = (n + 1)! + (i + 1)\ for\ i = 1, 2, … , n$</p>
+<p>Hence, <em>n</em> consecutive composite positive integers have been given. </p>
+<p>Q.E.D.</p>
+</blockquote>
+<h3 id="Nonconstructive-Existence-Proof-非构造性证明"><a href="#Nonconstructive-Existence-Proof-非构造性证明" class="headerlink" title="Nonconstructive Existence Proof 非构造性证明"></a>Nonconstructive Existence Proof 非构造性证明</h3><p>Assume no <em>c</em> exists which makes <em>P</em>(<em>c</em>) true and derive a contradiction </p>
+<blockquote>
+<p><strong>Example</strong>:</p>
+<p>Prove that for all integers <em>n</em>, there exists a prime <em>p</em> so that <em>p</em> &gt; <em>n</em></p>
+<p><strong>Proof</strong>:</p>
+<p>Let <em>n</em> be an arbitrary integer, and consider <em>n</em>! + 1.  </p>
+<ul>
+<li><p>If (<em>n</em>! + 1) is prime, we are done since (<em>n</em>! + 1) &gt; <em>n</em>.  </p>
+</li>
+<li><p>But what if (<em>n</em>! + 1) is composite?</p>
+<p>If (<em>n</em>! + 1) is composite then it has a prime factorization:</p>
+<script type="math/tex; mode=display">
+p_1×p_2×…×p_k=(n!+1)</script><p>Consider the smallest $p_1$, it is still larger than n</p>
+<p>Let <em>p =</em> $p_1$ , then  <em>p</em> &gt; <em>n</em>, and we are done.  </p>
+</li>
+</ul>
+<p>Q.E.D.</p>
+<p><strong>Note</strong>:</p>
+<p>WE STILL DON’T KNOW WHAT <em>p</em> IS!!!</p>
+</blockquote>
+<h2 id="Uniqueness-Proof-唯一性证明"><a href="#Uniqueness-Proof-唯一性证明" class="headerlink" title="Uniqueness Proof 唯一性证明"></a>Uniqueness Proof 唯一性证明</h2><p>There are two parts of a <em>uniqueness proof</em>:</p>
+<ul>
+<li><strong><em>Existence</em></strong>: We show that an element <em>x with</em> the desired property exists.</li>
+<li><strong><em>Uniqueness</em></strong> : We show that if <em>y</em>¹<em>x</em>, then <em>y</em> does not have the desired property. Equivalently, we can also show that if <em>x</em> and <em>y</em> both have the desired property, then <em>x</em>=<em>y</em>.</li>
+</ul>
+<blockquote>
+<p><strong>Example</strong>:</p>
+<p>Show that if <em>a</em> and <em>b</em> are real numbers and <em>a</em> ≠ 0, then there is a unique real number <em>r</em> such that $ar+b=0$</p>
+<p><strong>Proof</strong>:</p>
+<ul>
+<li><p><strong>Existence</strong>:  Note that the real number $r = -b/a​$ is a solution of $ar + b = 0​$ because $a(-b/a)+b=-b+b=0​$. Thus, a real number <em>r</em> exists for which $ar + b = 0​$.</p>
+</li>
+<li><p><strong>Uniqueness</strong>: suppose that <em>s</em> is a real number such that $as + b = 0$. Then $as + b = ar + b$, where $r = -b/a$. Subtracting <em>b</em> from both sides, we find that <em>as</em> = <em>ar</em>. Dividing both sides of this last equation by <em>a</em>, which is nonzero, we see that <em>s</em> = <em>r</em>. </p>
+</li>
+</ul>
+<p>Q.E.D. </p>
+</blockquote>
+<h1 id="Proof-Strategies-证明策略"><a href="#Proof-Strategies-证明策略" class="headerlink" title="Proof Strategies 证明策略"></a>Proof Strategies 证明策略</h1><h2 id="Forward-Reasoning-正向推理"><a href="#Forward-Reasoning-正向推理" class="headerlink" title="Forward Reasoning 正向推理"></a>Forward Reasoning 正向推理</h2><p>Using  premises, together with axioms and known theorems to lead to the conclusion. </p>
+<blockquote>
+<p><strong>Example</strong>:</p>
+<p>Given two distinct positive real numbers <em>x</em> and <em>y</em>, their arithmetic mean is $(x+y)/2$ and their geometric mean is $\sqrt{xy}$, the arithmetic mean is always greater than the geometric mean.</p>
+<p><strong>Note</strong>:</p>
+<p>if you start from $(x+y)^2≥0$, then it’s <strong>forward reasoning</strong></p>
+<p>if you start from $(x+y)/2&gt;\sqrt{xy}$, which is the conclusion, then it’s <strong>backward reasoning</strong>, the strategy which we will talk about right below here.</p>
+</blockquote>
+<h2 id="Backward-Reasoning-反向推理"><a href="#Backward-Reasoning-反向推理" class="headerlink" title="Backward Reasoning 反向推理"></a>Backward Reasoning 反向推理</h2><p>To reason backward to prove a statement <em>q</em>, we find a statement <em>p</em> that we can prove with the property that <em>p</em> → <em>q</em>.</p>
+<blockquote>
+<p><strong>Example</strong>:</p>
+<p>Suppose that two people play a game taking turns removing, 1, 2, or 3 stones at a time from a pile that begins with 15 stones. The person who removes the last stone wins the game. Show that the first player can win the game no matter what the second player does.</p>
+<p><strong>Proof</strong>:</p>
+<ul>
+<li><p><strong>Step n</strong>   : Player1 can win if the pile contains 1,2, or 3 stones. </p>
+</li>
+<li><p><strong>Step n-1</strong>: Player2 will have to leave such a pile if the pile that he/she is faced with has 4 stones. </p>
+</li>
+<li><p><strong>Step n-2</strong>: Player1  can leave 4 stones when there are 5,6, or 7 stones left at the beginning of his/her turn. </p>
+</li>
+<li><p><strong>Step n-3</strong>: Player2  must leave  such a pile, if there are  8 stones.</p>
+</li>
+<li><p><strong>Step n-4</strong>: Player1 has to have a pile with 9,10, or 11 stones to ensure that there are 8 left. </p>
+</li>
+<li><p><strong>Step n-5</strong>: Player2  needs to be faced with  12 stones to be forced to leave 9,10, or 11. </p>
+</li>
+<li><p><strong>Step n-6</strong>: Player1  can leave  12 stones by removing 3 stones. </p>
+<p>Now reasoning forward, the first player can ensure a win by removing 3 stones and leaving 12.</p>
+</li>
+</ul>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="/js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://gitee.com/iamncj/Picture_Bed/raw/master/Money_Tips/Wechat_QR.PNG',
+  alipayImage: 'https://gitee.com/iamncj/Picture_Bed/raw/master/Money_Tips/Wechat_QR.PNG'
+});
+</script>
+      
+      
+      <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>Post author:  </strong>NCJ</a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>Post link:  </strong>
+          <a href="/2019/03/13/DM/CH01_Logic_and_Proofs/CH01_04_Rules_of_Inference_and_Proofs/" target="_blank" title="【DM】CH01-04 Rules of Inference and Proofs">https://ncj.wiki/2019/03/13/DM/CH01_Logic_and_Proofs/CH01_04_Rules_of_Inference_and_Proofs/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>Copyright Notice:   </strong>
+            All articles in this blog are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            unless stating additionally.
+          </li>
+         
+        </ul>
+<div>
+
+      
+      
+      
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Discrete-Math/">Discrete Math</a></li></ul>
+
+      
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/03/18/DM/CH02_Basic_Structures/CH02_01_Set/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          【DM】CH02-01 Set
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/03/10/DM/CH01_Logic_and_Proofs/CH01_03_Normal_Form/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">【DM】CH01-03 Normal Form</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Rules-of-Inference-推理规则"><span class="nav-number">1.</span> <span class="nav-text">Rules of Inference 推理规则</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Valid-Arguments-in-Propositional-Logic-命题逻辑的有效论证"><span class="nav-number">1.1.</span> <span class="nav-text">Valid Arguments in Propositional Logic 命题逻辑的有效论证</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Rules-of-Inference-推理原则"><span class="nav-number">1.2.</span> <span class="nav-text">Rules of Inference 推理原则</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Rules-of-Inference-for-Propositional-Logic-命题逻辑的推理原则"><span class="nav-number">1.2.1.</span> <span class="nav-text">Rules of Inference for Propositional Logic 命题逻辑的推理原则</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Resolution-消解律"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">Resolution 消解律</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Rules-of-Inference-for-Quantified-Statements-量化命题的推理规则"><span class="nav-number">1.2.2.</span> <span class="nav-text">Rules of Inference for Quantified Statements 量化命题的推理规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Combining-Rules-of-Inference-for-Propositions-and-Quantified-Statements-命题和量化命题的组合使用"><span class="nav-number">1.2.3.</span> <span class="nav-text">Combining Rules of Inference for Propositions and Quantified Statements 命题和量化命题的组合使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Universal-Modus-Ponens-全称假言推理"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">Universal Modus Ponens 全称假言推理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Universal-Modus-Tollens-全称取拒式"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">Universal Modus Tollens 全称取拒式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Using-Rules-of-Inference-to-Build-Arguments-使用推理规则建立论证"><span class="nav-number">1.3.</span> <span class="nav-text">Using Rules of Inference to Build Arguments 使用推理规则建立论证</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#e-g-1-Propositional-Logic-命题逻辑"><span class="nav-number">1.3.1.</span> <span class="nav-text">e.g.1 Propositional Logic 命题逻辑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#e-g-2-Quantified-Statements-量化命题"><span class="nav-number">1.3.2.</span> <span class="nav-text">e.g.2 Quantified Statements 量化命题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#e-g-3-Combination-组合使用"><span class="nav-number">1.3.3.</span> <span class="nav-text">e.g.3 Combination 组合使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Fallacies-谬误"><span class="nav-number">1.4.</span> <span class="nav-text">Fallacies 谬误</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Fallacy-of-denying-the-hypothesis-否定假设的谬误"><span class="nav-number">1.4.1.</span> <span class="nav-text">Fallacy of denying the hypothesis 否定假设的谬误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Fallacy-of-affirming-the-conclusion-肯定结论的谬误"><span class="nav-number">1.4.2.</span> <span class="nav-text">Fallacy of affirming the conclusion 肯定结论的谬误</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction-to-Proofs-证明导论"><span class="nav-number">2.</span> <span class="nav-text">Introduction to Proofs 证明导论</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Some-Terminology-一些专业术语"><span class="nav-number">2.1.</span> <span class="nav-text">Some Terminology 一些专业术语</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Understanding-How-Theorems-Are-Stated-理解定理是如何陈述的"><span class="nav-number">2.2.</span> <span class="nav-text">Understanding How Theorems Are Stated 理解定理是如何陈述的</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Implied-Universal-Quantifiers-隐含全称量词"><span class="nav-number">2.2.1.</span> <span class="nav-text">Implied Universal Quantifiers 隐含全称量词</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Implicit-Implications-暗示关系"><span class="nav-number">2.2.2.</span> <span class="nav-text">Implicit Implications 暗示关系</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Methods-of-Proving-Theorems-证明方法"><span class="nav-number">2.3.</span> <span class="nav-text">Methods of Proving Theorems 证明方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Formal-Proofs-形式化证明"><span class="nav-number">2.3.1.</span> <span class="nav-text">Formal Proofs 形式化证明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Informal-Proofs-非形式化证明"><span class="nav-number">2.3.2.</span> <span class="nav-text">Informal Proofs 非形式化证明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mistakes-in-Proofs-证明中的错误"><span class="nav-number">2.4.</span> <span class="nav-text">Mistakes in Proofs 证明中的错误</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Proof-Methods-证明方法"><span class="nav-number">3.</span> <span class="nav-text">Proof Methods 证明方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Direct-Proofs-直接证明"><span class="nav-number">3.1.</span> <span class="nav-text">Direct Proofs 直接证明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Indirect-Proofs-间接证明"><span class="nav-number">3.2.</span> <span class="nav-text">Indirect Proofs 间接证明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Proof-by-Contraposition-反证法"><span class="nav-number">3.2.1.</span> <span class="nav-text">Proof by Contraposition 反证法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Vacuous-Proof-空证明"><span class="nav-number">3.2.1.1.</span> <span class="nav-text">Vacuous Proof 空证明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Trivial-Proof-平凡证明"><span class="nav-number">3.2.1.2.</span> <span class="nav-text">Trivial Proof 平凡证明</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Proof-by-Contradiction-归谬证明法"><span class="nav-number">3.2.2.</span> <span class="nav-text">Proof by Contradiction 归谬证明法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Proof-p-→-q-by-Contradiction-运用归谬证明法证明蕴含关系"><span class="nav-number">3.2.2.1.</span> <span class="nav-text">Proof  p → q by Contradiction 运用归谬证明法证明蕴含关系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Proofs-of-Equivalence-by-Contradiction-运用归谬证明法的等价证明法"><span class="nav-number">3.2.2.2.</span> <span class="nav-text">Proofs of Equivalence by Contradiction 运用归谬证明法的等价证明法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Counterexamples-反例证明法"><span class="nav-number">3.2.3.</span> <span class="nav-text">Counterexamples 反例证明法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Proof-by-Cases-分情形证明法"><span class="nav-number">3.3.</span> <span class="nav-text">Proof by Cases 分情形证明法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exhaustive-Proof-穷举证明法"><span class="nav-number">3.4.</span> <span class="nav-text">Exhaustive Proof 穷举证明法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Existence-Proof-存在性证明"><span class="nav-number">3.5.</span> <span class="nav-text">Existence Proof 存在性证明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Constructive-Existence-Proof-构造性证明"><span class="nav-number">3.5.1.</span> <span class="nav-text">Constructive Existence Proof 构造性证明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Nonconstructive-Existence-Proof-非构造性证明"><span class="nav-number">3.5.2.</span> <span class="nav-text">Nonconstructive Existence Proof 非构造性证明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Uniqueness-Proof-唯一性证明"><span class="nav-number">3.6.</span> <span class="nav-text">Uniqueness Proof 唯一性证明</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Proof-Strategies-证明策略"><span class="nav-number">4.</span> <span class="nav-text">Proof Strategies 证明策略</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Forward-Reasoning-正向推理"><span class="nav-number">4.1.</span> <span class="nav-text">Forward Reasoning 正向推理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Backward-Reasoning-反向推理"><span class="nav-number">4.2.</span> <span class="nav-text">Backward Reasoning 反向推理</span></a></li></ol></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2018 - 2019 NCJ-Blog All Rights Reserved.</p>
+	      
+	      
+  		   	<p id="copyRightCn">NCJ hold copyright</p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            NCJ-Blog
+          </div>
+          <div class="panel-body">
+            Copyright © 2019 NCJ All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

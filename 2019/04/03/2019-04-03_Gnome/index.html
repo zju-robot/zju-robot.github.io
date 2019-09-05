@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>在wsl上安装gnome桌面方法的正解 | NCJ-Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="LinuxWSLGnome">
+  
+  
+  
+  
+  <meta name="description" content="网上的教程千篇一律安装的是Unity桌面，而Unity真心难用！自己折腾了一下成功了，简单记录一下方法，帮大家踩踩坑 Step1. 通过tasksel安装Ubuntu Desktop通过任务的方式安装Ubuntu Desktop tasksel有一个基于curses的GUI 用空格选择Ubuntu Desktop，回车安装即可  这样装下来的Ubuntu Desktop是Gnome版的，CSDN上">
+<meta name="keywords" content="Linux,WSL,Gnome">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在WSL上安装GNOME桌面方法的正解">
+<meta property="og:url" content="https://ncj.wiki/2019/04/03/2019-04-03_Gnome/index.html">
+<meta property="og:site_name" content="NCJ-Blog">
+<meta property="og:description" content="网上的教程千篇一律安装的是Unity桌面，而Unity真心难用！自己折腾了一下成功了，简单记录一下方法，帮大家踩踩坑 Step1. 通过tasksel安装Ubuntu Desktop通过任务的方式安装Ubuntu Desktop tasksel有一个基于curses的GUI 用空格选择Ubuntu Desktop，回车安装即可  这样装下来的Ubuntu Desktop是Gnome版的，CSDN上">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2019-04-03_Gnome/1.png">
+<meta property="og:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2019-04-03_Gnome/2.png">
+<meta property="og:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2019-04-03_Gnome/3.png">
+<meta property="og:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2019-04-03_Gnome/4.png">
+<meta property="og:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2019-04-03_Gnome/5.png">
+<meta property="og:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2019-04-03_Gnome/6.png">
+<meta property="og:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2019-04-03_Gnome/7.png">
+<meta property="og:updated_time" content="2019-09-05T13:38:45.731Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="在WSL上安装GNOME桌面方法的正解">
+<meta name="twitter:description" content="网上的教程千篇一律安装的是Unity桌面，而Unity真心难用！自己折腾了一下成功了，简单记录一下方法，帮大家踩踩坑 Step1. 通过tasksel安装Ubuntu Desktop通过任务的方式安装Ubuntu Desktop tasksel有一个基于curses的GUI 用空格选择Ubuntu Desktop，回车安装即可  这样装下来的Ubuntu Desktop是Gnome版的，CSDN上">
+<meta name="twitter:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2019-04-03_Gnome/1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="NCJ-Blog" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt; src:url("css/fonts/FuturaPTBold.otf") format("woff");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt-light; src:url("css/fonts/FuturaPTBook.otf") format("woff");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt-italic; src:url("css/fonts/FuturaPTBookOblique.otf") format("woff");font-weight:400;font-style:italic;}
+}
+
+  </style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css">
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css">
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css">
+  
+
+</head>
+</html>
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  
+                    <li> <a class="main-nav-link" href="/">Home</a> </li>
+                  
+                  
+                
+                  
+                    <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                  
+                  
+                
+                  
+                    <li> <a class="main-nav-link" href="https://ncj.wiki/Projects_Show">Projects</a> </li>
+                  
+                  
+                
+                  
+                    <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                  
+                  
+                
+                  
+                    <li> <a class="main-nav-link" href="/about">About</a> </li>
+                  
+                  
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-2019-04-03_Gnome" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      在WSL上安装GNOME桌面方法的正解
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2019/04/03/2019-04-03_Gnome/" class="article-date">
+	  <time datetime="2019-04-03T12:55:00.000Z" itemprop="datePublished">2019-04-03</time>
+	</a>
+
+      
+      
+      
+
+      </br></br>
+      WordCount: 
+      <span class="post-count">583</span>
+      Min2Read: 
+      <span class="post-count">2</span>
+      <!-- <span class="post-count">26.5k</span> -->
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>网上的教程千篇一律安装的是Unity桌面，而Unity真心难用！自己折腾了一下成功了，简单记录一下方法，帮大家踩踩坑</p>
+<h1 id="Step1-通过tasksel安装Ubuntu-Desktop"><a href="#Step1-通过tasksel安装Ubuntu-Desktop" class="headerlink" title="Step1. 通过tasksel安装Ubuntu Desktop"></a>Step1. 通过tasksel安装Ubuntu Desktop</h1><p>通过任务的方式安装Ubuntu Desktop</p>
+<p>tasksel有一个基于curses的GUI</p>
+<p>用空格选择Ubuntu Desktop，回车安装即可</p>
+<blockquote>
+<p>这样装下来的Ubuntu Desktop是Gnome版的，CSDN上流传的那些指令装下来的全是Unity环境</p>
+</blockquote>
+<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2019-04-03_Gnome/1.png" alt></p>
+<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2019-04-03_Gnome/2.png" alt></p>
+<blockquote>
+<p>tasksel安装的好处是无需过多关心包依赖等问题，缺陷在于会安装很多我们不想要的包，比如libreoffice，但是这些多余的包可以日后卸载</p>
+</blockquote>
+<h1 id="Step2-安装并启动Xming"><a href="#Step2-安装并启动Xming" class="headerlink" title="Step2. 安装并启动Xming"></a>Step2. 安装并启动Xming</h1><p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2019-04-03_Gnome/3.png" alt></p>
+<p>启动完整桌面环境时用这个（其余的参数都不用改！包括Display number！）</p>
+<p>如果你只是想用用单个程序的GUI界面，选Multiple windows就好了</p>
+<h1 id="Step3-启动GNOME桌面"><a href="#Step3-启动GNOME桌面" class="headerlink" title="Step3. 启动GNOME桌面"></a>Step3. 启动GNOME桌面</h1><p>注意四点：</p>
+<ol>
+<li>Gnome目前还不稳定，因此启动前最好确保dbus服务正在运行，最简单的方式就是start或者restart一下</li>
+<li>需要指定桌面端口以及会话类型（X11）</li>
+<li>要加<code>sudo</code>，因为Gnome启动时，<code>dconf</code>也会启动，而后者要在用户根目录下的<code>.cache</code>内创建一个文件夹<code>dconf</code>，估计是想存放一些配置参数之类的，不用<code>sudo</code>的话会在这一步进入死循环，如图<img src="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2019-04-03_Gnome/4.png" alt></li>
+<li>因为已经是超级用户了，所以进入gnome环境后你的身份就是<code>root</code>，不用多说了吧，干啥都悠着点好了……</li>
+</ol>
+<p>上命令：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo service dbus start</span><br><span class="line">sudo DISPLAY=:0 XDG_SESSION_TYPE=x11 gnome-session</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2019-04-03_Gnome/5.png" alt></p>
+<p>好了，现在该怎么折腾就怎么折腾吧……（比如把libreoffice等用Ubuntu Software卸载掉）</p>
+<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2019-04-03_Gnome/6.png" alt></p>
+<h1 id="Step4-简化日后操作"><a href="#Step4-简化日后操作" class="headerlink" title="Step4. 简化日后操作"></a>Step4. 简化日后操作</h1><p>为了日后简单起见，其实可以通过向<code>.bashrc</code>中写入<code>export DISPLAY=:0.0</code>的方式，让每次启动bash时都运行这句话。毕竟开gnome完整桌面环境的频率还是没有开单个GUI程序的频率高，因此加上这一步可以简化日后在Xming中启动单个GUI程序的指令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">"export DISPLAY=:0.0"</span> &gt;&gt; ~/.bashrc</span><br></pre></td></tr></table></figure>
+<p>此后我们再想启动gnome桌面时，直接输入以下命令就好</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo service dbus restart</span><br><span class="line">sudo XDG_SESSION_TYPE=x11 gnome-session</span><br></pre></td></tr></table></figure>
+<p>而单个程序就更简单了，比如</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gedit</span><br></pre></td></tr></table></figure>
+<p>展现一下“混合系统”的效果……</p>
+<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2019-04-03_Gnome/7.png" alt></p>
+<hr>
+<p>踩坑完毕</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="/js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://gitee.com/iamncj/Picture_Bed/raw/master/Money_Tips/Wechat_QR.PNG',
+  alipayImage: 'https://gitee.com/iamncj/Picture_Bed/raw/master/Money_Tips/Wechat_QR.PNG'
+});
+</script>
+      
+      
+      <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>Post author:  </strong>NCJ</a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>Post link:  </strong>
+          <a href="/2019/04/03/2019-04-03_Gnome/" target="_blank" title="在WSL上安装GNOME桌面方法的正解">https://ncj.wiki/2019/04/03/2019-04-03_Gnome/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>Copyright Notice:   </strong>
+            All articles in this blog are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            unless stating additionally.
+          </li>
+         
+        </ul>
+<div>
+
+      
+      
+      
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Gnome/">Gnome</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WSL/">WSL</a></li></ul>
+
+      
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/04/04/2019-04-04_Crawl_Notes/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          记一次奇葩的爬虫踩坑经历
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/03/18/DM/CH02_Basic_Structures/CH02_01_Set/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">【DM】CH02-01 Set</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Step1-通过tasksel安装Ubuntu-Desktop"><span class="nav-number">1.</span> <span class="nav-text">Step1. 通过tasksel安装Ubuntu Desktop</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Step2-安装并启动Xming"><span class="nav-number">2.</span> <span class="nav-text">Step2. 安装并启动Xming</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Step3-启动GNOME桌面"><span class="nav-number">3.</span> <span class="nav-text">Step3. 启动GNOME桌面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Step4-简化日后操作"><span class="nav-number">4.</span> <span class="nav-text">Step4. 简化日后操作</span></a></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2018 - 2019 NCJ-Blog All Rights Reserved.</p>
+	      
+	      
+  		   	<p id="copyRightCn">NCJ hold copyright</p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            NCJ-Blog
+          </div>
+          <div class="panel-body">
+            Copyright © 2019 NCJ All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

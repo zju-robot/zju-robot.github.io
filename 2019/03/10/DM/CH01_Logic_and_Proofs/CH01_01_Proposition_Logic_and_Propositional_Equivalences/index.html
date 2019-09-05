@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>【dm】ch01-01 proposition logic and propositional equivalences | NCJ-Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="Discrete Math">
+  
+  
+  
+  
+  <meta name="description" content="Chapter 01 Logic and Proofs 逻辑与证明 Part 01 Proposition Logic and Propositional Equivalences Covering1.1 ~ 1.3  Proposition Logic 命题逻辑 Knowledge Frame 知识框架  Proposition 命题 Connectives 联结 (命题之间的关联) Negat">
+<meta name="keywords" content="Discrete Math">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【DM】CH01-01 Proposition Logic and Propositional Equivalences">
+<meta property="og:url" content="https://ncj.wiki/2019/03/10/DM/CH01_Logic_and_Proofs/CH01_01_Proposition_Logic_and_Propositional_Equivalences/index.html">
+<meta property="og:site_name" content="NCJ-Blog">
+<meta property="og:description" content="Chapter 01 Logic and Proofs 逻辑与证明 Part 01 Proposition Logic and Propositional Equivalences Covering1.1 ~ 1.3  Proposition Logic 命题逻辑 Knowledge Frame 知识框架  Proposition 命题 Connectives 联结 (命题之间的关联) Negat">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/DM_illustrations/img/CH01/003.png">
+<meta property="og:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/DM_illustrations/img/CH01/004.png">
+<meta property="og:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/DM_illustrations/img/CH01/005.png">
+<meta property="og:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/DM_illustrations/img/CH01/006.png">
+<meta property="og:updated_time" content="2019-09-05T13:38:45.733Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【DM】CH01-01 Proposition Logic and Propositional Equivalences">
+<meta name="twitter:description" content="Chapter 01 Logic and Proofs 逻辑与证明 Part 01 Proposition Logic and Propositional Equivalences Covering1.1 ~ 1.3  Proposition Logic 命题逻辑 Knowledge Frame 知识框架  Proposition 命题 Connectives 联结 (命题之间的关联) Negat">
+<meta name="twitter:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/DM_illustrations/img/CH01/003.png">
+  
+    <link rel="alternate" href="/atom.xml" title="NCJ-Blog" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt; src:url("css/fonts/FuturaPTBold.otf") format("woff");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt-light; src:url("css/fonts/FuturaPTBook.otf") format("woff");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt-italic; src:url("css/fonts/FuturaPTBookOblique.otf") format("woff");font-weight:400;font-style:italic;}
+}
+
+  </style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css">
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css">
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css">
+  
+
+</head>
+</html>
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  
+                    <li> <a class="main-nav-link" href="/">Home</a> </li>
+                  
+                  
+                
+                  
+                    <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                  
+                  
+                
+                  
+                    <li> <a class="main-nav-link" href="https://ncj.wiki/Projects_Show">Projects</a> </li>
+                  
+                  
+                
+                  
+                    <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                  
+                  
+                
+                  
+                    <li> <a class="main-nav-link" href="/about">About</a> </li>
+                  
+                  
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-DM/CH01_Logic_and_Proofs/CH01_01_Proposition_Logic_and_Propositional_Equivalences" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      【DM】CH01-01 Proposition Logic and Propositional Equivalences
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2019/03/10/DM/CH01_Logic_and_Proofs/CH01_01_Proposition_Logic_and_Propositional_Equivalences/" class="article-date">
+	  <time datetime="2019-03-10T11:45:29.000Z" itemprop="datePublished">2019-03-10</time>
+	</a>
+
+      
+      
+      
+
+      </br></br>
+      WordCount: 
+      <span class="post-count">1.6k</span>
+      Min2Read: 
+      <span class="post-count">8</span>
+      <!-- <span class="post-count">26.5k</span> -->
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Chapter 01 Logic and Proofs 逻辑与证明</p>
+<p>Part 01 Proposition Logic and Propositional Equivalences</p>
+<p>Covering1.1 ~ 1.3</p>
+<hr>
+<h1 id="Proposition-Logic-命题逻辑"><a href="#Proposition-Logic-命题逻辑" class="headerlink" title="Proposition Logic 命题逻辑"></a>Proposition Logic 命题逻辑</h1><blockquote>
+<p>Knowledge Frame 知识框架</p>
+<ul>
+<li>Proposition 命题</li>
+<li>Connectives 联结 (命题之间的关联)<ul>
+<li>Negation (NOT) 否定</li>
+<li>Conjunction (AND) 合取</li>
+<li>Disjunction (OR) 析取</li>
+<li>Exclusive Or (XOR) 异或</li>
+<li>Implication (if-then) 蕴含</li>
+<li>Converse, Contrapositive, and Inverse 逆命题、逆否命题、否命题</li>
+<li>Biconditional (if and only if) 双条件</li>
+<li><em>Precedence 优先级</em></li>
+</ul>
+</li>
+<li>Truth Table 真值表 (一个工具)</li>
+<li>Equivalent Propositions 等价命题</li>
+<li>Bit Operations 位运算</li>
+</ul>
+</blockquote>
+<h2 id="Proposition-命题"><a href="#Proposition-命题" class="headerlink" title="Proposition 命题"></a>Proposition 命题</h2><blockquote>
+<p>A proposition is  a declarative sentence that is either true or false, <strong>but not both</strong>.</p>
+<p>命题是一个陈述语句，它或真或假，但不能既真又假。</p>
+</blockquote>
+<h3 id="不是命题的几种典型反例"><a href="#不是命题的几种典型反例" class="headerlink" title="不是命题的几种典型反例"></a>不是命题的几种典型反例</h3><ol>
+<li>command 命令 (e.g. Read it loud!)</li>
+<li>question 疑问  (e.g. What time is it?)</li>
+<li>paradox 悖论 (e.g. This statement is false.)</li>
+<li>equation with unknowns 含有未知数的等式 (e.g. x + y = z)</li>
+</ol>
+<p>使用字母来表示命题变元(propositional variables)</p>
+<h2 id="Connectives-联结"><a href="#Connectives-联结" class="headerlink" title="Connectives 联结"></a>Connectives 联结</h2><h3 id="Negation-NOT-否定"><a href="#Negation-NOT-否定" class="headerlink" title="Negation (NOT) 否定"></a>Negation (NOT) 否定</h3><p>The negation of a proposition p : <strong>¬p</strong> (not p)</p>
+<h3 id="Conjunction-AND-合取"><a href="#Conjunction-AND-合取" class="headerlink" title="Conjunction (AND) 合取"></a>Conjunction (AND) 合取</h3><p>The conjunction of propositions p and q : <strong>p ∧ q</strong> (p and q)</p>
+<blockquote>
+<p>Note: The sun is shining , <strong>but</strong> it is raining.</p>
+<p>自然语言和逻辑语言是有区别的，不要混为一谈。这一点在之后还会出现！</p>
+</blockquote>
+<h3 id="Disjunction-OR-析取"><a href="#Disjunction-OR-析取" class="headerlink" title="Disjunction (OR) 析取"></a>Disjunction (OR) 析取</h3><p>The disjunction of propositions p and q : <strong>p ∨ q</strong> (p or q)</p>
+<h3 id="Exclusive-Or-XOR-异或"><a href="#Exclusive-Or-XOR-异或" class="headerlink" title="Exclusive Or (XOR) 异或"></a>Exclusive Or (XOR) 异或</h3><p>the exclusive or of p and q :  <strong>p ⊕ q</strong> </p>
+<p>(True when exactly one of p and q is true.)</p>
+<blockquote>
+<p> Note: ∨ vs. ⊕</p>
+<ul>
+<li><p>Inclusive or: ∨</p>
+</li>
+<li><p>Exclusive or: ⊕</p>
+</li>
+</ul>
+</blockquote>
+<h3 id="Implication-if-then-蕴含"><a href="#Implication-if-then-蕴含" class="headerlink" title="Implication (if-then) 蕴含"></a>Implication (if-then) 蕴含</h3><p>Implication or conditional statement : <strong>p → q</strong> (if p, then q)</p>
+<blockquote>
+<p>Note: 再次注意，自然语言和逻辑语言是有区别的，生活中的逻辑也不要强行带入</p>
+<p>e.g. If the moon is made of green cheese, then I have more money than Bill Gates. 这句话的真值为T</p>
+</blockquote>
+<h4 id="Different-Ways-of-Expressing-p-→-q"><a href="#Different-Ways-of-Expressing-p-→-q" class="headerlink" title="Different Ways of Expressing p → q"></a>Different Ways of Expressing p → q</h4><p>大部分直接读读就知道了，但是有两个很坑</p>
+<ul>
+<li><p><strong>p only if q</strong></p>
+</li>
+<li><p><strong>q unless ¬p</strong></p>
+</li>
+</ul>
+<p>思考它们的最佳办法就是带入一个实例</p>
+<blockquote>
+<p>e.g. <strong>Mary will eat the fruit only if the fruit is apple.</strong></p>
+<p>p : Mary will eat the fruit</p>
+<p>q : the fruit is apple</p>
+<p><strong>if</strong> (Mary will eat the fruit), <strong>then</strong> (the fruit is apple)</p>
+<p><strong>if p, then q</strong></p>
+<p>in English, <strong>not unless = only if</strong></p>
+</blockquote>
+<h3 id="Converse-Contrapositive-and-Inverse-逆命题、逆否命题、否命题"><a href="#Converse-Contrapositive-and-Inverse-逆命题、逆否命题、否命题" class="headerlink" title="Converse, Contrapositive, and Inverse 逆命题、逆否命题、否命题"></a>Converse, Contrapositive, and Inverse 逆命题、逆否命题、否命题</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><strong>p → q</strong></th>
+<th style="text-align:center"><strong>Implication</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>q → p</strong></td>
+<td style="text-align:center"><strong>Converse</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>¬q → ¬p</strong></td>
+<td style="text-align:center"><strong>Contrapositive</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>¬p → ¬q</strong></td>
+<td style="text-align:center"><strong>Inverse</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="Biconditional-if-and-only-if-双条件"><a href="#Biconditional-if-and-only-if-双条件" class="headerlink" title="Biconditional (if and only if) 双条件"></a>Biconditional (if and only if) 双条件</h3><p>the biconditional proposition : <strong>p ↔ q</strong> (p if and only if q, p <strong>iff</strong> q, vice versa)</p>
+<h3 id="Precedence-优先级"><a href="#Precedence-优先级" class="headerlink" title="Precedence 优先级"></a><em>Precedence 优先级</em></h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Operator</th>
+<th style="text-align:center">Precedence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">¬</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">∧    ∨</td>
+<td style="text-align:center">2   3</td>
+</tr>
+<tr>
+<td style="text-align:center">→    ↔</td>
+<td style="text-align:center">4   5</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="Truth-Table-真值表"><a href="#Truth-Table-真值表" class="headerlink" title="Truth Table 真值表"></a>Truth Table 真值表</h2><p>真值表是研究命题逻辑的重要工具</p>
+<p>在构建真值表时，其实就是在手工模拟计算机枚举的过程</p>
+<p>不难，仅以一题为例</p>
+<blockquote>
+<p>An island has two kinds of inhabitants, <strong><em>knights</em></strong>, who always tell the truth, and <strong><em>knaves</em></strong>, who always lie. You go to the island and meet A and B. </p>
+<p>A says “B is a knight.”</p>
+<p>B says “The two of us are of opposite types.”</p>
+<p>What are the types of A and B?</p>
+</blockquote>
+<p>Let  <em>p</em>:  “A is a knight”</p>
+<p>​       <em>q</em>:  “B is a knight” </p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">p</th>
+<th style="text-align:center">q</th>
+<th style="text-align:center">p ↔ q</th>
+<th style="text-align:center">q ↔ p ⊕ q</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">T</td>
+<td style="text-align:center">T</td>
+<td style="text-align:center">T</td>
+<td style="text-align:center">F</td>
+</tr>
+<tr>
+<td style="text-align:center">T</td>
+<td style="text-align:center">F</td>
+<td style="text-align:center">F</td>
+<td style="text-align:center">F</td>
+</tr>
+<tr>
+<td style="text-align:center">F</td>
+<td style="text-align:center">T</td>
+<td style="text-align:center">F</td>
+<td style="text-align:center">T</td>
+</tr>
+<tr>
+<td style="text-align:center">F</td>
+<td style="text-align:center">F</td>
+<td style="text-align:center"><strong>T</strong></td>
+<td style="text-align:center"><strong>T</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>So the answer is that both A and B are knaves.</p>
+<h2 id="Equivalent-Propositions-等价命题"><a href="#Equivalent-Propositions-等价命题" class="headerlink" title="Equivalent Propositions 等价命题"></a>Equivalent Propositions 等价命题</h2><p>Two propositions are equivalent if they <strong>always</strong> have the same truth value.</p>
+<h3 id="Two-Related-Problems"><a href="#Two-Related-Problems" class="headerlink" title="Two Related Problems"></a>Two Related Problems</h3><h4 id="How-many-rows-are-there-in-a-truth-table-with-npropositional-variables"><a href="#How-many-rows-are-there-in-a-truth-table-with-npropositional-variables" class="headerlink" title="How many rows are there in a truth table with npropositional variables?"></a>How many rows are there in a truth table with npropositional variables?</h4><p>$2^n$</p>
+<h4 id="With-n-propositional-variables-we-can-construct-distinct-i-e-not-equivalent-propositions"><a href="#With-n-propositional-variables-we-can-construct-distinct-i-e-not-equivalent-propositions" class="headerlink" title="With n propositional variables, we can construct ( ) distinct (i.e., not equivalent) propositions"></a>With n propositional variables, we can construct ( ) distinct (i.e., not equivalent) propositions</h4><p>$2^{2^n}​$</p>
+<p>稍加解释一下，有n个命题变量时，真值表就有了$2^n$种情况，而每一个命题对于每一种情况，它都可以有T和F两个值（注意，如果两个命题在这$2^n$个情况之下真值完全相同，则它们被视为完全等价的两个命题，即在这里被算为一个）那么此时，就有了$2^{2^n}$种不同的真值组合，对应$2^{2^n}$种不同的命题</p>
+<h2 id="Bit-Operations-位运算"><a href="#Bit-Operations-位运算" class="headerlink" title="Bit Operations 位运算"></a>Bit Operations 位运算</h2><ul>
+<li><strong>Bit</strong>: a symbol with two possible values , namely, <strong>0 and 1</strong>.</li>
+<li><strong>Boolean variable</strong>: one whose value is either <strong>true or false</strong>.</li>
+<li>A <strong>bit string</strong> is a sequence of zero or more bits</li>
+<li><strong>Bitwise operations</strong> are bit operations extended to bit strings. （按位X）</li>
+</ul>
+<h1 id="Propositional-Equivalences-命题等价式"><a href="#Propositional-Equivalences-命题等价式" class="headerlink" title="Propositional Equivalences 命题等价式"></a>Propositional Equivalences 命题等价式</h1><h2 id="Tautologies-Contradictions-and-Contingencies-永真、永假、可能式"><a href="#Tautologies-Contradictions-and-Contingencies-永真、永假、可能式" class="headerlink" title="Tautologies, Contradictions, and Contingencies 永真、永假、可能式"></a>Tautologies, Contradictions, and Contingencies 永真、永假、可能式</h2><h3 id="Tautologies-永真-（重言式）"><a href="#Tautologies-永真-（重言式）" class="headerlink" title="Tautologies 永真 （重言式）"></a>Tautologies 永真 （重言式）</h3><p>A  tautology is a proposition which is <strong>always true</strong>.</p>
+<p>e.g. p ∨ ¬p</p>
+<h3 id="Contradictions-永假-（矛盾式）"><a href="#Contradictions-永假-（矛盾式）" class="headerlink" title="Contradictions 永假 （矛盾式）"></a>Contradictions 永假 （矛盾式）</h3><p>A  contradiction is a proposition which is <strong>always false</strong>.</p>
+<p>e.g. p ∧ ¬p</p>
+<h3 id="Contingencies-可能式"><a href="#Contingencies-可能式" class="headerlink" title="Contingencies 可能式"></a>Contingencies 可能式</h3><p>A  contingency is a proposition which is <strong>neither</strong> a tautology <strong>nor</strong> a contradiction, such as  p</p>
+<h2 id="Logical-Equivalences-逻辑等价式"><a href="#Logical-Equivalences-逻辑等价式" class="headerlink" title="Logical Equivalences 逻辑等价式"></a>Logical Equivalences 逻辑等价式</h2><p>The compound propositions <em>p</em> and <em>q</em> are called <strong>logically equivalent</strong> if <em>p</em> ↔ <em>q</em> is a tautology.</p>
+<h3 id="Notation-记号"><a href="#Notation-记号" class="headerlink" title="Notation 记号"></a>Notation 记号</h3><p><strong>p ⇔ q</strong> or <strong>p ≡ q</strong></p>
+<blockquote>
+<p><strong>Remark</strong></p>
+<p>The symbol ≡ is not a logical connective, and p ≡ q is not a compound proposition but rather is the statement that p ↔ q is a tautology.</p>
+</blockquote>
+<h2 id="Laws-一些等价定律"><a href="#Laws-一些等价定律" class="headerlink" title="Laws 一些等价定律"></a>Laws 一些等价定律</h2><h3 id="De-Morgan’s-Laws-德·摩根律"><a href="#De-Morgan’s-Laws-德·摩根律" class="headerlink" title="De Morgan’s Laws 德·摩根律"></a>De Morgan’s Laws 德·摩根律</h3><ul>
+<li><p>¬(p ∧ q) ≡ ¬p ∨ ¬q</p>
+</li>
+<li><p>¬(p ∨ q) ≡ ¬p ∧ ¬q</p>
+</li>
+</ul>
+<h4 id="The-Extended-Version-of-De-Morgan’s-Laws-德·摩根律拓展形式"><a href="#The-Extended-Version-of-De-Morgan’s-Laws-德·摩根律拓展形式" class="headerlink" title="The Extended Version of  De Morgan’s Laws 德·摩根律拓展形式"></a>The Extended Version of  De Morgan’s Laws 德·摩根律拓展形式</h4><p>$¬(p_1 ∧ p_2 ∧ … ∧ p_n) ≡ ¬p_1 ∨ ¬p_2  ∨  …  ∨ ¬p_n$</p>
+<p>$¬(p_1 ∨ p_2 ∨ … ∨ p_n) ≡ ¬p_1 ∧ ¬p_2  ∧  …  ∧ ¬p_n$</p>
+<p>We will sometimes use the notation $\bigvee<em>{j = 1}^{n} p_j$ for $p_1 \vee p_2 \vee … \vee p_n$ and $\bigwedge</em>{j = 1}^n p<em>j$ for $p_1 \wedge p_2 \wedge … \wedge p_n$. Using this notation, the extended version of De Morgan’s laws can be written concisely as $\lnot (\bigvee</em>{j = 1}^n p<em>j) \equiv \bigwedge</em>{j = 1}^n p<em>j $ and $\lnot (\bigwedge</em>{j = 1}^n p<em>j) \equiv \bigvee</em>{j = 1}^n \lnot p_j$. (Methods for proving these identities will be given in Section 5.1)</p>
+<h3 id="Key-Logical-Equivalences-重要的逻辑等价式"><a href="#Key-Logical-Equivalences-重要的逻辑等价式" class="headerlink" title="Key Logical Equivalences 重要的逻辑等价式"></a>Key Logical Equivalences 重要的逻辑等价式</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th><strong>Name</strong></th>
+<th><strong>Equivalences</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Identity laws</td>
+<td>$p \wedge T \equiv p, p \vee F \equiv p$</td>
+</tr>
+<tr>
+<td>Domination laws</td>
+<td>$p \vee T \equiv T, p \wedge F \equiv F$</td>
+</tr>
+<tr>
+<td>Idempotent laws</td>
+<td>$p \vee p \equiv p, p \wedge p \equiv p$</td>
+</tr>
+<tr>
+<td>Double negation law</td>
+<td>$\lnot \lnot p \equiv p$</td>
+</tr>
+<tr>
+<td>Commutative laws</td>
+<td>$p \vee q \equiv q \vee p, p \wedge q \equiv q \wedge p$</td>
+</tr>
+<tr>
+<td>Associative laws</td>
+<td>$(p \vee q) \vee r \equiv p \vee (q \vee r), (p \wedge q) \wedge r \equiv p \wedge (q \wedge r)$</td>
+</tr>
+<tr>
+<td>Distributive laws</td>
+<td>$p \vee (q \wedge r) \equiv (p \vee q) \wedge (p \vee r), p \wedge (q \vee r) \equiv (p \wedge q) \vee (p \wedge r)$</td>
+</tr>
+<tr>
+<td>De Morgan’s laws</td>
+<td>$\lnot (p \wedge q) \equiv \lnot p \vee \lnot q, \lnot (p \vee q) \equiv \lnot p \wedge \lnot q$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/DM_illustrations/img/CH01/003.png" alt></p>
+<h2 id="Constructing-New-Logical-Equivalences-构建新的逻辑等价式"><a href="#Constructing-New-Logical-Equivalences-构建新的逻辑等价式" class="headerlink" title="Constructing New Logical Equivalences 构建新的逻辑等价式"></a>Constructing New Logical Equivalences 构建新的逻辑等价式</h2><h3 id="Using-Truth-Tables"><a href="#Using-Truth-Tables" class="headerlink" title="Using Truth Tables"></a>Using Truth Tables</h3><p>Easy but time-consuming when the number of variables is large</p>
+<h3 id="Using-already-proved-equivalences"><a href="#Using-already-proved-equivalences" class="headerlink" title="Using already-proved equivalences"></a>Using already-proved equivalences</h3><p>Just like what we do in Algebra</p>
+<h4 id="推理逻辑的基础——传递性"><a href="#推理逻辑的基础——传递性" class="headerlink" title="推理逻辑的基础——传递性"></a>推理逻辑的基础——传递性</h4><p>$A_1 ≡ A_2$</p>
+<p>$A_2 ≡ A_3$</p>
+<p>……</p>
+<p>$A_{n-1} ≡ A_n$</p>
+<h4 id="Samples-of-Equivalence-Proofs"><a href="#Samples-of-Equivalence-Proofs" class="headerlink" title="Samples of Equivalence Proofs"></a>Samples of Equivalence Proofs</h4><blockquote>
+<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/DM_illustrations/img/CH01/004.png" alt></p>
+<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/DM_illustrations/img/CH01/005.png" alt></p>
+</blockquote>
+<h2 id="Propositional-Satisfiability-命题的可满足性"><a href="#Propositional-Satisfiability-命题的可满足性" class="headerlink" title="Propositional Satisfiability 命题的可满足性"></a>Propositional Satisfiability 命题的可满足性</h2><p>A compound proposition is <strong>satisfiable</strong> if there is an assignment of truth values to its variables that make it true. (成真赋值)</p>
+<p>When no such assignments exist, the compound proposition is <strong>unsatisfiable</strong>.</p>
+<blockquote>
+<p>Application</p>
+<p>Sudoku 数独 详见书本</p>
+</blockquote>
+<h2 id="Others-其他"><a href="#Others-其他" class="headerlink" title="Others 其他"></a>Others 其他</h2><h3 id="Other-Logical-Operators"><a href="#Other-Logical-Operators" class="headerlink" title="Other Logical Operators"></a>Other Logical Operators</h3><h4 id="Sheffer-stroke-（Sheffer-竖）"><a href="#Sheffer-stroke-（Sheffer-竖）" class="headerlink" title="Sheffer stroke    |  （Sheffer 竖）"></a>Sheffer stroke    <strong>|</strong>  （Sheffer 竖）</h4><p>p | q ≡ ¬(p ∧ q)  NAND 与非</p>
+<h4 id="Peirce-arrow-↓-（Peirce-箭头）"><a href="#Peirce-arrow-↓-（Peirce-箭头）" class="headerlink" title="Peirce arrow  ↓ （Peirce 箭头）"></a>Peirce arrow  <strong>↓</strong> （Peirce 箭头）</h4><p>p ↓ q ≡ ¬(p ∨ q)  NOR 或非</p>
+<blockquote>
+<p>p ↓ p ≡ ¬p</p>
+<p>(p ↓ q) ↓ (p ↓ q) ≡ p ∨ q</p>
+</blockquote>
+<h3 id="The-Dual-of-a-Compound-Proposition-对偶"><a href="#The-Dual-of-a-Compound-Proposition-对偶" class="headerlink" title="The Dual of a Compound Proposition 对偶"></a>The Dual of a Compound Proposition 对偶</h3><p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/DM_illustrations/img/CH01/006.png" alt></p>
+<h3 id="Functionally-Complete-Collection-of-Logical-Operators-功能完备的逻辑连接词集合"><a href="#Functionally-Complete-Collection-of-Logical-Operators-功能完备的逻辑连接词集合" class="headerlink" title="Functionally Complete Collection of Logical Operators 功能完备的逻辑连接词集合"></a>Functionally Complete Collection of Logical Operators 功能完备的逻辑连接词集合</h3><p>A collection of logical operators is called functionally complete if <strong>every</strong> compound proposition is logically equivalent to a compound proposition involving <strong>only</strong> these logical operators.</p>
+<blockquote>
+<p>e.g. {¬, ∧, ∨, →, ↔}, {¬, ∧, ∨}, {¬, ∧}, {¬, ∨}, {|}, {↓} are all functionally complete operators</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="/js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://gitee.com/iamncj/Picture_Bed/raw/master/Money_Tips/Wechat_QR.PNG',
+  alipayImage: 'https://gitee.com/iamncj/Picture_Bed/raw/master/Money_Tips/Wechat_QR.PNG'
+});
+</script>
+      
+      
+      <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>Post author:  </strong>NCJ</a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>Post link:  </strong>
+          <a href="/2019/03/10/DM/CH01_Logic_and_Proofs/CH01_01_Proposition_Logic_and_Propositional_Equivalences/" target="_blank" title="【DM】CH01-01 Proposition Logic and Propositional Equivalences">https://ncj.wiki/2019/03/10/DM/CH01_Logic_and_Proofs/CH01_01_Proposition_Logic_and_Propositional_Equivalences/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>Copyright Notice:   </strong>
+            All articles in this blog are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            unless stating additionally.
+          </li>
+         
+        </ul>
+<div>
+
+      
+      
+      
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Discrete-Math/">Discrete Math</a></li></ul>
+
+      
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/03/10/DM/CH01_Logic_and_Proofs/CH01_02_Predicate_Logic_and_Nested_Quantifiers/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          【DM】CH01-02 Predicate Logic and Nested Quantifiers
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/02/23/2019-02-23_Division/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">整数划分问题归纳</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Proposition-Logic-命题逻辑"><span class="nav-number">1.</span> <span class="nav-text">Proposition Logic 命题逻辑</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Proposition-命题"><span class="nav-number">1.1.</span> <span class="nav-text">Proposition 命题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#不是命题的几种典型反例"><span class="nav-number">1.1.1.</span> <span class="nav-text">不是命题的几种典型反例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Connectives-联结"><span class="nav-number">1.2.</span> <span class="nav-text">Connectives 联结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Negation-NOT-否定"><span class="nav-number">1.2.1.</span> <span class="nav-text">Negation (NOT) 否定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Conjunction-AND-合取"><span class="nav-number">1.2.2.</span> <span class="nav-text">Conjunction (AND) 合取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Disjunction-OR-析取"><span class="nav-number">1.2.3.</span> <span class="nav-text">Disjunction (OR) 析取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Exclusive-Or-XOR-异或"><span class="nav-number">1.2.4.</span> <span class="nav-text">Exclusive Or (XOR) 异或</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Implication-if-then-蕴含"><span class="nav-number">1.2.5.</span> <span class="nav-text">Implication (if-then) 蕴含</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Different-Ways-of-Expressing-p-→-q"><span class="nav-number">1.2.5.1.</span> <span class="nav-text">Different Ways of Expressing p → q</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Converse-Contrapositive-and-Inverse-逆命题、逆否命题、否命题"><span class="nav-number">1.2.6.</span> <span class="nav-text">Converse, Contrapositive, and Inverse 逆命题、逆否命题、否命题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Biconditional-if-and-only-if-双条件"><span class="nav-number">1.2.7.</span> <span class="nav-text">Biconditional (if and only if) 双条件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Precedence-优先级"><span class="nav-number">1.2.8.</span> <span class="nav-text">Precedence 优先级</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Truth-Table-真值表"><span class="nav-number">1.3.</span> <span class="nav-text">Truth Table 真值表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Equivalent-Propositions-等价命题"><span class="nav-number">1.4.</span> <span class="nav-text">Equivalent Propositions 等价命题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Two-Related-Problems"><span class="nav-number">1.4.1.</span> <span class="nav-text">Two Related Problems</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#How-many-rows-are-there-in-a-truth-table-with-npropositional-variables"><span class="nav-number">1.4.1.1.</span> <span class="nav-text">How many rows are there in a truth table with npropositional variables?</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#With-n-propositional-variables-we-can-construct-distinct-i-e-not-equivalent-propositions"><span class="nav-number">1.4.1.2.</span> <span class="nav-text">With n propositional variables, we can construct ( ) distinct (i.e., not equivalent) propositions</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bit-Operations-位运算"><span class="nav-number">1.5.</span> <span class="nav-text">Bit Operations 位运算</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Propositional-Equivalences-命题等价式"><span class="nav-number">2.</span> <span class="nav-text">Propositional Equivalences 命题等价式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Tautologies-Contradictions-and-Contingencies-永真、永假、可能式"><span class="nav-number">2.1.</span> <span class="nav-text">Tautologies, Contradictions, and Contingencies 永真、永假、可能式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Tautologies-永真-（重言式）"><span class="nav-number">2.1.1.</span> <span class="nav-text">Tautologies 永真 （重言式）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Contradictions-永假-（矛盾式）"><span class="nav-number">2.1.2.</span> <span class="nav-text">Contradictions 永假 （矛盾式）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Contingencies-可能式"><span class="nav-number">2.1.3.</span> <span class="nav-text">Contingencies 可能式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Logical-Equivalences-逻辑等价式"><span class="nav-number">2.2.</span> <span class="nav-text">Logical Equivalences 逻辑等价式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Notation-记号"><span class="nav-number">2.2.1.</span> <span class="nav-text">Notation 记号</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Laws-一些等价定律"><span class="nav-number">2.3.</span> <span class="nav-text">Laws 一些等价定律</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#De-Morgan’s-Laws-德·摩根律"><span class="nav-number">2.3.1.</span> <span class="nav-text">De Morgan’s Laws 德·摩根律</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#The-Extended-Version-of-De-Morgan’s-Laws-德·摩根律拓展形式"><span class="nav-number">2.3.1.1.</span> <span class="nav-text">The Extended Version of  De Morgan’s Laws 德·摩根律拓展形式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Key-Logical-Equivalences-重要的逻辑等价式"><span class="nav-number">2.3.2.</span> <span class="nav-text">Key Logical Equivalences 重要的逻辑等价式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Constructing-New-Logical-Equivalences-构建新的逻辑等价式"><span class="nav-number">2.4.</span> <span class="nav-text">Constructing New Logical Equivalences 构建新的逻辑等价式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Using-Truth-Tables"><span class="nav-number">2.4.1.</span> <span class="nav-text">Using Truth Tables</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Using-already-proved-equivalences"><span class="nav-number">2.4.2.</span> <span class="nav-text">Using already-proved equivalences</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#推理逻辑的基础——传递性"><span class="nav-number">2.4.2.1.</span> <span class="nav-text">推理逻辑的基础——传递性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Samples-of-Equivalence-Proofs"><span class="nav-number">2.4.2.2.</span> <span class="nav-text">Samples of Equivalence Proofs</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Propositional-Satisfiability-命题的可满足性"><span class="nav-number">2.5.</span> <span class="nav-text">Propositional Satisfiability 命题的可满足性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Others-其他"><span class="nav-number">2.6.</span> <span class="nav-text">Others 其他</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Other-Logical-Operators"><span class="nav-number">2.6.1.</span> <span class="nav-text">Other Logical Operators</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Sheffer-stroke-（Sheffer-竖）"><span class="nav-number">2.6.1.1.</span> <span class="nav-text">Sheffer stroke    |  （Sheffer 竖）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Peirce-arrow-↓-（Peirce-箭头）"><span class="nav-number">2.6.1.2.</span> <span class="nav-text">Peirce arrow  ↓ （Peirce 箭头）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-Dual-of-a-Compound-Proposition-对偶"><span class="nav-number">2.6.2.</span> <span class="nav-text">The Dual of a Compound Proposition 对偶</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Functionally-Complete-Collection-of-Logical-Operators-功能完备的逻辑连接词集合"><span class="nav-number">2.6.3.</span> <span class="nav-text">Functionally Complete Collection of Logical Operators 功能完备的逻辑连接词集合</span></a></li></ol></li></ol></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2018 - 2019 NCJ-Blog All Rights Reserved.</p>
+	      
+	      
+  		   	<p id="copyRightCn">NCJ hold copyright</p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            NCJ-Blog
+          </div>
+          <div class="panel-body">
+            Copyright © 2019 NCJ All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
