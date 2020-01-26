@@ -3,26 +3,26 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>四月随想 | NCJ-Blog</title>
+  <title>【吐槽向】 ubuntu server 安装指南 | NCJ-Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="Thoughts">
+  <meta name="keywords" content="LinuxGeekServer">
   
   
   
   
-  <meta name="description" content="function doDecrypt (pwd, onError) { 	console.log(&apos;in doDecrypt&apos;); 	const txt = document.getElementById(&apos;enc_content&apos;).innerHTML; 	let plantext; 	try { 		const bytes = CryptoJS.AES.decrypt(txt, pwd);">
-<meta name="keywords" content="Thoughts">
+  <meta name="description" content="吃饱了撑的，非要在台式机上安装Ubuntu Server 好吧，主要是之后可能要玩ROS，ML的环境也是Ubuntu相对来说容易配置以西，所以还是Ubuntu方便一点。但是最近Ubuntu的一次内核更新引入了一个bug（具体参考https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1860306），导致我的Ubuntu在启动后图形界面会处于卡死状">
+<meta name="keywords" content="Linux,Geek,Server">
 <meta property="og:type" content="article">
-<meta property="og:title" content="四月随想">
-<meta property="og:url" content="https://ncj.wiki/2019/04/08/2019-04-08_April-thoughts/index.html">
+<meta property="og:title" content="【吐槽向】 Ubuntu Server 安装指南">
+<meta property="og:url" content="https://ncj.wiki/2020/01/27/2020-01-27_Ubuntu_Server/index.html">
 <meta property="og:site_name" content="NCJ-Blog">
-<meta property="og:description" content="function doDecrypt (pwd, onError) { 	console.log(&apos;in doDecrypt&apos;); 	const txt = document.getElementById(&apos;enc_content&apos;).innerHTML; 	let plantext; 	try { 		const bytes = CryptoJS.AES.decrypt(txt, pwd);">
+<meta property="og:description" content="吃饱了撑的，非要在台式机上安装Ubuntu Server 好吧，主要是之后可能要玩ROS，ML的环境也是Ubuntu相对来说容易配置以西，所以还是Ubuntu方便一点。但是最近Ubuntu的一次内核更新引入了一个bug（具体参考https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1860306），导致我的Ubuntu在启动后图形界面会处于卡死状">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-05T13:38:45.732Z">
+<meta property="og:updated_time" content="2020-01-26T15:56:03.304Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="四月随想">
-<meta name="twitter:description" content="function doDecrypt (pwd, onError) { 	console.log(&apos;in doDecrypt&apos;); 	const txt = document.getElementById(&apos;enc_content&apos;).innerHTML; 	let plantext; 	try { 		const bytes = CryptoJS.AES.decrypt(txt, pwd);">
+<meta name="twitter:title" content="【吐槽向】 Ubuntu Server 安装指南">
+<meta name="twitter:description" content="吃饱了撑的，非要在台式机上安装Ubuntu Server 好吧，主要是之后可能要玩ROS，ML的环境也是Ubuntu相对来说容易配置以西，所以还是Ubuntu方便一点。但是最近Ubuntu的一次内核更新引入了一个bug（具体参考https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1860306），导致我的Ubuntu在启动后图形界面会处于卡死状">
   
     <link rel="alternate" href="/atom.xml" title="NCJ-Blog" type="application/atom+xml">
   
@@ -179,7 +179,7 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><article id="post-2019-04-08_April-thoughts" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-2020-01-27_Ubuntu_Server" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -187,7 +187,7 @@
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      四月随想
+      【吐槽向】 Ubuntu Server 安装指南
     </h1>
   
 
@@ -195,8 +195,8 @@
     
     <div class="article-meta">
       
-	<a href="/2019/04/08/2019-04-08_April-thoughts/" class="article-date">
-	  <time datetime="2019-04-08T03:33:24.000Z" itemprop="datePublished">2019-04-08</time>
+	<a href="/2020/01/27/2020-01-27_Ubuntu_Server/" class="article-date">
+	  <time datetime="2020-01-26T17:01:01.000Z" itemprop="datePublished">2020-01-27</time>
 	</a>
 
       
@@ -205,53 +205,37 @@
 
       </br></br>
       WordCount: 
-      <span class="post-count">121</span>
+      <span class="post-count">594</span>
       Min2Read: 
-      <span class="post-count">1</span>
+      <span class="post-count">2</span>
       <!-- <span class="post-count">29.5k</span> -->
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <script src=/js/crypto-js.js></script>
-<script>
-function doDecrypt (pwd, onError) {
-	console.log('in doDecrypt');
-	const txt = document.getElementById('enc_content').innerHTML;
-	let plantext;
-	try {
-		const bytes = CryptoJS.AES.decrypt(txt, pwd);
-		var plaintext = bytes.toString(CryptoJS.enc.Utf8);
-	} catch(err) {
-		if(onError) {
-			onError(err);
-		}
-		return;
-	}
-	document.getElementById('enc_content').innerHTML = plaintext;
-	document.getElementById('enc_content').style.display = 'block';
-	document.getElementById('enc_passwd').style.display = 'none';
-	if(typeof MathJax !== 'undefined') {
-		MathJax.Hub.Queue(
-			['resetEquationNumbers', MathJax.InputJax.TeX],
-			['PreProcess', MathJax.Hub],
-			['Reprocess', MathJax.Hub]
-		);
-	}
-}
-</script>
-<div id="enc_content" style="display:none">U2FsdGVkX19vRly2cJiY0W8/aXjCEHFMtvUgUMvfVh2DmIJoghNpWcEEraLgQKDrkzwjkWGBM17asBfY7TkrIFbIoNbzba7pcRIlxQ3iv405K+GSHz4m75wLmd73uEyJVR6ZqZGce/whF15ZNqKzeKVi60CnADC5nGQBPYiJXMX5W44Dbf0TuM4dMLqTEJeyBZ+b1s5Q+PhZa4VYPnN2rM6d6OsTn1RKB0xjT7ntl7b/UHNIsQy3bDLwY6XRx5UyoeyihyqLoSZP/+sVdWo+c6piikthCvaBIixSGBaO5cEpn5/ctpyuDSUZ+ac3pDtd9QKb6d7+jTpTaFtrJoPHJt2VzCikhAEaJ015Qo3Xyjs58SuqQae6jYcWcBzQCtuzVW1hIxoi/6e5kADD3pzpTNJhjtDvVBoXC8rW1eIUbjZHMug38eBdlAN7f1xDYH60K0/ijsDJ86JvuB8MMZzIap2y14h1A6fiEZa7bO5thGmLALNlevFdc9grA/t693XogN620aK5Cn/suQXgGsqZSAgxZE4ThKEUhcItibBFSeZTImf5+LbgAqbYf8TON/Uj54JqkdE753NY0UjzprSttUm9vL6ofbdJt+jZT6zcsC/ZC+ui+X/gYIbisr5fCwVUrV1y7qpxyLdH9Q7Ynrxp1iCxvmNabbVwBvLXAPfQda36W0rbLPBnlBQC2BkA+hZg4Pd/4to9TuFFgOmpCG3ncKg4rvRaf9YAOmFTSU6weWk=</div>
-<div id="enc_passwd"> <input id="enc_pwd_input" type="password" style="border-radius: 5px;border-style: groove;height: 30px;width: 50%;cursor: auto;font-size: 102%;color: currentColor;outline: none;text-overflow: initial;padding-left: 5px;" onkeydown="if (event.keyCode == 13) { decrypt(); return false;}"> <input type="submit" value="解&nbsp;密" onclick="decrypt()" style="width: 58px;height: 34px;border-radius: 5px;background-color: white;border-style: solid;color: currentColor;"><div id="enc_error" style="display: inline-block;color: #d84527;margin-left: 10px"></div>
-<script>
-var onError = function(error) {
-	document.getElementById("enc_error").innerHTML = "password error!"
-};
-function decrypt() {
-var passwd = document.getElementById("enc_pwd_input").value;
-console.log(passwd);
-doDecrypt(passwd, onError);
-}
-</script>
-</div>
+        <p><del>吃饱了撑的，非要在台式机上安装Ubuntu Server</del></p>
+<p>好吧，主要是之后可能要玩ROS，ML的环境也是Ubuntu相对来说容易配置以西，所以还是Ubuntu方便一点。但是最近Ubuntu的一次内核更新引入了一个bug（具体参考<a href="https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1860306" target="_blank" rel="noopener">https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1860306</a>），导致我的Ubuntu在启动后图形界面会处于卡死状态，无法进行操作。虽然通过ssh将启动目标改为了terminal，勉强能够使用，但是显卡的驱动坏了，一时半会也没修好，一气之下索性想重装一个Ubuntu Server，告别Linux桌面环境。</p>
+<p>然后就发现Ubuntu Server的安装脚本就是一坨屎，首先是18.04版本的live iso不支持nvme硬盘，Stack Overflow上查了一圈发现要么换上古的16.04，要么换mini.iso纯网络安装，要么用19.10，想了想20.04应该快出来了，索性直接用非LTS版本到时候滚过去吧。然后安装19.10的时候，发现脚本居然不支持自定义修改分区，要么全盘，要么在进脚本之前自己改好分区表，绝了。（<del>快快投奔Arch</del></p>
+<p>然后自己改好分区表，进入脚本，标记好EFI分区和根目录，开始安装，duang，ERROR，垃圾脚本，上网搜了一下错误信息发现又是一个bug……</p>
+<blockquote>
+<p>结论：Ubuntu Server的安装脚本设计的时候就没考虑作为第二个系统进行安装，各种异常处理做的也是极其不到位，如果你想Windows+Ubuntu Server，请先安装Ubuntu Server……</p>
+</blockquote>
+<hr>
+<p>于是开始曲线救国，先安装Desktop，然后转为Server（<del>不愧是我</del></p>
+<p>网上各种奇葩方法……</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt purge xorg-*</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt remove gnome-* &amp;&amp; sudo apt autoremove</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt remove ubuntu-desktop &amp;&amp; sudo apt autoremove</span><br></pre></td></tr></table></figure>
+<p>……</p>
+<p>看着就不优雅</p>
+<p>自然想到<code>tasksel</code></p>
+<p>取消勾选<code>Desktop</code>，选上<code>Basic Server</code>，跑完进度条就好了</p>
+<p>重启</p>
+<p>然后你就发现你上不了网了（狗头</p>
+<p>试了一下<code>/etc/network/interfaces</code>发现不行，<code>ip link set eno2 up</code>也不行，然后知道了Ubuntu的网络是由Network Manager管理的，tasksel可能在卸载Desktop的时候给你卸掉了，但Server安装的时候又没给你装回来……</p>
+<p>所以正确方法是：使用<code>tasksel</code>操作完之后，再安装Network Manager……</p>
+<hr>
+<p>踩坑结束……</p>
+
       
     </div>
     <footer class="article-footer">
@@ -277,7 +261,7 @@ var a = new Donate({
           </li>
           <li class="post-copyright-link">
           <strong>Post link:  </strong>
-          <a href="/2019/04/08/2019-04-08_April-thoughts/" target="_blank" title="四月随想">https://ncj.wiki/2019/04/08/2019-04-08_April-thoughts/</a>
+          <a href="/2020/01/27/2020-01-27_Ubuntu_Server/" target="_blank" title="【吐槽向】 Ubuntu Server 安装指南">https://ncj.wiki/2020/01/27/2020-01-27_Ubuntu_Server/</a>
           </li>
           <li class="post-copyright-license">
             <strong>Copyright Notice:   </strong>
@@ -292,7 +276,7 @@ var a = new Donate({
       
       
         
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Thoughts/">Thoughts</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Geek/">Geek</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Server/">Server</a></li></ul>
 
       
 
@@ -302,19 +286,10 @@ var a = new Donate({
     
 <nav id="article-nav">
   
-    <a href="/2019/07/10/2019-07-10_Dorm_Server/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          校网环境下的私人服务器解决方案
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/04/04/2019-04-04_DM_Notes_Post/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2020/01/26/2020-01-26_MultiROM_Mix2s/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">【DM】离散数学笔记GitBook页面已上线</div>
+      <div class="article-nav-title">小米Mix 2s多系统安装教程</div>
     </a>
   
 </nav>
