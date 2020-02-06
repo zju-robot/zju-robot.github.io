@@ -42,6 +42,58 @@ html{
     text-align: center;
     overflow: hidden;
 }
+
+.intro-logo > canvas {
+	background-color: #2196F3;
+}
+
+.intro-logo > h1 {
+	-webkit-transform: translateX(-50%);
+	-moz-transform: translateX(-50%);
+	-ms-transform: translateX(-50%);
+	-o-transform: translateX(-50%);
+	transform: translateX(-50%);
+	position: absolute;
+	top: 18%;
+	left: 53%;
+	z-index: 10;
+	width: 90%;
+	font-size: 6rem;
+	font-weight: lighter;
+	letter-spacing: -2px;
+	color: #fff;
+	text-align: left;
+	line-height: 135%;
+	font-family: Roboto,sans-serif;
+	margin: 2.1rem 0 1.68rem;
+	text-rendering: optimizeLegibility;
+	margin-block-start: 0.83em;
+	margin-block-end: 0.83em;
+}
+
+.intro-logo > h2 {
+	-webkit-transform: translateX(-50%);
+	-moz-transform: translateX(-50%);
+	-ms-transform: translateX(-50%);
+	-o-transform: translateX(-50%);
+	transform: translateX(-50%);
+	position: absolute;
+	top: 30%;
+	left: 54%;
+	z-index: 10;
+	width: 90%;
+	font-size: 2rem;
+	font-weight: lighter;
+	color: #fff;
+	text-align: left;
+	line-height: 135%;
+	font-family: Roboto,sans-serif;
+	margin: 2.1rem 0 1.68rem;
+	text-rendering: optimizeLegibility;
+	margin-block-start: 0.83em;
+	margin-block-end: 0.83em;
+}
+
 .intro-navigate{
 	width: 100%;
 	position: absolute;
