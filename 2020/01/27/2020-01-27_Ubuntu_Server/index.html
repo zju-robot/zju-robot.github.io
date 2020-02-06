@@ -6,13 +6,13 @@
   <title>【吐槽向】 ubuntu server 安装指南 | NCJ-Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="LinuxGeekServer">
+  <meta name="keywords" content="GeekLinuxServer">
   
   
   
   
   <meta name="description" content="吃饱了撑的，非要在台式机上安装Ubuntu Server 好吧，主要是之后可能要玩ROS，ML的环境也是Ubuntu相对来说容易配置以西，所以还是Ubuntu方便一点。但是最近Ubuntu的一次内核更新引入了一个bug（具体参考https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1860306），导致我的Ubuntu在启动后图形界面会处于卡死状">
-<meta name="keywords" content="Linux,Geek,Server">
+<meta name="keywords" content="Geek,Linux,Server">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【吐槽向】 Ubuntu Server 安装指南">
 <meta property="og:url" content="https://ncj.wiki/2020/01/27/2020-01-27_Ubuntu_Server/index.html">
@@ -208,7 +208,7 @@
       <span class="post-count">594</span>
       Min2Read: 
       <span class="post-count">2</span>
-      <!-- <span class="post-count">29.5k</span> -->
+      <!-- <span class="post-count">29.6k</span> -->
     </div>
     <div class="article-entry" itemprop="articleBody">
       
@@ -273,6 +273,31 @@ var a = new Donate({
 <div>
 
       
+      
+        
+	<div id="gitalk-container"></div>
+	<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+	<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.11.1/js/md5.min.js"></script>
+	<script type="text/javascript">
+	  var gitalk = new Gitalk({
+		clientID: '8b4a7d69678c89c26361',
+		clientSecret: 'eb62487ca685a8b1ceda674607520d66ef342cbd',
+		repo: 'blog-comments',
+		owner: 'iamNCJ',
+		admin: 'iamNCJ',
+		id: md5(location.pathname),
+		language: 'en',
+		perPage: 15,
+		pagerDirection: 'last',
+		createIssueManually: 'true',
+		distractionFreeMode: 'false'
+	  });
+  
+	  gitalk.render('gitalk-container')
+	</script>
+  
+  
       
       
         

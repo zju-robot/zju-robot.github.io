@@ -205,10 +205,10 @@
 
       </br></br>
       WordCount: 
-      <span class="post-count">121</span>
+      <span class="post-count">122</span>
       Min2Read: 
       <span class="post-count">1</span>
-      <!-- <span class="post-count">29.5k</span> -->
+      <!-- <span class="post-count">29.6k</span> -->
     </div>
     <div class="article-entry" itemprop="articleBody">
       
@@ -239,7 +239,7 @@ function doDecrypt (pwd, onError) {
 	}
 }
 </script>
-<div id="enc_content" style="display:none">U2FsdGVkX19vRly2cJiY0W8/aXjCEHFMtvUgUMvfVh2DmIJoghNpWcEEraLgQKDrkzwjkWGBM17asBfY7TkrIFbIoNbzba7pcRIlxQ3iv405K+GSHz4m75wLmd73uEyJVR6ZqZGce/whF15ZNqKzeKVi60CnADC5nGQBPYiJXMX5W44Dbf0TuM4dMLqTEJeyBZ+b1s5Q+PhZa4VYPnN2rM6d6OsTn1RKB0xjT7ntl7b/UHNIsQy3bDLwY6XRx5UyoeyihyqLoSZP/+sVdWo+c6piikthCvaBIixSGBaO5cEpn5/ctpyuDSUZ+ac3pDtd9QKb6d7+jTpTaFtrJoPHJt2VzCikhAEaJ015Qo3Xyjs58SuqQae6jYcWcBzQCtuzVW1hIxoi/6e5kADD3pzpTNJhjtDvVBoXC8rW1eIUbjZHMug38eBdlAN7f1xDYH60K0/ijsDJ86JvuB8MMZzIap2y14h1A6fiEZa7bO5thGmLALNlevFdc9grA/t693XogN620aK5Cn/suQXgGsqZSAgxZE4ThKEUhcItibBFSeZTImf5+LbgAqbYf8TON/Uj54JqkdE753NY0UjzprSttUm9vL6ofbdJt+jZT6zcsC/ZC+ui+X/gYIbisr5fCwVUrV1y7qpxyLdH9Q7Ynrxp1iCxvmNabbVwBvLXAPfQda36W0rbLPBnlBQC2BkA+hZg4Pd/4to9TuFFgOmpCG3ncKg4rvRaf9YAOmFTSU6weWk=</div>
+<div id="enc_content" style="display:none">U2FsdGVkX1+bEHv9R5L1grCKvF+Dk29FNwyapLXJ8PjgLygrsUGns2KVUT2yzjM7cxuuNLISQ8dQaFL2wEtxB+axKRb1VZCPtc8SspK5HceK169IEpyoVTgSU7/Nqtx+gMMxUZG56S/5RsCUnn+SioKIlOsUI22xGDxQiaCqi0anBO0JRkAgnc9KKHcspefTWfY8+FO+C/sIvkD4VLnXPciPxJRmw59L/HgDyqvhLfuFtmf4fLkjbqvNyBcAGOAom8hX3N0LgktvpmM/E3WizJ48lIQpcehuVvX7l8rxkDP6o8RRk1DauV8R33e3T4e9itca/Kx0SJEwKgrc6zX97wLh/w14mt7OpEILIS5o+mibhzym9hyEQByZZyMZ2JCJU0kDPxVRK8tEdWDR/yGT2h4w0c6qGrmhdLxnhEzGJ3KJNOJyCrukIaoLOqDL/HtFRkP5rOMXVpSxXHBu7uqv76AoLfPHH75/OEGrbPTDMYOW8miyy+CY/fkTt5Vm97JEged9WTRiIHKORmm/Pq4nLzaB0ysgOWH5KXvfKKtTYGS0ZVa1xWQyHHKLkTgpOG+S2LKLkdBeMGbvGR480UUvXch6LFfgZH89kyQiLHDLQ/BJWwqQFHStwB+64ZTJ1djK+AsfaJDiHvJASnnj7ii6yS4aIxJDWVuFa6T9jv7Sdk6SiXxokjmLUun2NX3xJfILdKFBQvJ9UAoKKXfZAK3wxlia9Nt9RvD3BsIpGLlHLbk=</div>
 <div id="enc_passwd"> <input id="enc_pwd_input" type="password" style="border-radius: 5px;border-style: groove;height: 30px;width: 50%;cursor: auto;font-size: 102%;color: currentColor;outline: none;text-overflow: initial;padding-left: 5px;" onkeydown="if (event.keyCode == 13) { decrypt(); return false;}"> <input type="submit" value="解&nbsp;密" onclick="decrypt()" style="width: 58px;height: 34px;border-radius: 5px;background-color: white;border-style: solid;color: currentColor;"><div id="enc_error" style="display: inline-block;color: #d84527;margin-left: 10px"></div>
 <script>
 var onError = function(error) {
@@ -289,6 +289,31 @@ var a = new Donate({
 <div>
 
       
+      
+        
+	<div id="gitalk-container"></div>
+	<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+	<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.11.1/js/md5.min.js"></script>
+	<script type="text/javascript">
+	  var gitalk = new Gitalk({
+		clientID: '8b4a7d69678c89c26361',
+		clientSecret: 'eb62487ca685a8b1ceda674607520d66ef342cbd',
+		repo: 'blog-comments',
+		owner: 'iamNCJ',
+		admin: 'iamNCJ',
+		id: md5(location.pathname),
+		language: 'en',
+		perPage: 15,
+		pagerDirection: 'last',
+		createIssueManually: 'true',
+		distractionFreeMode: 'false'
+	  });
+  
+	  gitalk.render('gitalk-container')
+	</script>
+  
+  
       
       
         
