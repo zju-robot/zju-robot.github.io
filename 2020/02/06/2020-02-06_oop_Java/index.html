@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>oop with java | NCJ-Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="OOPJava">
+  
+  
+  
+  
+  <meta name="description" content="1 IO打印 System.out.println() 输入 import java.util.Scanner;Scanner in = new Scanner(System.in);int a = in.nextInt();in.close(); public static void main(String[] args)是程序的入口 2 类与包类构造函数与C++一样 成员访问权限默认都是fri">
+<meta name="keywords" content="OOP,Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OOP with Java">
+<meta property="og:url" content="https://ncj.wiki/2020/02/06/2020-02-06_oop_Java/index.html">
+<meta property="og:site_name" content="NCJ-Blog">
+<meta property="og:description" content="1 IO打印 System.out.println() 输入 import java.util.Scanner;Scanner in = new Scanner(System.in);int a = in.nextInt();in.close(); public static void main(String[] args)是程序的入口 2 类与包类构造函数与C++一样 成员访问权限默认都是fri">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2020-02-06T11:16:34.059Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="OOP with Java">
+<meta name="twitter:description" content="1 IO打印 System.out.println() 输入 import java.util.Scanner;Scanner in = new Scanner(System.in);int a = in.nextInt();in.close(); public static void main(String[] args)是程序的入口 2 类与包类构造函数与C++一样 成员访问权限默认都是fri">
+  
+    <link rel="alternate" href="/atom.xml" title="NCJ-Blog" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt; src:url("css/fonts/FuturaPTBold.otf") format("woff");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt-light; src:url("css/fonts/FuturaPTBook.otf") format("woff");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt-italic; src:url("css/fonts/FuturaPTBookOblique.otf") format("woff");font-weight:400;font-style:italic;}
+}
+
+  </style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css">
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css">
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css">
+  
+
+</head>
+</html>
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  
+                    <li> <a class="main-nav-link" href="/">Home</a> </li>
+                  
+                  
+                
+                  
+                    <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                  
+                  
+                
+                  
+                    <li> <a class="main-nav-link" href="https://ncj.wiki/Projects_Show">Projects</a> </li>
+                  
+                  
+                
+                  
+                    <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                  
+                  
+                
+                  
+                    <li> <a class="main-nav-link" href="/about">About</a> </li>
+                  
+                  
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-2020-02-06_oop_Java" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      OOP with Java
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2020/02/06/2020-02-06_oop_Java/" class="article-date">
+	  <time datetime="2020-02-05T17:01:01.000Z" itemprop="datePublished">2020-02-06</time>
+	</a>
+
+      
+      
+      
+
+      </br></br>
+      WordCount: 
+      <span class="post-count">962</span>
+      Min2Read: 
+      <span class="post-count">3</span>
+      <!-- <span class="post-count">31.5k</span> -->
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-IO"><a href="#1-IO" class="headerlink" title="1 IO"></a>1 IO</h1><p>打印</p>
+<p><code>System.out.println()</code></p>
+<p>输入</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line">Scanner in = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line"><span class="keyword">int</span> a = in.nextInt();</span><br><span class="line">in.close();</span><br></pre></td></tr></table></figure>
+<p><code>public static void main(String[] args)</code>是程序的入口</p>
+<h1 id="2-类与包"><a href="#2-类与包" class="headerlink" title="2 类与包"></a>2 类与包</h1><h2 id="类"><a href="#类" class="headerlink" title="类"></a>类</h2><p>构造函数与C++一样</p>
+<p>成员访问权限默认都是<code>friendly</code>，同一个包内可以自由访问</p>
+<p><code>public class</code>必须单独一个文件</p>
+<h2 id="包"><a href="#包" class="headerlink" title="包"></a>包</h2><p>包是java对于类的一种管理机制，包的结构与文件目录的结构一致</p>
+<p>文件第一行<code>package xxx</code>声明包，同时目录结构也要变为<code>xxx/xyz.java</code></p>
+<p>包下还可以有包，<code>Display.led</code>，文件结构<code>Display/led</code></p>
+<p>访问其他包里的对象需要<code>import &lt;package_name&gt;.&lt;class_name&gt;</code>或者每次都在前面加<code>&lt;package_name&gt;.</code> (有点类似namespace)</p>
+<p><code>import &lt;package_name&gt;.*</code>也是允许的，但是不推荐</p>
+<h2 id="类变量-amp-类函数-static"><a href="#类变量-amp-类函数-static" class="headerlink" title="类变量&amp;类函数 static"></a>类变量&amp;类函数 static</h2><p>static 一个类共用一个</p>
+<p>与C++里的static不太一样</p>
+<p>类函数 static 里没有this指针（与C++一样），可以单独调用，也可以通过对象调用</p>
+<h1 id="3-容器"><a href="#3-容器" class="headerlink" title="3 容器"></a>3 容器</h1><p><code>import java.util.xxx</code></p>
+<p>ArrayList类似vector</p>
+<p>对象数组中每一个元素都是对象的管理者而非对象本身，也就是说你在创建数组之后还需要再创建每一个对象。</p>
+<p>“对象管理者”的概念 （类似指针）</p>
+<p>有序容器的迭代遍历</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> ( X x : List ) &#123;...&#125;</span><br></pre></td></tr></table></figure>
+<p>HashSet 类似 Set</p>
+<p>HashMap 类似 map 注意不能放<code>int</code>，必须放对象（包裹类型）<code>Integer</code></p>
+<h1 id="4-继承-amp-多态"><a href="#4-继承-amp-多态" class="headerlink" title="4 继承&amp;多态"></a>4 继承&amp;多态</h1><p><code>extends</code></p>
+<h2 id="super"><a href="#super" class="headerlink" title="super"></a>super</h2><p><code>super()</code>用于传递参数给父类构造器</p>
+<p>执行顺序：父类构造、子类成员初始化、子类构造器</p>
+<p><code>Constructor call must be the first statement in a constructor</code></p>
+<p>super()必须写在构造器的第一行</p>
+<p>不可以用多个super()，因为一个子类只能继承一个父类</p>
+<h2 id="同名成员"><a href="#同名成员" class="headerlink" title="同名成员"></a>同名成员</h2><h3 id="同名成员对象"><a href="#同名成员对象" class="headerlink" title="同名成员对象"></a>同名成员对象</h3><p>对于同名对象，父子类没有任何联系，在父类的方法中操作的就是父类的哪个，在子类的方法中操作的就是子类的哪个。</p>
+<h3 id="同名成员函数"><a href="#同名成员函数" class="headerlink" title="同名成员函数"></a>同名成员函数</h3><p>同名成员函数，子类使用的永远是自己的，但是通过<code>super.f()</code>使用到父类的函数</p>
+<h2 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h2><p><code>@override</code>最好写上</p>
+<p>Object类 （root类）</p>
+<ul>
+<li><p><code>toString()</code></p>
+<ul>
+<li><p>不重写直接输出AAA.XXX@xxxxxx</p>
+</li>
+<li><p>前面是类名（AAA是包名，XXX是类名），后面是地址</p>
+</li>
+<li><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> AAA;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main4</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        A a = <span class="keyword">new</span> A();</span><br><span class="line">        B b = <span class="keyword">new</span> B();</span><br><span class="line">        System.out.println(a);</span><br><span class="line">        System.out.println(b);</span><br><span class="line">        b.f();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> aa = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> aa;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">f</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        a = <span class="number">1</span>;</span><br><span class="line">        aa = <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">super</span>.aa = <span class="number">3</span>;</span><br><span class="line">        A aaa = <span class="keyword">new</span> A();</span><br><span class="line">        System.out.println(aaa);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><code>equals()</code></p>
+</li>
+</ul>
+<p>使用<code>StringBuffer</code>来降低开销</p>
+<h1 id="5-抽象-amp-接口"><a href="#5-抽象-amp-接口" class="headerlink" title="5 抽象&amp;接口"></a>5 抽象&amp;接口</h1><h2 id="抽象"><a href="#抽象" class="headerlink" title="抽象"></a>抽象</h2><p><code>abstract</code></p>
+<p>类似<code>virtual</code></p>
+<p>抽象类 —&gt;  纯虚类</p>
+<p>也不能产生对象</p>
+<h2 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h2><p><code>interface</code></p>
+<p>纯抽象类</p>
+<ul>
+<li>所有成员函数都是抽象函数</li>
+<li>所有成员变量都是<code>public static final</code></li>
+</ul>
+<p><code>implement</code></p>
+<p>与class不同：</p>
+<ul>
+<li>类可以实现很多接口</li>
+<li>接口可以继承接口，但不能继承类</li>
+<li>接口不能实现接口</li>
+</ul>
+<h2 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h2><p>定义在类/函数的内部</p>
+<p>内部类能自由访问包括私有成员在内的外部的全部资源</p>
+<p>外部为函数时，只能访问函数中final的变量</p>
+<h2 id="匿名类"><a href="#匿名类" class="headerlink" title="匿名类"></a>匿名类</h2><p>new的时候给出类的定义</p>
+<p>可以继承某类，也可以实现某接口</p>
+<p>（好处：不用起名字</p>
+<h1 id="6-异常"><a href="#6-异常" class="headerlink" title="6 异常"></a>6 异常</h1><p>函数若想抛出自定义异常（系统自带的比比如数组越界不需要，因为它们太容易被触发）需要声明<code>throws</code></p>
+<p>一旦声明调用时就必须加上<code>try</code></p>
+<p>当覆盖一个函数的时候，子类不能声明比父类更多的异常</p>
+<p>子类的构造函数函数中，必须声明父类可能抛出的全部异常</p>
+<h1 id="7-流"><a href="#7-流" class="headerlink" title="7 流"></a>7 流</h1><p>对象 串行化 输入到流</p>
+<p>流 反串行化 读入到内存</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="/js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://gitee.com/iamncj/Picture_Bed/raw/master/Money_Tips/Wechat_QR.PNG',
+  alipayImage: 'https://gitee.com/iamncj/Picture_Bed/raw/master/Money_Tips/Wechat_QR.PNG'
+});
+</script>
+      
+      
+      <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>Post author:  </strong>NCJ</a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>Post link:  </strong>
+          <a href="/2020/02/06/2020-02-06_oop_Java/" target="_blank" title="OOP with Java">https://ncj.wiki/2020/02/06/2020-02-06_oop_Java/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>Copyright Notice:   </strong>
+            All articles in this blog are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            unless stating additionally.
+          </li>
+         
+        </ul>
+<div>
+
+      
+      
+        
+	<div id="gitalk-container"></div>
+	<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+	<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.11.1/js/md5.min.js"></script>
+	<script type="text/javascript">
+	  var gitalk = new Gitalk({
+		clientID: '8b4a7d69678c89c26361',
+		clientSecret: 'eb62487ca685a8b1ceda674607520d66ef342cbd',
+		repo: 'blog-comments',
+		owner: 'iamNCJ',
+		admin: 'iamNCJ',
+		id: md5(location.pathname),
+		language: 'en',
+		perPage: 15,
+		pagerDirection: 'last',
+		createIssueManually: 'true',
+		distractionFreeMode: 'false'
+	  });
+  
+	  gitalk.render('gitalk-container')
+	</script>
+  
+  
+      
+      
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OOP/">OOP</a></li></ul>
+
+      
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2020/01/27/2020-01-27_Ubuntu_Server/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">【吐槽向】 Ubuntu Server 安装指南</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-IO"><span class="nav-number">1.</span> <span class="nav-text">1 IO</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-类与包"><span class="nav-number">2.</span> <span class="nav-text">2 类与包</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#类"><span class="nav-number">2.1.</span> <span class="nav-text">类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#包"><span class="nav-number">2.2.</span> <span class="nav-text">包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类变量-amp-类函数-static"><span class="nav-number">2.3.</span> <span class="nav-text">类变量&amp;类函数 static</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-容器"><span class="nav-number">3.</span> <span class="nav-text">3 容器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-继承-amp-多态"><span class="nav-number">4.</span> <span class="nav-text">4 继承&amp;多态</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#super"><span class="nav-number">4.1.</span> <span class="nav-text">super</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#同名成员"><span class="nav-number">4.2.</span> <span class="nav-text">同名成员</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#同名成员对象"><span class="nav-number">4.2.1.</span> <span class="nav-text">同名成员对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#同名成员函数"><span class="nav-number">4.2.2.</span> <span class="nav-text">同名成员函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多态"><span class="nav-number">4.3.</span> <span class="nav-text">多态</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-抽象-amp-接口"><span class="nav-number">5.</span> <span class="nav-text">5 抽象&amp;接口</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#抽象"><span class="nav-number">5.1.</span> <span class="nav-text">抽象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#接口"><span class="nav-number">5.2.</span> <span class="nav-text">接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内部类"><span class="nav-number">5.3.</span> <span class="nav-text">内部类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#匿名类"><span class="nav-number">5.4.</span> <span class="nav-text">匿名类</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-异常"><span class="nav-number">6.</span> <span class="nav-text">6 异常</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-流"><span class="nav-number">7.</span> <span class="nav-text">7 流</span></a></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2018 - 2020 NCJ-Blog All Rights Reserved.</p>
+	      
+	      
+  		   	<p id="copyRightCn">NCJ hold copyright</p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    <!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            NCJ-Blog
+          </div>
+          <div class="panel-body">
+            Copyright © 2020 NCJ All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
