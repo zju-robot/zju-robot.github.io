@@ -11,18 +11,18 @@
   
   
   
-  <meta name="description" content="function doDecrypt (pwd, onError) { 	console.log(&apos;in doDecrypt&apos;); 	const txt = document.getElementById(&apos;enc_content&apos;).innerHTML; 	let plantext; 	try { 		const bytes = CryptoJS.AES.decrypt(txt, pwd);">
+  <meta name="description" content="&amp;emsp;&amp;emsp;2018年过去了，感觉挺快的。到现在我还记得去年的今天，我正在准备元月调考，而现在，我正在大学的寝室里待着。刚好这两天放假，不妨抽个空，盘点一下我自己的2018年。 &amp;emsp;&amp;emsp;想必18年最重要的事情，就是高考了。其实真的感觉没那么紧张，也没有晚上睡不着觉的情况，真的感觉跟平常差不多。唯一的区别，就是这是高中最后一次考试了，而且考完要填志愿。本来一直想去北京的，">
 <meta name="keywords" content="Thoughts">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2018年终回顾">
 <meta property="og:url" content="https://ncj.wiki/2018/12/31/2018-12-31_2018/index.html">
 <meta property="og:site_name" content="NCJ-Blog">
-<meta property="og:description" content="function doDecrypt (pwd, onError) { 	console.log(&apos;in doDecrypt&apos;); 	const txt = document.getElementById(&apos;enc_content&apos;).innerHTML; 	let plantext; 	try { 		const bytes = CryptoJS.AES.decrypt(txt, pwd);">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;2018年过去了，感觉挺快的。到现在我还记得去年的今天，我正在准备元月调考，而现在，我正在大学的寝室里待着。刚好这两天放假，不妨抽个空，盘点一下我自己的2018年。 &amp;emsp;&amp;emsp;想必18年最重要的事情，就是高考了。其实真的感觉没那么紧张，也没有晚上睡不着觉的情况，真的感觉跟平常差不多。唯一的区别，就是这是高中最后一次考试了，而且考完要填志愿。本来一直想去北京的，">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-05T13:38:45.729Z">
+<meta property="og:updated_time" content="2020-02-06T08:47:58.641Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2018年终回顾">
-<meta name="twitter:description" content="function doDecrypt (pwd, onError) { 	console.log(&apos;in doDecrypt&apos;); 	const txt = document.getElementById(&apos;enc_content&apos;).innerHTML; 	let plantext; 	try { 		const bytes = CryptoJS.AES.decrypt(txt, pwd);">
+<meta name="twitter:description" content="&amp;emsp;&amp;emsp;2018年过去了，感觉挺快的。到现在我还记得去年的今天，我正在准备元月调考，而现在，我正在大学的寝室里待着。刚好这两天放假，不妨抽个空，盘点一下我自己的2018年。 &amp;emsp;&amp;emsp;想必18年最重要的事情，就是高考了。其实真的感觉没那么紧张，也没有晚上睡不着觉的情况，真的感觉跟平常差不多。唯一的区别，就是这是高中最后一次考试了，而且考完要填志愿。本来一直想去北京的，">
   
     <link rel="alternate" href="/atom.xml" title="NCJ-Blog" type="application/atom+xml">
   
@@ -205,53 +205,45 @@
 
       </br></br>
       WordCount: 
-      <span class="post-count">314</span>
+      <span class="post-count">1.4k</span>
       Min2Read: 
-      <span class="post-count">1</span>
-      <!-- <span class="post-count">29.6k</span> -->
+      <span class="post-count">4</span>
+      <!-- <span class="post-count">30.6k</span> -->
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <script src=/js/crypto-js.js></script>
-<script>
-function doDecrypt (pwd, onError) {
-	console.log('in doDecrypt');
-	const txt = document.getElementById('enc_content').innerHTML;
-	let plantext;
-	try {
-		const bytes = CryptoJS.AES.decrypt(txt, pwd);
-		var plaintext = bytes.toString(CryptoJS.enc.Utf8);
-	} catch(err) {
-		if(onError) {
-			onError(err);
-		}
-		return;
-	}
-	document.getElementById('enc_content').innerHTML = plaintext;
-	document.getElementById('enc_content').style.display = 'block';
-	document.getElementById('enc_passwd').style.display = 'none';
-	if(typeof MathJax !== 'undefined') {
-		MathJax.Hub.Queue(
-			['resetEquationNumbers', MathJax.InputJax.TeX],
-			['PreProcess', MathJax.Hub],
-			['Reprocess', MathJax.Hub]
-		);
-	}
-}
-</script>
-<div id="enc_content" style="display:none">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</div>
-<div id="enc_passwd"> <input id="enc_pwd_input" type="password" style="border-radius: 5px;border-style: groove;height: 30px;width: 50%;cursor: auto;font-size: 102%;color: currentColor;outline: none;text-overflow: initial;padding-left: 5px;" onkeydown="if (event.keyCode == 13) { decrypt(); return false;}"> <input type="submit" value="解&nbsp;密" onclick="decrypt()" style="width: 58px;height: 34px;border-radius: 5px;background-color: white;border-style: solid;color: currentColor;"><div id="enc_error" style="display: inline-block;color: #d84527;margin-left: 10px"></div>
-<script>
-var onError = function(error) {
-	document.getElementById("enc_error").innerHTML = "password error!"
-};
-function decrypt() {
-var passwd = document.getElementById("enc_pwd_input").value;
-console.log(passwd);
-doDecrypt(passwd, onError);
-}
-</script>
-</div>
+        <p>&emsp;&emsp;2018年过去了，感觉挺快的。到现在我还记得去年的今天，我正在准备元月调考，而现在，我正在大学的寝室里待着。刚好这两天放假，不妨抽个空，盘点一下我自己的2018年。</p>
+<p>&emsp;&emsp;想必18年最重要的事情，就是高考了。其实真的感觉没那么紧张，也没有晚上睡不着觉的情况，真的感觉跟平常差不多。唯一的区别，就是这是高中最后一次考试了，而且考完要填志愿。本来一直想去北京的，结果误打误撞地来到了浙大。但是现在看来，也许选择浙大是一个明智的选择，毕竟最后进入到了自己最喜欢的专业，也见到了许许多多的大佬，紫金港条件也不错，不出意外的话，等大西区建好之后，我浙将是中国面积最大的大学之一。</p>
+<p>&emsp;&emsp;其实我一直觉得，大学最重要的目的是拓宽视野。其实很多大学里学的知识到工作中并不能直接使用，但是在学习它们时，你学习能力的提升，你接触到的老师的视野，都是你受益终生的财富。看到周围还有人用高中的方式在学习，不听课、只刷题，除了学习什么都不干，不去与大佬接触，我只能笑而不语。</p>
+<p>&emsp;&emsp;说起大佬，不得不说机器人协会是个很牛的协会。这应该是学校最硬核的协会之一，一直想玩的机器人、一直想学的Arduino，嗯，都玩到了。教学部很多大佬啊，真的是让人受益匪浅，第一次内训就推荐了一大堆资源，涵盖了方方面面，不得不说很牛！在协会，我还认识了不少竺可桢学院的大佬。哎，抱腿的感觉，真好。</p>
+<p>&emsp;&emsp;学校的情况差不多就这些吧。总之，选择浙大，我不后悔。</p>
+<p>&emsp;&emsp;2018年，还有很多要感谢的人。</p>
+<p>&emsp;&emsp;首先，是家人。没有他们的支持，我不可能走到今天。无论是高考前的煎熬，还是填报志愿时的纠结，还是选择专业以及准备专业面试时，他们都给了我很大的支持。这里一起说一声，谢谢了，我爱你们。</p>
+<p>&emsp;&emsp;其次，是老师。古人云：“为师一时，为父一生。”确实，从小学到高中，我遇到了不少好老师。时至今日，我觉得有必要对他们都说一声谢谢。</p>
+<p>&emsp;&emsp;还有各位学长学姐。高考填报志愿时，问了不少学长学姐，而且还是在他们的考试周——我现在才明白考试周其实比高中忙的多。准备专业面试时，他们也为我提供了很大的帮助。在此一并致谢。</p>
+<p>&emsp;&emsp;最后是我的朋友们。在我孤独之时，他们能陪陪我。感谢你们。</p>
+<p>&emsp;&emsp;这是我成人后第一次跨年，学会感谢是人生的重要一课，因而特地在此，再次感谢所有在我成长过程中帮助过我的人。谢谢你们。</p>
+<p>&emsp;&emsp;2018也有很多实现了的小目标：</p>
+<ul>
+<li><p>进入心仪大学和专业</p>
+</li>
+<li><p>拿到第一门满绩</p>
+</li>
+<li><p>参加一次学术竞赛并取得一定名次</p>
+</li>
+<li><p>改掉高中时不良的睡眠习惯</p>
+</li>
+<li><p>搭建自己的个人网站/博客（就是这个了，哈哈！）</p>
+<p>……</p>
+</li>
+</ul>
+<p>&emsp;&emsp;当然2018 也有遗憾，但是不多，不妨把它们放到明年的目标里面。</p>
+<p>&emsp;&emsp;最后，讲讲我为什么想建立这个网站，以及明年的规划（flag）吧。</p>
+<p>&emsp;&emsp;建立网站当然不是空穴来风。这个想法的产生是因为我一天无聊，点开求是潮的“关于”页面，发现里面的开发人员（都是在校学生）每个人都有自己的个人网站，有的甚至还有自己的域名。具体看他们的文章，会发现确实技术含量很高。向大佬看齐，是建站的第一个原因。另外，一些刷到的题目中，有很多让我眼前一亮的想法，很难找到一个合适的地方来写这些东西。（我知道CSDN，但是那里盗版太严重，而且做project的经历让我发现上面的代码可以有多不靠谱。）再加上这种东西发到朋友圈、说说并不合适，也很容易淹没，我也不准备让很多人看到我的文章，因此自己建一个站点应该是个不错的选择。目前，它部署在GitHub上，没有被百度收录，而且GitHub是禁百度的spider的，因此百度是找不到这个网站的。我希望在浩瀚的互联网中，做一个淡定的隐士——志同道合者自然能找到我的网站，与我交流——这就足矣。</p>
+<p>&emsp;&emsp;明年准备就一些简单的算法（高深的我也还没学…….）谈谈自己的感受，可以理解为我的学习笔记。一些想法我也会放到这里来。另外，在MSC比赛中遇到了两个很有意思的语法问题，这个准备就在明年一月份写出来。（flag立在这里了…….）另外，我在明年会参加中控杯，中间遇到的技术问题及其解决方案，我也会放在这里。敬请期待。</p>
+<p>&emsp;&emsp;2018年的总结差不多就这些吧。期待2019年。</p>
+<p>&emsp;&emsp;See U, 2018!</p>
+
       
     </div>
     <footer class="article-footer">
