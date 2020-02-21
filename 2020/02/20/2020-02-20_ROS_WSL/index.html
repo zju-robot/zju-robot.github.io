@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>running ros on wsl | NCJ-Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="RoboticsROSGazeboLinuxEnvironment">
+  
+  
+  
+  
+  <meta name="description" content="简短版 如果根本没有出现图形界面，请禁用OpenGL的外部转发，全部在WSL内进行渲染：  export LIBGL_ALWAYS_INDIRECT=0   如果出现了图形界面，但是中间是黑屏，可以通过--verbose检查  如果是gazebo 7 (ROS Kinetic默认)，大概率是第一次模型没有下下来，自己手动下载模型放到/.gazebo/models/目录下即可  如果是gazebo">
+<meta name="keywords" content="Robotics,ROS,Gazebo,Linux,Environment">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Running ROS on WSL">
+<meta property="og:url" content="https://ncj.wiki/2020/02/20/2020-02-20_ROS_WSL/index.html">
+<meta property="og:site_name" content="NCJ-Blog">
+<meta property="og:description" content="简短版 如果根本没有出现图形界面，请禁用OpenGL的外部转发，全部在WSL内进行渲染：  export LIBGL_ALWAYS_INDIRECT=0   如果出现了图形界面，但是中间是黑屏，可以通过--verbose检查  如果是gazebo 7 (ROS Kinetic默认)，大概率是第一次模型没有下下来，自己手动下载模型放到/.gazebo/models/目录下即可  如果是gazebo">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2020-02-20_ROS_WSL/image-20200220225718834.png">
+<meta property="og:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2020-02-20_ROS_WSL/image-20200220230758278.png">
+<meta property="og:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2020-02-20_ROS_WSL/image-20200221101621314.png">
+<meta property="og:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2020-02-20_ROS_WSL/image-20200221101842784.png">
+<meta property="og:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2020-02-20_ROS_WSL/image-20200221103207172.png">
+<meta property="og:updated_time" content="2020-02-21T06:01:59.436Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Running ROS on WSL">
+<meta name="twitter:description" content="简短版 如果根本没有出现图形界面，请禁用OpenGL的外部转发，全部在WSL内进行渲染：  export LIBGL_ALWAYS_INDIRECT=0   如果出现了图形界面，但是中间是黑屏，可以通过--verbose检查  如果是gazebo 7 (ROS Kinetic默认)，大概率是第一次模型没有下下来，自己手动下载模型放到/.gazebo/models/目录下即可  如果是gazebo">
+<meta name="twitter:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2020-02-20_ROS_WSL/image-20200220225718834.png">
+  
+    <link rel="alternate" href="/atom.xml" title="NCJ-Blog" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  <link rel="apple-touch-icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt; src:url("css/fonts/FuturaPTBold.otf") format("woff");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt-light; src:url("css/fonts/FuturaPTBook.otf") format("woff");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt-italic; src:url("css/fonts/FuturaPTBookOblique.otf") format("woff");font-weight:400;font-style:italic;}
+}
+
+  </style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css">
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css">
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css">
+  
+
+</head>
+</html>
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  
+                    <li> <a class="main-nav-link" href="/">Home</a> </li>
+                  
+                  
+                
+                  
+                    <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                  
+                  
+                
+                  
+                    <li> <a class="main-nav-link" href="https://ncj.wiki/Projects_Show">Projects</a> </li>
+                  
+                  
+                
+                  
+                    <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                  
+                  
+                
+                  
+                    <li> <a class="main-nav-link" href="/about">About</a> </li>
+                  
+                  
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-2020-02-20_ROS_WSL" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      Running ROS on WSL
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2020/02/20/2020-02-20_ROS_WSL/" class="article-date">
+	  <time datetime="2020-02-20T14:15:00.000Z" itemprop="datePublished">2020-02-20</time>
+	</a>
+
+      
+      
+      
+
+      </br></br>
+      WordCount: 
+      <span class="post-count">1.5k</span>
+      Min2Read: 
+      <span class="post-count">6</span>
+      <!-- <span class="post-count">33k</span> -->
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<h2 id="简短版"><a href="#简短版" class="headerlink" title="简短版"></a>简短版</h2><ul>
+<li><p>如果根本没有出现图形界面，请禁用OpenGL的外部转发，全部在WSL内进行渲染：</p>
+<ul>
+<li><code>export LIBGL_ALWAYS_INDIRECT=0</code></li>
+</ul>
+</li>
+<li><p>如果出现了图形界面，但是中间是黑屏，可以通过<code>--verbose</code>检查</p>
+<ul>
+<li><p>如果是gazebo 7 (ROS Kinetic默认)，大概率是第一次模型没有下下来，自己<a href="https://bitbucket.org/osrf/gazebo_models/downloads/" target="_blank" rel="noopener">手动下载模型</a>放到<code>/.gazebo/models/</code>目录下即可</p>
+</li>
+<li><p>如果是gazebo 9 (ROS Melodic)，大概率是gazebo server的IP问题，在环境里设置一下gazebo server的IP即可：</p>
+<ul>
+<li><code>export GAZEBO_IP=127.0.0.1</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<hr>
+<p>闲来无事玩ROS，配环境。一杯茶，一把琴，一个环境配一宿。（<del>不是</del></p>
+<p>言归正传，感觉周围好多人都开始玩ROS，我也玩玩，然而拦在很多人面前的第一道坎竟是安装。事实上ROS官方对于正常的使用者已经提供了清晰明了的安装指南，只要前往<a href="https://www.ros.org/" target="_blank" rel="noopener">官网</a>进行操作即可。</p>
+<p>但是我<del>显然不是正常人</del>并没有安装Ubuntu，原因很多，之前还专门写文喷过Ubuntu，但是招架不住这次很多老师指定安装ROS Kinetic，ROS的上一个LTS版本，而这个版本只能安装在Ubuntu 16.04下，于是，我就动了WSL的邪念。</p>
+<p>WSL好处很多，你可以直接在Windows下“无缝”使用一个Linux发行版（虽然跟内核有关的东西都被砍掉了），而且WSL的主题安装之后，你可以同时安装很多个发行版，甚至还能通过Raft WSL等工具管理不同发行版的不同快照，这次我就索性直接在WSL里同时安装了两个不同的Ubuntu发行版，分别来安装ROS Kinetic和Melodic版本。</p>
+<p>WSL的安装在此略过，网上教程一搜一大把，我就不过多赘述，但是在WSL下，跑通gazebo，麻烦事还是很多的，下面开始排坑。</p>
+<hr>
+<p>首先，你得再安装一个Ubuntu的发行版，直接去商店下载就好。</p>
+<p>然后安装一下ROS，视网络情况而定，大概10~30分钟的样子。</p>
+<p>中间有一步<code>sudo rosdep init</code>可能会因为网络原因很慢，解决办法就是开proxy</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> https_proxy=xxx</span><br><span class="line">sudo -E rosdep init</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><code>-E</code>的意义就是将你现在设置好的proxy环境带入sudo中</p>
+</blockquote>
+<p>然后你需要准备一个X Server，我使用的是Xming，其他的X Server不保证兼容性。</p>
+<p>通过XLaunch启动X Server，<del>注意要关闭<code>Native opengl</code>，不然WSL会试图讲渲染工作交给外部的X Server，但是我试验了一下似乎不太行，干脆就强制使用软OpenGL算了。</del>（再次尝试发现不关也行，主要不在WSL里面指定外部OpenGL就行</p>
+<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2020-02-20_ROS_WSL/image-20200220225718834.png" alt="image-20200220225718834"></p>
+<blockquote>
+<p><del>划红线的这项要取消勾选</del></p>
+</blockquote>
+<p>测试一下</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">roslaunch turtle_tf turtle_tf_demo.launch</span><br><span class="line"><span class="comment"># on another terminal</span></span><br><span class="line">rosrun rviz rviz -d `rospack find turtle_tf`/rviz/turtle_rviz.rviz</span><br></pre></td></tr></table></figure>
+<p>发现可视化工具rviz是可以正常使用的</p>
+<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2020-02-20_ROS_WSL/image-20200220230758278.png" alt="image-20200220230758278"></p>
+<p>但是故事没有结束，事实上ROS里面还有一个重要的仿真环境gazebo</p>
+<p>我们来测试一下</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gazebo</span><br></pre></td></tr></table></figure>
+<p>然后发现</p>
+<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2020-02-20_ROS_WSL/image-20200221101621314.png" alt="image-20200221101621314"></p>
+<p>中间的仿真是黑的？？？</p>
+<p>很多人就会就此得出结论——WSL不能运行gazebo，我以前也这么以为，直到最近……</p>
+<h2 id="Gazebo-7"><a href="#Gazebo-7" class="headerlink" title="Gazebo 7"></a>Gazebo 7</h2><p>我们来试图寻找一下错误的原因</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gazebo --verbose</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2020-02-20_ROS_WSL/image-20200221101842784.png" alt="image-20200221101842784"></p>
+<p>看到那句warning，发现gazebo 7 在第一次启动的时候会尝试从官网下载所有的模型，而这一过程是非常漫长的，因此直接自己从<a href="https://bitbucket.org/osrf/gazebo_models/downloads/" target="_blank" rel="noopener">BitBucket</a>手动下载，解压到<code>~/.gazebo/models</code>目录下即可。</p>
+<p>这次即可正常打开</p>
+<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2020-02-20_ROS_WSL/image-20200221103207172.png" alt="image-20200221103207172"></p>
+<p>输出：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Gazebo multi-robot simulator, version 7.0.0</span><br><span class="line">Copyright (C) 2012-2016 Open Source Robotics Foundation.</span><br><span class="line">Released under the Apache 2 License.</span><br><span class="line">http://gazebosim.org</span><br><span class="line"></span><br><span class="line">[Msg] Waiting <span class="keyword">for</span> master.</span><br><span class="line">[Msg] Connected to gazebo master @ http://127.0.0.1:11345</span><br><span class="line">[Msg] Publicized address: 192.168.0.190</span><br><span class="line">Gazebo multi-robot simulator, version 7.0.0</span><br><span class="line">Copyright (C) 2012-2016 Open Source Robotics Foundation.</span><br><span class="line">Released under the Apache 2 License.</span><br><span class="line">http://gazebosim.org</span><br><span class="line"></span><br><span class="line">[Msg] Waiting <span class="keyword">for</span> master.</span><br><span class="line">[Msg] Connected to gazebo master @ http://127.0.0.1:11345</span><br><span class="line">[Msg] Publicized address: 192.168.0.190</span><br><span class="line">[Wrn] [Time.cc:437] Sleep time is larger than clock resolution, skipping sleep</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>gazebo7正常运行后的输出放在这儿是有目的的，在此先卖个关子</p>
+</blockquote>
+<h2 id="Gazebo-9"><a href="#Gazebo-9" class="headerlink" title="Gazebo 9"></a>Gazebo 9</h2><p>现在我们来试试ROS最新的LTS版本Melodic附带的Gazebo 9</p>
+<p>再安装一个新的Ubuntu 18.04发行版</p>
+<p>装好ROS Melodic</p>
+<p>然后运行gazebo</p>
+<p>又是黑屏</p>
+<p>不慌，看看输出</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gazebo --verbose</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Gazebo multi-robot simulator, version 9.0.0</span><br><span class="line">Copyright (C) 2012 Open Source Robotics Foundation.</span><br><span class="line">Released under the Apache 2 License.</span><br><span class="line">http://gazebosim.org</span><br><span class="line"></span><br><span class="line">[Msg] Waiting <span class="keyword">for</span> master.</span><br><span class="line">[Msg] Connected to gazebo master @ http://127.0.0.1:11345</span><br><span class="line">[Msg] Publicized address: 169.254.245.8</span><br><span class="line">Gazebo multi-robot simulator, version 9.0.0</span><br><span class="line">Copyright (C) 2012 Open Source Robotics Foundation.</span><br><span class="line">Released under the Apache 2 License.</span><br><span class="line">http://gazebosim.org</span><br><span class="line"></span><br><span class="line">[Msg] Waiting <span class="keyword">for</span> master.</span><br><span class="line">[Msg] Connected to gazebo master @ http://127.0.0.1:11345</span><br><span class="line">[Msg] Publicized address: 169.254.245.8</span><br><span class="line">[Wrn] [GuiIface.cc:120] QStandardPaths:</span><br></pre></td></tr></table></figure>
+<p>注意，与gazebo 7运行时的报错相对比，发现倒数第二行的<code>Publicized address</code>是<code>169.254.245.8</code>——一个无效的IP。gazebo运行需要后端的gazebo server与前端进行通信，而这个无效的IP地址导致了通信的失败。</p>
+<p>解决方法也很简单，设置一下gazebo的地址即可：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> GAZEBO_IP=127.0.0.1</span><br></pre></td></tr></table></figure>
+<p>再次启动gazebo，就发现已经能够正常使用。</p>
+<hr>
+<p>睡了一觉起来，发现又不能用了……</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">~$ gazebo --verbose</span><br><span class="line">Gazebo multi-robot simulator, version 9.0.0</span><br><span class="line">Copyright (C) 2012 Open Source Robotics Foundation.</span><br><span class="line">Released under the Apache 2 License.</span><br><span class="line">http://gazebosim.org</span><br><span class="line"></span><br><span class="line">[Msg] Waiting <span class="keyword">for</span> master.</span><br><span class="line">[Msg] Connected to gazebo master @ http://127.0.0.1:11345</span><br><span class="line">[Msg] Publicized address: 192.168.0.190</span><br><span class="line">Gazebo multi-robot simulator, version 9.0.0</span><br><span class="line">Copyright (C) 2012 Open Source Robotics Foundation.</span><br><span class="line">Released under the Apache 2 License.</span><br><span class="line">http://gazebosim.org</span><br><span class="line"></span><br><span class="line">[Msg] Waiting <span class="keyword">for</span> master.</span><br><span class="line">[Msg] Connected to gazebo master @ http://127.0.0.1:11345</span><br><span class="line">[Msg] Publicized address: 127.0.0.1</span><br><span class="line">~$</span><br></pre></td></tr></table></figure>
+<p>就没了？？？图形界面都没出来</p>
+<p>然后一想，图形界面都没有那八成是OpenGL的锅</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> LIBGL_ALWAYS_INDIRECT=0</span><br></pre></td></tr></table></figure>
+<p>done</p>
+<hr>
+<h2 id="一点对比"><a href="#一点对比" class="headerlink" title="一点对比"></a>一点对比</h2><p>对比了一下发现gazebo 7的空场景帧率在24FPS左右，gazebo 9则可达到接近60FPS，看来新的gazebo还是有优化的，所以即使是使用ROS Kinetic的同学也可以尝试换到gazebo 9，API应该是通用的，不通用就自己对着文档改改好了。</p>
+<p>踩坑结束。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <div id="donation_div"></div>
+
+<script src="/js/vdonate.js"></script>
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://gitee.com/iamncj/Picture_Bed/raw/master/Money_Tips/Wechat_QR.PNG',
+  alipayImage: 'https://gitee.com/iamncj/Picture_Bed/raw/master/Money_Tips/Wechat_QR.PNG'
+});
+</script>
+      
+      
+      <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>Post author:  </strong>NCJ</a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>Post link:  </strong>
+          <a href="/2020/02/20/2020-02-20_ROS_WSL/" target="_blank" title="Running ROS on WSL">https://ncj.wiki/2020/02/20/2020-02-20_ROS_WSL/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>Copyright Notice:   </strong>
+            All articles in this blog are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            unless stating additionally.
+          </li>
+         
+        </ul>
+<div>
+
+      
+      
+        
+	<div id="gitalk-container"></div>
+	<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+	<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.11.1/js/md5.min.js"></script>
+	<script type="text/javascript">
+	  var gitalk = new Gitalk({
+		clientID: '8b4a7d69678c89c26361',
+		clientSecret: 'eb62487ca685a8b1ceda674607520d66ef342cbd',
+		repo: 'blog-comments',
+		owner: 'iamNCJ',
+		admin: 'iamNCJ',
+		id: md5(location.pathname),
+		language: 'en',
+		perPage: 15,
+		pagerDirection: 'last',
+		createIssueManually: 'false',
+		distractionFreeMode: 'false'
+	  });
+  
+	  gitalk.render('gitalk-container')
+	</script>
+  
+  
+      
+      
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Environment/">Environment</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Gazebo/">Gazebo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ROS/">ROS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Robotics/">Robotics</a></li></ul>
+
+      
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2020/02/06/2020-02-06_oop_Java/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">OOP with Java</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简短版"><span class="nav-number">1.</span> <span class="nav-text">简短版</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Gazebo-7"><span class="nav-number">2.</span> <span class="nav-text">Gazebo 7</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Gazebo-9"><span class="nav-number">3.</span> <span class="nav-text">Gazebo 9</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一点对比"><span class="nav-number">4.</span> <span class="nav-text">一点对比</span></a></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      	<div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2018 - 2020 NCJ-Blog All Rights Reserved.</p>
+	      
+	      
+  		   	<p id="copyRightCn">NCJ hold copyright</p>
+  		   
+		</div>
+
+		
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    <!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/scripts.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            NCJ-Blog
+          </div>
+          <div class="panel-body">
+            Copyright © 2020 NCJ All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
