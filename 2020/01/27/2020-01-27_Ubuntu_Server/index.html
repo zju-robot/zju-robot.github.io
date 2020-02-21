@@ -11,18 +11,18 @@
   
   
   
-  <meta name="description" content="吃饱了撑的，非要在台式机上安装Ubuntu Server 好吧，主要是之后可能要玩ROS，ML的环境也是Ubuntu相对来说容易配置以西，所以还是Ubuntu方便一点。但是最近Ubuntu的一次内核更新引入了一个bug（具体参考https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1860306），导致我的Ubuntu在启动后图形界面会处于卡死状">
+  <meta name="description" content="吃饱了撑的，非要在台式机上安装Ubuntu Server 好吧，主要是之后可能要玩ROS，ML的环境也是Ubuntu相对来说容易配置一些，所以还是Ubuntu方便一点。但是最近Ubuntu的一次内核更新引入了一个bug（具体参考https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1860306），导致我的Ubuntu在启动后图形界面会处于卡死状">
 <meta name="keywords" content="Linux,Geek,Server">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【吐槽向】 Ubuntu Server 安装指南">
 <meta property="og:url" content="https://ncj.wiki/2020/01/27/2020-01-27_Ubuntu_Server/index.html">
 <meta property="og:site_name" content="NCJ-Blog">
-<meta property="og:description" content="吃饱了撑的，非要在台式机上安装Ubuntu Server 好吧，主要是之后可能要玩ROS，ML的环境也是Ubuntu相对来说容易配置以西，所以还是Ubuntu方便一点。但是最近Ubuntu的一次内核更新引入了一个bug（具体参考https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1860306），导致我的Ubuntu在启动后图形界面会处于卡死状">
+<meta property="og:description" content="吃饱了撑的，非要在台式机上安装Ubuntu Server 好吧，主要是之后可能要玩ROS，ML的环境也是Ubuntu相对来说容易配置一些，所以还是Ubuntu方便一点。但是最近Ubuntu的一次内核更新引入了一个bug（具体参考https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1860306），导致我的Ubuntu在启动后图形界面会处于卡死状">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-01-26T15:56:03.304Z">
+<meta property="og:updated_time" content="2020-02-21T06:51:06.505Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【吐槽向】 Ubuntu Server 安装指南">
-<meta name="twitter:description" content="吃饱了撑的，非要在台式机上安装Ubuntu Server 好吧，主要是之后可能要玩ROS，ML的环境也是Ubuntu相对来说容易配置以西，所以还是Ubuntu方便一点。但是最近Ubuntu的一次内核更新引入了一个bug（具体参考https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1860306），导致我的Ubuntu在启动后图形界面会处于卡死状">
+<meta name="twitter:description" content="吃饱了撑的，非要在台式机上安装Ubuntu Server 好吧，主要是之后可能要玩ROS，ML的环境也是Ubuntu相对来说容易配置一些，所以还是Ubuntu方便一点。但是最近Ubuntu的一次内核更新引入了一个bug（具体参考https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1860306），导致我的Ubuntu在启动后图形界面会处于卡死状">
   
     <link rel="alternate" href="/atom.xml" title="NCJ-Blog" type="application/atom+xml">
   
@@ -208,12 +208,12 @@
       <span class="post-count">594</span>
       Min2Read: 
       <span class="post-count">2</span>
-      <!-- <span class="post-count">33k</span> -->
+      <!-- <span class="post-count">33.1k</span> -->
     </div>
     <div class="article-entry" itemprop="articleBody">
       
         <p><del>吃饱了撑的，非要在台式机上安装Ubuntu Server</del></p>
-<p>好吧，主要是之后可能要玩ROS，ML的环境也是Ubuntu相对来说容易配置以西，所以还是Ubuntu方便一点。但是最近Ubuntu的一次内核更新引入了一个bug（具体参考<a href="https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1860306" target="_blank" rel="noopener">https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1860306</a>），导致我的Ubuntu在启动后图形界面会处于卡死状态，无法进行操作。虽然通过ssh将启动目标改为了terminal，勉强能够使用，但是显卡的驱动坏了，一时半会也没修好，一气之下索性想重装一个Ubuntu Server，告别Linux桌面环境。</p>
+<p>好吧，主要是之后可能要玩ROS，ML的环境也是Ubuntu相对来说容易配置一些，所以还是Ubuntu方便一点。但是最近Ubuntu的一次内核更新引入了一个bug（具体参考<a href="https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1860306" target="_blank" rel="noopener">https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1860306</a>），导致我的Ubuntu在启动后图形界面会处于卡死状态，无法进行操作。虽然通过ssh将启动目标改为了terminal，勉强能够使用，但是显卡的驱动坏了，一时半会也没修好，一气之下索性想重装一个Ubuntu Server，告别Linux桌面环境。</p>
 <p>然后就发现Ubuntu Server的安装脚本就是一坨屎，首先是18.04版本的live iso不支持nvme硬盘，Stack Overflow上查了一圈发现要么换上古的16.04，要么换mini.iso纯网络安装，要么用19.10，想了想20.04应该快出来了，索性直接用非LTS版本到时候滚过去吧。然后安装19.10的时候，发现脚本居然不支持自定义修改分区，要么全盘，要么在进脚本之前自己改好分区表，绝了。（<del>快快投奔Arch</del></p>
 <p>然后自己改好分区表，进入脚本，标记好EFI分区和根目录，开始安装，duang，ERROR，垃圾脚本，上网搜了一下错误信息发现又是一个bug……</p>
 <blockquote>
