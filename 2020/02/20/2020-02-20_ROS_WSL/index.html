@@ -6,13 +6,13 @@
   <title>running ros on wsl | NCJ-Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="RoboticsROSGazeboLinuxEnvironment">
+  <meta name="keywords" content="LinuxRoboticsROSGazeboEnvironment">
   
   
   
   
   <meta name="description" content="简短版 如果根本没有出现图形界面，请禁用OpenGL的外部转发，全部在WSL内进行渲染：  export LIBGL_ALWAYS_INDIRECT=0   如果出现了图形界面，但是中间是黑屏，可以通过--verbose检查  如果是gazebo 7 (ROS Kinetic默认)，大概率是第一次模型没有下下来，自己手动下载模型放到/.gazebo/models/目录下即可  如果是gazebo">
-<meta name="keywords" content="Robotics,ROS,Gazebo,Linux,Environment">
+<meta name="keywords" content="Linux,Robotics,ROS,Gazebo,Environment">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Running ROS on WSL">
 <meta property="og:url" content="https://ncj.wiki/2020/02/20/2020-02-20_ROS_WSL/index.html">
@@ -24,7 +24,7 @@
 <meta property="og:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2020-02-20_ROS_WSL/image-20200221101621314.png">
 <meta property="og:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2020-02-20_ROS_WSL/image-20200221101842784.png">
 <meta property="og:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2020-02-20_ROS_WSL/image-20200221103207172.png">
-<meta property="og:updated_time" content="2020-02-21T06:01:59.436Z">
+<meta property="og:updated_time" content="2020-02-21T06:11:31.944Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Running ROS on WSL">
 <meta name="twitter:description" content="简短版 如果根本没有出现图形界面，请禁用OpenGL的外部转发，全部在WSL内进行渲染：  export LIBGL_ALWAYS_INDIRECT=0   如果出现了图形界面，但是中间是黑屏，可以通过--verbose检查  如果是gazebo 7 (ROS Kinetic默认)，大概率是第一次模型没有下下来，自己手动下载模型放到/.gazebo/models/目录下即可  如果是gazebo">
@@ -254,27 +254,27 @@
 </blockquote>
 <p>然后你需要准备一个X Server，我使用的是Xming，其他的X Server不保证兼容性。</p>
 <p>通过XLaunch启动X Server，<del>注意要关闭<code>Native opengl</code>，不然WSL会试图讲渲染工作交给外部的X Server，但是我试验了一下似乎不太行，干脆就强制使用软OpenGL算了。</del>（再次尝试发现不关也行，主要不在WSL里面指定外部OpenGL就行</p>
-<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2020-02-20_ROS_WSL/image-20200220225718834.png" alt="image-20200220225718834"></p>
+<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2020-02-20_ROS_WSL/image-20200220225718834.png" alt="XLaunch"></p>
 <blockquote>
 <p><del>划红线的这项要取消勾选</del></p>
 </blockquote>
 <p>测试一下</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">roslaunch turtle_tf turtle_tf_demo.launch</span><br><span class="line"><span class="comment"># on another terminal</span></span><br><span class="line">rosrun rviz rviz -d `rospack find turtle_tf`/rviz/turtle_rviz.rviz</span><br></pre></td></tr></table></figure>
 <p>发现可视化工具rviz是可以正常使用的</p>
-<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2020-02-20_ROS_WSL/image-20200220230758278.png" alt="image-20200220230758278"></p>
+<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2020-02-20_ROS_WSL/image-20200220230758278.png" alt="turtle_tf_demo"></p>
 <p>但是故事没有结束，事实上ROS里面还有一个重要的仿真环境gazebo</p>
 <p>我们来测试一下</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gazebo</span><br></pre></td></tr></table></figure>
 <p>然后发现</p>
-<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2020-02-20_ROS_WSL/image-20200221101621314.png" alt="image-20200221101621314"></p>
+<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2020-02-20_ROS_WSL/image-20200221101621314.png" alt="gazebo"></p>
 <p>中间的仿真是黑的？？？</p>
 <p>很多人就会就此得出结论——WSL不能运行gazebo，我以前也这么以为，直到最近……</p>
 <h2 id="Gazebo-7"><a href="#Gazebo-7" class="headerlink" title="Gazebo 7"></a>Gazebo 7</h2><p>我们来试图寻找一下错误的原因</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gazebo --verbose</span><br></pre></td></tr></table></figure>
-<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2020-02-20_ROS_WSL/image-20200221101842784.png" alt="image-20200221101842784"></p>
+<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2020-02-20_ROS_WSL/image-20200221101842784.png" alt="gazebo --verbose"></p>
 <p>看到那句warning，发现gazebo 7 在第一次启动的时候会尝试从官网下载所有的模型，而这一过程是非常漫长的，因此直接自己从<a href="https://bitbucket.org/osrf/gazebo_models/downloads/" target="_blank" rel="noopener">BitBucket</a>手动下载，解压到<code>~/.gazebo/models</code>目录下即可。</p>
 <p>这次即可正常打开</p>
-<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2020-02-20_ROS_WSL/image-20200221103207172.png" alt="image-20200221103207172"></p>
+<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2020-02-20_ROS_WSL/image-20200221103207172.png" alt="gazebo"></p>
 <p>输出：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Gazebo multi-robot simulator, version 7.0.0</span><br><span class="line">Copyright (C) 2012-2016 Open Source Robotics Foundation.</span><br><span class="line">Released under the Apache 2 License.</span><br><span class="line">http://gazebosim.org</span><br><span class="line"></span><br><span class="line">[Msg] Waiting <span class="keyword">for</span> master.</span><br><span class="line">[Msg] Connected to gazebo master @ http://127.0.0.1:11345</span><br><span class="line">[Msg] Publicized address: 192.168.0.190</span><br><span class="line">Gazebo multi-robot simulator, version 7.0.0</span><br><span class="line">Copyright (C) 2012-2016 Open Source Robotics Foundation.</span><br><span class="line">Released under the Apache 2 License.</span><br><span class="line">http://gazebosim.org</span><br><span class="line"></span><br><span class="line">[Msg] Waiting <span class="keyword">for</span> master.</span><br><span class="line">[Msg] Connected to gazebo master @ http://127.0.0.1:11345</span><br><span class="line">[Msg] Publicized address: 192.168.0.190</span><br><span class="line">[Wrn] [Time.cc:437] Sleep time is larger than clock resolution, skipping sleep</span><br></pre></td></tr></table></figure>
 <blockquote>
