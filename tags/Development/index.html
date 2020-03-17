@@ -3,7 +3,7 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>NCJ-Blog</title>
+  <title>tag: development | NCJ-Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   
@@ -13,7 +13,7 @@
 <meta name="keywords" content="Programming, Photography">
 <meta property="og:type" content="website">
 <meta property="og:title" content="NCJ-Blog">
-<meta property="og:url" content="https://ncj.wiki/page/3/index.html">
+<meta property="og:url" content="https://ncj.wiki/tags/Development/index.html">
 <meta property="og:site_name" content="NCJ-Blog">
 <meta property="og:description" content="A Geek&apos;s Homepage">
 <meta property="og:locale" content="en">
@@ -50,13 +50,17 @@
   <link rel="stylesheet" href="/css/bootstrap.css">
 
   
-    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/dialog.css">
   
 
   
 
   
+    <link rel="stylesheet" href="/css/header-post.css">
+  
 
+  
+    <link rel="stylesheet" href="/css/archive.css">
   
   
   
@@ -71,246 +75,150 @@
 
 
   
-    <header id="header">
-
-	<!-- 背景图模式 -->
-	
-
-    
-      <div id="intrologo" class="intro-logo">
-    
- 
-    <div class="center">
-      <h1>NCJ's Tech Blog</h1>
-      <h2>Love Life - Love Tech</h2>
-    </div>
-
-    <canvas id="waves" width="100%" height="100%"></canvas>
-    <script src="/libs/sine-waves/sine-waves.min.js"></script>
-    <script>
-
-    (function () {
-        var waves = new SineWaves({
-            el: document.getElementById('waves'), 
-            speed: -8,
-            width: function () {
-                return $(window).width() + 100;
-            },
-            height: function () {
-                return $(window).height();
-            },
-            rotate: 180,
-            ease: 'SineOut',
-            waves: [
-                {
-                    timeModifier: 1,
-                    lineWidth: 3,
-                    amplitude: 350,
-                    wavelength: 200,
-                    segmentLength: 20
-                },
-                {
-                    timeModifier: 1,
-                    lineWidth: 2,
-                    amplitude: 150,
-                    wavelength: 100
-                },
-                {
-                    timeModifier: 1,
-                    lineWidth: 1,
-                    amplitude: -150,
-                    wavelength: 50,
-                    segmentLength: 10
-                },
-                {
-                    timeModifier: 1,
-                    lineWidth: .5,
-                    amplitude: -100,
-                    wavelength: 100,
-                    segmentLength: 10
-                }
-            ],
-            initialize: function () {
-            },
-            resizeEvent: function () {
-                var gradient = this.ctx.createLinearGradient(0, 0, this.width, 0);
-                gradient.addColorStop(0, 'rgba(33, 150, 243, 1)');
-                gradient.addColorStop(1, 'rgba(255, 255, 255, 1)');
-                var index = -1;
-                var length = this.waves.length;
-                while(++index < length){
-                    this.waves[index].strokeStyle = gradient;
-                }
-                // Clean Up
-                index = void 0;
-                length = void 0;
-                gradient = void 0;
-            }
-        });
-    })();
-    </script>
-
-  <div class="intro-navigate">
-      <p class="navigater-list">
-        
-          
-            <a id="beautifont" class="main-nav-link" href="/">Home</a>
-          
-        
-          
-            <a id="beautifont" class="main-nav-link" href="/archives">Archives</a>
-          
-        
-          
-            <a id="beautifont" class="main-nav-link" href="https://ncj.wiki/Projects_Show">Projects</a>
-          
-        
-          
-            <a id="beautifont" class="main-nav-link" href="/tags">Tags</a>
-          
-        
-          
-            <a id="beautifont" class="main-nav-link" href="/about">About</a>
-          
-        
-      </p>
-  </div>
-
-</header>
-  
   <div id="container">
     <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                 >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  
+                    <li> <a class="main-nav-link" href="/">Home</a> </li>
+                  
+                  
+                
+                  
+                    <li> <a class="main-nav-link" href="/archives">Archives</a> </li>
+                  
+                  
+                
+                  
+                    <li> <a class="main-nav-link" href="https://ncj.wiki/Projects_Show">Projects</a> </li>
+                  
+                  
+                
+                  
+                    <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                  
+                  
+                
+                  
+                    <li> <a class="main-nav-link" href="/about">About</a> </li>
+                  
+                  
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
       
             
       <div id="content" class="outer">
         
           <section id="main" style="float:none;">
   
-    <article id="post-2018-12-31_2018"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2018/12/31/2018-12-31_2018/">2018年终回顾</a>
-    </h1>
   
-
-      </header>
     
-    <div class="article-meta">
+    
       
-	<a href="/2018/12/31/2018-12-31_2018/" class="article-date">
-	  <time datetime="2018-12-31T09:36:06.000Z" itemprop="datePublished">2018-12-31</time>
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <h1><a href="/archives/2020" class="archive-year">2020</a></h1>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      
+	<a href="/2020/02/20/2020-03-16_GitHub_Actions/" class="archive-article-date">
+	  <time datetime="2020-02-20T14:15:00.000Z" itemprop="datePublished">2020-02-20</time>
 	</a>
 
       
-      
-      
-
-      </br></br>
-      WordCount: 
-      <span class="post-count">1.4k</span>
-      Min2Read: 
-      <span class="post-count">4</span>
-      <!-- <span class="post-count">33.3k</span> -->
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          &emsp;&emsp;2018年过去了，感觉挺快的。到现在我还记得去年的今天，我正在准备元月调考，而现在，我正在大学的寝室里待着。刚好这两天放假，不妨抽个空，盘点一下我自己的2018年。
-&emsp;&emsp;想必18年最重要的事情，就是高考了。其实真的感觉没那么紧张，也没有晚上睡不着觉的情况，真的感觉跟平常差不多。唯一的区别，就是这是高中最后一次考试了，而且考完要填志愿。本来一直想去北京的，结果误打误撞地来到了浙大。但是现在看来，也许选择浙大是一个明智的选择，毕竟最后进入到了自己最喜...
-        </p>
-        <p class="article-more-link">
-          <a href="/2018/12/31/2018-12-31_2018/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-<!-- Table of Contents -->
-
-
-  
-    <article id="post-2018-12-22_Thoughts-after-MSC-Competition"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2018/12/22/2018-12-22_Thoughts-after-MSC-Competition/">Thoughts after MSC Competition</a>
+      <a class="archive-article-title" href="/2020/02/20/2020-03-16_GitHub_Actions/">GitHub Actions无法上传到Release的问题</a>
     </h1>
   
 
-      </header>
-    
-    <div class="article-meta">
-      
-	<a href="/2018/12/22/2018-12-22_Thoughts-after-MSC-Competition/" class="article-date">
-	  <time datetime="2018-12-22T14:21:43.000Z" itemprop="datePublished">2018-12-22</time>
-	</a>
-
-      
-      
-      
-
-      </br></br>
-      WordCount: 
-      <span class="post-count">306</span>
-      Min2Read: 
-      <span class="post-count">1</span>
-      <!-- <span class="post-count">33.3k</span> -->
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p class="article-excerpt-content">
-          &emsp;&emsp;After one online pre-competition (Let’s just call it that) and an offline final, the 2018 MSC C Language Programming Competition has finally ended. It’s really exciting for me, this is the very first competition I attended in college a...
-        </p>
-        <p class="article-more-link">
-          <a href="/2018/12/22/2018-12-22_Thoughts-after-MSC-Competition/#more">Read More</a>
-        </p>
-      
-    </div>
-    <footer class="article-footer">
-      
-      
-      
-      
-
-    </footer>
+    </header>
   </div>
-  
 </article>
-
-<!-- Table of Contents -->
-
-
+  
+  
+    </div></section>
   
 
-
-  <nav id="page-nav">
-    
-    <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
-  </nav>
 
 </section>
         
       </div>
-      
-        <div align="center" style="margin-top: 30px;"><hr class="hr" style="margin:0px; height:3px;"></div>
       
       <footer id="footer">
   
@@ -393,8 +301,6 @@
 
 <script src="/js/scripts.js"></script>
 
-
-  <script src="/js/home.js"></script>
 
 
 

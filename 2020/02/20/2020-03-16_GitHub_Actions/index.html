@@ -3,26 +3,28 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>【吐槽向】 ubuntu server 安装指南 | NCJ-Blog</title>
+  <title>github actions无法上传到release的问题 | NCJ-Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="LinuxGeekServer">
+  <meta name="keywords" content="GitHub ActionsCIDevelopment">
   
   
   
   
-  <meta name="description" content="吃饱了撑的，非要在台式机上安装Ubuntu Server 好吧，主要是之后可能要玩ROS，ML的环境也是Ubuntu相对来说容易配置一些，所以还是Ubuntu方便一点。但是最近Ubuntu的一次内核更新引入了一个bug（具体参考https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1860306），导致我的Ubuntu在启动后图形界面会处于卡死状">
-<meta name="keywords" content="Linux,Geek,Server">
+  <meta name="description" content="最近在尝试使用 Github Actions 自动编译、发布树莓派Openwrt固件的时候，遇到了 Release 发布失败的问题。  可以看到 Create Release 这一步发生了错误 Bad credentials ，这个错误一般是调用 GitHub Release API 的时候 TOKEN 错误导致的，但是在我们这里是 GitHub 自动生成的 TOKEN ，照说应该一点问题都没有才">
+<meta name="keywords" content="GitHub Actions,CI,Development">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【吐槽向】 Ubuntu Server 安装指南">
-<meta property="og:url" content="https://ncj.wiki/2020/01/27/2020-01-27_Ubuntu_Server/index.html">
+<meta property="og:title" content="GitHub Actions无法上传到Release的问题">
+<meta property="og:url" content="https://ncj.wiki/2020/02/20/2020-03-16_GitHub_Actions/index.html">
 <meta property="og:site_name" content="NCJ-Blog">
-<meta property="og:description" content="吃饱了撑的，非要在台式机上安装Ubuntu Server 好吧，主要是之后可能要玩ROS，ML的环境也是Ubuntu相对来说容易配置一些，所以还是Ubuntu方便一点。但是最近Ubuntu的一次内核更新引入了一个bug（具体参考https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1860306），导致我的Ubuntu在启动后图形界面会处于卡死状">
+<meta property="og:description" content="最近在尝试使用 Github Actions 自动编译、发布树莓派Openwrt固件的时候，遇到了 Release 发布失败的问题。  可以看到 Create Release 这一步发生了错误 Bad credentials ，这个错误一般是调用 GitHub Release API 的时候 TOKEN 错误导致的，但是在我们这里是 GitHub 自动生成的 TOKEN ，照说应该一点问题都没有才">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-02-21T06:51:06.505Z">
+<meta property="og:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2020-03-16_GitHub_Actions/1.png">
+<meta property="og:updated_time" content="2020-03-17T07:37:37.614Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【吐槽向】 Ubuntu Server 安装指南">
-<meta name="twitter:description" content="吃饱了撑的，非要在台式机上安装Ubuntu Server 好吧，主要是之后可能要玩ROS，ML的环境也是Ubuntu相对来说容易配置一些，所以还是Ubuntu方便一点。但是最近Ubuntu的一次内核更新引入了一个bug（具体参考https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1860306），导致我的Ubuntu在启动后图形界面会处于卡死状">
+<meta name="twitter:title" content="GitHub Actions无法上传到Release的问题">
+<meta name="twitter:description" content="最近在尝试使用 Github Actions 自动编译、发布树莓派Openwrt固件的时候，遇到了 Release 发布失败的问题。  可以看到 Create Release 这一步发生了错误 Bad credentials ，这个错误一般是调用 GitHub Release API 的时候 TOKEN 错误导致的，但是在我们这里是 GitHub 自动生成的 TOKEN ，照说应该一点问题都没有才">
+<meta name="twitter:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2020-03-16_GitHub_Actions/1.png">
   
     <link rel="alternate" href="/atom.xml" title="NCJ-Blog" type="application/atom+xml">
   
@@ -179,7 +181,7 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><article id="post-2020-01-27_Ubuntu_Server" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-2020-03-16_GitHub_Actions" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -187,7 +189,7 @@
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      【吐槽向】 Ubuntu Server 安装指南
+      GitHub Actions无法上传到Release的问题
     </h1>
   
 
@@ -195,8 +197,8 @@
     
     <div class="article-meta">
       
-	<a href="/2020/01/27/2020-01-27_Ubuntu_Server/" class="article-date">
-	  <time datetime="2020-01-26T17:01:01.000Z" itemprop="datePublished">2020-01-27</time>
+	<a href="/2020/02/20/2020-03-16_GitHub_Actions/" class="article-date">
+	  <time datetime="2020-02-20T14:15:00.000Z" itemprop="datePublished">2020-02-20</time>
 	</a>
 
       
@@ -205,36 +207,19 @@
 
       </br></br>
       WordCount: 
-      <span class="post-count">594</span>
+      <span class="post-count">297</span>
       Min2Read: 
-      <span class="post-count">2</span>
+      <span class="post-count">1</span>
       <!-- <span class="post-count">33.3k</span> -->
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p><del>吃饱了撑的，非要在台式机上安装Ubuntu Server</del></p>
-<p>好吧，主要是之后可能要玩ROS，ML的环境也是Ubuntu相对来说容易配置一些，所以还是Ubuntu方便一点。但是最近Ubuntu的一次内核更新引入了一个bug（具体参考<a href="https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1860306" target="_blank" rel="noopener">https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1860306</a>），导致我的Ubuntu在启动后图形界面会处于卡死状态，无法进行操作。虽然通过ssh将启动目标改为了terminal，勉强能够使用，但是显卡的驱动坏了，一时半会也没修好，一气之下索性想重装一个Ubuntu Server，告别Linux桌面环境。</p>
-<p>然后就发现Ubuntu Server的安装脚本就是一坨屎，首先是18.04版本的live iso不支持nvme硬盘，Stack Overflow上查了一圈发现要么换上古的16.04，要么换mini.iso纯网络安装，要么用19.10，想了想20.04应该快出来了，索性直接用非LTS版本到时候滚过去吧。然后安装19.10的时候，发现脚本居然不支持自定义修改分区，要么全盘，要么在进脚本之前自己改好分区表，绝了。（<del>快快投奔Arch</del></p>
-<p>然后自己改好分区表，进入脚本，标记好EFI分区和根目录，开始安装，duang，ERROR，垃圾脚本，上网搜了一下错误信息发现又是一个bug……</p>
-<blockquote>
-<p>结论：Ubuntu Server的安装脚本设计的时候就没考虑作为第二个系统进行安装，各种异常处理做的也是极其不到位，如果你想Windows+Ubuntu Server，请先安装Ubuntu Server……</p>
-</blockquote>
-<hr>
-<p>于是开始曲线救国，先安装Desktop，然后转为Server（<del>不愧是我</del></p>
-<p>网上各种奇葩方法……</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt purge xorg-*</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt remove gnome-* &amp;&amp; sudo apt autoremove</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt remove ubuntu-desktop &amp;&amp; sudo apt autoremove</span><br></pre></td></tr></table></figure>
-<p>……</p>
-<p>看着就不优雅</p>
-<p>自然想到<code>tasksel</code></p>
-<p>取消勾选<code>Desktop</code>，选上<code>Basic Server</code>，跑完进度条就好了</p>
-<p>重启</p>
-<p>然后你就发现你上不了网了（狗头</p>
-<p>试了一下<code>/etc/network/interfaces</code>发现不行，<code>ip link set eno2 up</code>也不行，然后知道了Ubuntu的网络是由Network Manager管理的，tasksel可能在卸载Desktop的时候给你卸掉了，但Server安装的时候又没给你装回来……</p>
-<p>所以正确方法是：使用<code>tasksel</code>操作完之后，再安装Network Manager……</p>
-<hr>
-<p>踩坑结束……</p>
+        <p>最近在尝试使用 Github Actions 自动编译、发布<a href="https://github.com/iamNCJ/Openwrt-Pi4" target="_blank" rel="noopener">树莓派Openwrt固件</a>的时候，遇到了 Release 发布失败的问题。</p>
+<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2020-03-16_GitHub_Actions/1.png" alt="Bad credentials"></p>
+<p>可以看到 Create Release 这一步发生了错误 <code>Bad credentials</code> ，这个错误一般是调用 GitHub Release API 的时候 TOKEN 错误导致的，但是在我们这里是 GitHub 自动生成的 TOKEN ，照说应该一点问题都没有才对啊。</p>
+<p>后来查找资料得知是因为 GitHub 为 Actions 的每一个 Workflow 都会申请一个临时的 TOKEN ，但是这个TOKEN 只有一个小时的失效，而我们的编译持续了一个半小时，此时的 TOKEN 已经失效了， 因此不再有效。</p>
+<p>GitHub给出了一个<a href="https://help.github.com/en/actions/configuring-and-managing-workflows/persisting-workflow-data-using-artifacts#sharing-data-between-workflow-runs" target="_blank" rel="noopener">解决的办法</a>，就是创建不同的 Workflow，先单独编译，编译完成之后再将固件传到一个第三方的位置（比如你的云盘），然后再单独一个 Workflow 进行发布。</p>
+<p>另外一种办法就是使用永久的 TOKEN ，但是对于公开仓库这显然不安全，所以可以考虑创建一个 private repo 在里面编译然后通过永久 TOKEN 上传到公开仓库的 Release 里。</p>
 
       
     </div>
@@ -261,7 +246,7 @@ var a = new Donate({
           </li>
           <li class="post-copyright-link">
           <strong>Post link:  </strong>
-          <a href="/2020/01/27/2020-01-27_Ubuntu_Server/" target="_blank" title="【吐槽向】 Ubuntu Server 安装指南">https://ncj.wiki/2020/01/27/2020-01-27_Ubuntu_Server/</a>
+          <a href="/2020/02/20/2020-03-16_GitHub_Actions/" target="_blank" title="GitHub Actions无法上传到Release的问题">https://ncj.wiki/2020/02/20/2020-03-16_GitHub_Actions/</a>
           </li>
           <li class="post-copyright-license">
             <strong>Copyright Notice:   </strong>
@@ -301,7 +286,7 @@ var a = new Donate({
       
       
         
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Geek/">Geek</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Server/">Server</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CI/">CI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Development/">Development</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GitHub-Actions/">GitHub Actions</a></li></ul>
 
       
 
@@ -311,19 +296,10 @@ var a = new Donate({
     
 <nav id="article-nav">
   
-    <a href="/2020/02/06/2020-02-06_oop_Java/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          OOP with Java
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/01/26/2020-01-26_MultiROM_Mix2s/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2020/02/20/2020-02-20_ROS_WSL/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">小米Mix 2s多系统安装教程</div>
+      <div class="article-nav-title">Running ROS on WSL</div>
     </a>
   
 </nav>
