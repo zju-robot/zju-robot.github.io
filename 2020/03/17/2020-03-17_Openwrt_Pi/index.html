@@ -3,26 +3,33 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>【预告&amp;flag】离散数学详解 | NCJ-Blog</title>
+  <title>树莓派4打造旁路路由 | NCJ-Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="Flag">
+  <meta name="keywords" content="LinuxARM64OpenWrt">
   
   
   
   
-  <meta name="description" content="这学期就要学离散了，准备和室友一起尝试着在GitHub上建立一个项目，内容就是离散数学。我们计划每周将笔记、总结、部分课本内容的翻译（没错，我们用的是全英文教材）commit到上面。 Flag立在这里，项目地址搁这，也算是让大家来监督我们。 同时欢迎各位同仁PR https://github.com/iamNCJ/Discrete_Mathematics_Explained_in_Detail">
-<meta name="keywords" content="Flag">
+  <meta name="description" content="相关仓库： iamNCJ/Openwrt-Pi4     最近尝试改造自己的路由器，无奈家里的路由器都比较老，而且没有USB插口，不是很好刷 OpenWrt ，于是想到直接将树莓派作为自己的旁路路由，在树莓派上运行 Openwrt 系统，来实现如全局代理等功能。 首先尝试官网的 snapshoot 版本，感觉效果一般，然后看网上有人说在 Docker 里运行 OpenWrt ，测试感觉能用，但是">
+<meta name="keywords" content="Linux,ARM64,OpenWrt">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【预告&amp;Flag】离散数学详解">
-<meta property="og:url" content="https://ncj.wiki/2019/02/19/2019-02-20_a_flag_about_Discrete_Mathematics/index.html">
+<meta property="og:title" content="树莓派4打造旁路路由">
+<meta property="og:url" content="https://ncj.wiki/2020/03/17/2020-03-17_Openwrt_Pi/index.html">
 <meta property="og:site_name" content="NCJ-Blog">
-<meta property="og:description" content="这学期就要学离散了，准备和室友一起尝试着在GitHub上建立一个项目，内容就是离散数学。我们计划每周将笔记、总结、部分课本内容的翻译（没错，我们用的是全英文教材）commit到上面。 Flag立在这里，项目地址搁这，也算是让大家来监督我们。 同时欢迎各位同仁PR https://github.com/iamNCJ/Discrete_Mathematics_Explained_in_Detail">
+<meta property="og:description" content="相关仓库： iamNCJ/Openwrt-Pi4     最近尝试改造自己的路由器，无奈家里的路由器都比较老，而且没有USB插口，不是很好刷 OpenWrt ，于是想到直接将树莓派作为自己的旁路路由，在树莓派上运行 Openwrt 系统，来实现如全局代理等功能。 首先尝试官网的 snapshoot 版本，感觉效果一般，然后看网上有人说在 Docker 里运行 OpenWrt ，测试感觉能用，但是">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-05T13:38:45.731Z">
+<meta property="og:image" content="https://img.shields.io/github/stars/iamNCJ/Openwrt-Pi4.svg?label=Stars&style=social">
+<meta property="og:image" content="https://img.shields.io/github/forks/iamNCJ/Openwrt-Pi4.svg?label=Fork&style=social">
+<meta property="og:image" content="https://github.com/iamNCJ/Openwrt-Pi4/workflows/Build%20OpenWrt/badge.svg?branch=master">
+<meta property="og:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2020-03-17_Openwrt/1.png">
+<meta property="og:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2020-03-17_Openwrt/3.png">
+<meta property="og:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2020-03-17_Openwrt/2.png">
+<meta property="og:updated_time" content="2020-03-17T08:01:26.294Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【预告&amp;Flag】离散数学详解">
-<meta name="twitter:description" content="这学期就要学离散了，准备和室友一起尝试着在GitHub上建立一个项目，内容就是离散数学。我们计划每周将笔记、总结、部分课本内容的翻译（没错，我们用的是全英文教材）commit到上面。 Flag立在这里，项目地址搁这，也算是让大家来监督我们。 同时欢迎各位同仁PR https://github.com/iamNCJ/Discrete_Mathematics_Explained_in_Detail">
+<meta name="twitter:title" content="树莓派4打造旁路路由">
+<meta name="twitter:description" content="相关仓库： iamNCJ/Openwrt-Pi4     最近尝试改造自己的路由器，无奈家里的路由器都比较老，而且没有USB插口，不是很好刷 OpenWrt ，于是想到直接将树莓派作为自己的旁路路由，在树莓派上运行 Openwrt 系统，来实现如全局代理等功能。 首先尝试官网的 snapshoot 版本，感觉效果一般，然后看网上有人说在 Docker 里运行 OpenWrt ，测试感觉能用，但是">
+<meta name="twitter:image" content="https://img.shields.io/github/stars/iamNCJ/Openwrt-Pi4.svg?label=Stars&style=social">
   
     <link rel="alternate" href="/atom.xml" title="NCJ-Blog" type="application/atom+xml">
   
@@ -179,7 +186,7 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><article id="post-2019-02-20_a_flag_about_Discrete_Mathematics" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-2020-03-17_Openwrt_Pi" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -187,7 +194,7 @@
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      【预告&amp;Flag】离散数学详解
+      树莓派4打造旁路路由
     </h1>
   
 
@@ -195,8 +202,8 @@
     
     <div class="article-meta">
       
-	<a href="/2019/02/19/2019-02-20_a_flag_about_Discrete_Mathematics/" class="article-date">
-	  <time datetime="2019-02-19T15:45:49.000Z" itemprop="datePublished">2019-02-19</time>
+	<a href="/2020/03/17/2020-03-17_Openwrt_Pi/" class="article-date">
+	  <time datetime="2020-03-17T08:15:00.000Z" itemprop="datePublished">2020-03-17</time>
 	</a>
 
       
@@ -205,19 +212,27 @@
 
       </br></br>
       WordCount: 
-      <span class="post-count">108</span>
+      <span class="post-count">450</span>
       Min2Read: 
       <span class="post-count">1</span>
       <!-- <span class="post-count">33.7k</span> -->
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>这学期就要学离散了，准备和室友一起尝试着在GitHub上建立一个项目，内容就是离散数学。我们计划每周将笔记、总结、部分课本内容的翻译（没错，我们用的是全英文教材）commit到上面。</p>
-<p>Flag立在这里，项目地址搁这，也算是让大家来监督我们。</p>
-<p>同时欢迎各位同仁PR</p>
-<p><a href="https://github.com/iamNCJ/Discrete_Mathematics_Explained_in_Detail" target="_blank" rel="noopener">https://github.com/iamNCJ/Discrete_Mathematics_Explained_in_Detail</a></p>
-<iframe src="https://ghbtns.com/github-btn.html?user=iamncj&repo=Discrete_Mathematics_Explained_in_Detail&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
-
+        <blockquote>
+<p>相关仓库： <a href="https://github.com/iamNCJ" target="_blank" rel="noopener">iamNCJ</a>/<strong><a href="https://github.com/iamNCJ/Openwrt-Pi4" target="_blank" rel="noopener">Openwrt-Pi4</a></strong></p>
+<p><a href="https://github.com/iamNCJ/Openwrt-Pi4/stargazers" target="_blank" rel="noopener"><img src="https://img.shields.io/github/stars/iamNCJ/Openwrt-Pi4.svg?label=Stars&amp;style=social" alt="Stars"></a> <a href="https://github.com/iamNCJ/Openwrt-Pi4/network/members" target="_blank" rel="noopener"><img src="https://img.shields.io/github/forks/iamNCJ/Openwrt-Pi4.svg?label=Fork&amp;style=social" alt="Forks"></a> <img src="https://github.com/iamNCJ/Openwrt-Pi4/workflows/Build%20OpenWrt/badge.svg?branch=master" alt="Build OpenWrt"></p>
+</blockquote>
+<p>最近尝试改造自己的路由器，无奈家里的路由器都比较老，而且没有USB插口，不是很好刷 OpenWrt ，于是想到直接将树莓派作为自己的旁路路由，在树莓派上运行 Openwrt 系统，来实现如全局代理等功能。</p>
+<p>首先尝试官网的 snapshoot 版本，感觉效果一般，然后看网上有人说在 Docker 里运行 OpenWrt ，测试感觉能用，但是非常不稳定，于是索性自己编译一个。</p>
+<p>使用的上游是 <a href="https://github.com/coolsnowwolf/lede" target="_blank" rel="noopener">lede 大的固件</a>，然后针对树莓派4，直接使用64位系统，榨干性能，开启了 Docker 支持，这样其他的功能基本还是不受影响（我已经将所有树莓派上自己用的的服务基本都容器化了），再加上现在的树莓派4已经有了千兆网口，整个体验效果是非常的好。</p>
+<p>编译的时候本地编译，毕竟 9700K ，但是出于好玩尝试了网上的 <a href="https://github.com/P3TERX/Actions-OpenWrt" target="_blank" rel="noopener">GitHub Actions 编译脚本</a>，感觉这个脚本马马虎虎，而且没有办法增量编译，所以只适合喜欢薅羊毛的人，有条件的话还是本地编译比较好。</p>
+<p>现在家里的网络舒服多了，挂一张内网的测速，librespeed speedtest，千兆网还是很稳的。（librespeed 在树莓派上最好从源码 Dockerfile 自己build镜像，linuxserver 提供的 armv8 镜像非常不稳定）</p>
+<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2020-03-17_Openwrt/1.png" alt></p>
+<p>本地互联网和境外代理也都很稳</p>
+<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2020-03-17_Openwrt/3.png" alt="Local"></p>
+<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2020-03-17_Openwrt/2.png" alt="Proxy"></p>
+<p>最后本着开源精神，将树莓派4专用的 OpenWrt 固件的编译 <code>.CONFIG</code> 文件以及编译好的镜像开源，想使用可以<a href="https://github.com/iamNCJ/Openwrt-Pi4" target="_blank" rel="noopener">点击这里</a>查看配置或直接下载镜像安装，欢迎PR。</p>
 
       
     </div>
@@ -244,7 +259,7 @@ var a = new Donate({
           </li>
           <li class="post-copyright-link">
           <strong>Post link:  </strong>
-          <a href="/2019/02/19/2019-02-20_a_flag_about_Discrete_Mathematics/" target="_blank" title="【预告&amp;Flag】离散数学详解">https://ncj.wiki/2019/02/19/2019-02-20_a_flag_about_Discrete_Mathematics/</a>
+          <a href="/2020/03/17/2020-03-17_Openwrt_Pi/" target="_blank" title="树莓派4打造旁路路由">https://ncj.wiki/2020/03/17/2020-03-17_Openwrt_Pi/</a>
           </li>
           <li class="post-copyright-license">
             <strong>Copyright Notice:   </strong>
@@ -284,7 +299,7 @@ var a = new Donate({
       
       
         
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Flag/">Flag</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ARM64/">ARM64</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OpenWrt/">OpenWrt</a></li></ul>
 
       
 
@@ -294,19 +309,10 @@ var a = new Donate({
     
 <nav id="article-nav">
   
-    <a href="/2019/02/23/2019-02-23_Division/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          整数划分问题归纳
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/02/19/2019-02-19_Macro/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2020/03/16/2020-03-16_GitHub_Actions/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">C语言的宏运算符</div>
+      <div class="article-nav-title">GitHub Actions无法上传到Release的问题</div>
     </a>
   
 </nav>
