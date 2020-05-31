@@ -1,28 +1,29 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   <title>c语言的宏运算符 | NCJ-Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="CGrammar">
+  <meta name="keywords" content="CGrammar" />
   
   
   
   
-  <meta name="description" content="这题还是MSC决赛的一题，原题题干已经交代得很清楚了（我懒……），直接搬过来好了  宏&amp;amp;宏函数简介宏是 C 语言中极为强大，也极具魅力的一个功能。宏为极其贴近机器语言的 C 提供了一定程度上的元编程能力。程序员们能够利用宏来减少代码中的重复，或是解决一些条件编译之类的问题。 宏、或者说 C 预处理器，实际上干的事情就是进行字符串拼接和处理，其中比较简单的就是普通的字符串替换： #defi">
-<meta name="keywords" content="C,Grammar">
+  <meta name="description" content="这题还是MSC决赛的一题，原题题干已经交代得很清楚了（我懒……），直接搬过来好了  宏&amp;宏函数简介宏是 C 语言中极为强大，也极具魅力的一个功能。宏为极其贴近机器语言的 C 提供了一定程度上的元编程能力。程序员们能够利用宏来减少代码中的重复，或是解决一些条件编译之类的问题。 宏、或者说 C 预处理器，实际上干的事情就是进行字符串拼接和处理，其中比较简单的就是普通的字符串替换： #defi">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C语言的宏运算符">
 <meta property="og:url" content="https://ncj.wiki/2019/02/19/2019-02-19_Macro/index.html">
 <meta property="og:site_name" content="NCJ-Blog">
-<meta property="og:description" content="这题还是MSC决赛的一题，原题题干已经交代得很清楚了（我懒……），直接搬过来好了  宏&amp;amp;宏函数简介宏是 C 语言中极为强大，也极具魅力的一个功能。宏为极其贴近机器语言的 C 提供了一定程度上的元编程能力。程序员们能够利用宏来减少代码中的重复，或是解决一些条件编译之类的问题。 宏、或者说 C 预处理器，实际上干的事情就是进行字符串拼接和处理，其中比较简单的就是普通的字符串替换： #defi">
-<meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-05T13:38:45.730Z">
+<meta property="og:description" content="这题还是MSC决赛的一题，原题题干已经交代得很清楚了（我懒……），直接搬过来好了  宏&amp;宏函数简介宏是 C 语言中极为强大，也极具魅力的一个功能。宏为极其贴近机器语言的 C 提供了一定程度上的元编程能力。程序员们能够利用宏来减少代码中的重复，或是解决一些条件编译之类的问题。 宏、或者说 C 预处理器，实际上干的事情就是进行字符串拼接和处理，其中比较简单的就是普通的字符串替换： #defi">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-02-19T15:06:08.000Z">
+<meta property="article:modified_time" content="2019-09-05T13:38:45.730Z">
+<meta property="article:author" content="NCJ">
+<meta property="article:tag" content="C">
+<meta property="article:tag" content="Grammar">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="C语言的宏运算符">
-<meta name="twitter:description" content="这题还是MSC决赛的一题，原题题干已经交代得很清楚了（我懒……），直接搬过来好了  宏&amp;amp;宏函数简介宏是 C 语言中极为强大，也极具魅力的一个功能。宏为极其贴近机器语言的 C 提供了一定程度上的元编程能力。程序员们能够利用宏来减少代码中的重复，或是解决一些条件编译之类的问题。 宏、或者说 C 预处理器，实际上干的事情就是进行字符串拼接和处理，其中比较简单的就是普通的字符串替换： #defi">
   
     <link rel="alternate" href="/atom.xml" title="NCJ-Blog" type="application/atom+xml">
   
@@ -44,32 +45,40 @@
 }
 
   </style>
-  <link rel="stylesheet" href="/css/style.css">
+  
+<link rel="stylesheet" href="/css/style.css">
 
-  <script src="/js/jquery-3.1.1.min.js"></script>
-  <script src="/js/bootstrap.js"></script>
+
+  
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+  
+<script src="/js/bootstrap.js"></script>
+
 
   <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="/css/bootstrap.css">
+  <link rel="stylesheet" href="/css/bootstrap.css" >
 
   
-    <link rel="stylesheet" href="/css/dialog.css">
-  
+    
+<link rel="stylesheet" href="/css/dialog.css">
 
-  
-
-  
-    <link rel="stylesheet" href="/css/header-post.css">
   
 
   
+
   
-  
-    <link rel="stylesheet" href="/css/vdonate.css">
+    <link rel="stylesheet" href="/css/header-post.css" >
   
 
-</head>
-</html>
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
 
 
   <body data-spy="scroll" data-target="#toc" data-offset="50">
@@ -162,7 +171,9 @@
     window.INSIGHT_CONFIG = INSIGHT_CONFIG;
 })(window);
 </script>
+
 <script src="/js/insight.js"></script>
+
 
 </div></li>
             </div>
@@ -207,8 +218,8 @@
       WordCount: 
       <span class="post-count">2.2k</span>
       Min2Read: 
-      <span class="post-count">9</span>
-      <!-- <span class="post-count">33.7k</span> -->
+      <span class="post-count">8</span>
+      <!-- <span class="post-count">34.4k</span> -->
     </div>
     <div class="article-entry" itemprop="articleBody">
       
@@ -248,39 +259,18 @@
 <p>保证传入的参数为合法的 C 表达式，且类型为 <code>int</code>，个数在 1 ~ 5 之间，中间用逗号分隔</p>
 <p>保证传入的表达式无副作用</p>
 <h2 id="函数接口定义"><a href="#函数接口定义" class="headerlink" title="函数接口定义"></a>函数接口定义</h2><p>虽然并不是函数</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">&gt; <span class="meta">#<span class="meta-keyword">define</span> MAX(...)</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p>&gt;</p>
-<blockquote>
-<h2 id="裁判测试程序样例"><a href="#裁判测试程序样例" class="headerlink" title="裁判测试程序样例"></a>裁判测试程序样例</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">&gt; <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line">&gt; </span><br><span class="line">&gt; <span class="comment">// your code here</span></span><br><span class="line">&gt; </span><br><span class="line">&gt; <span class="keyword">int</span> data[<span class="number">10</span>];</span><br><span class="line">&gt; </span><br><span class="line">&gt; <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">&gt;   <span class="keyword">int</span> n;</span><br><span class="line">&gt;   <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">&gt;   <span class="keyword">int</span> x, y, z, w, u;</span><br><span class="line">&gt;   <span class="keyword">switch</span>(n) &#123;</span><br><span class="line">&gt;     <span class="keyword">case</span> <span class="number">1</span>: <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;x); <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, MAX(x)); <span class="keyword">break</span>;</span><br><span class="line">&gt;     <span class="keyword">case</span> <span class="number">2</span>: <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>, &amp;x, &amp;y); <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, MAX(x, y)); <span class="keyword">break</span>;</span><br><span class="line">&gt;     <span class="keyword">case</span> <span class="number">3</span>: <span class="built_in">scanf</span>(<span class="string">"%d %d %d"</span>, &amp;x, &amp;y, &amp;z); <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, MAX(x, y, z)); <span class="keyword">break</span>;</span><br><span class="line">&gt;     <span class="keyword">case</span> <span class="number">4</span>: <span class="built_in">scanf</span>(<span class="string">"%d %d %d %d"</span>, &amp;x, &amp;y, &amp;z, &amp;w); <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, MAX(x, y, z, w)); <span class="keyword">break</span>;</span><br><span class="line">&gt;     <span class="keyword">case</span> <span class="number">5</span>: <span class="built_in">scanf</span>(<span class="string">"%d %d %d %d %d"</span>, &amp;x, &amp;y, &amp;z, &amp;w, &amp;u); <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, MAX(x, y, z, w, u)); <span class="keyword">break</span>;</span><br><span class="line">&gt;     <span class="keyword">default</span>: <span class="keyword">break</span>;</span><br><span class="line">&gt;   &#125;</span><br><span class="line">&gt;   <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p>&gt;</p>
-<blockquote>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX(...)</span></span><br></pre></td></tr></table></figure>
+<h2 id="裁判测试程序样例"><a href="#裁判测试程序样例" class="headerlink" title="裁判测试程序样例"></a>裁判测试程序样例</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// your code here</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> data[<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> n;</span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">  <span class="keyword">int</span> x, y, z, w, u;</span><br><span class="line">  <span class="keyword">switch</span>(n) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">1</span>: <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;x); <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, MAX(x)); <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">2</span>: <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>, &amp;x, &amp;y); <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, MAX(x, y)); <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">3</span>: <span class="built_in">scanf</span>(<span class="string">"%d %d %d"</span>, &amp;x, &amp;y, &amp;z); <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, MAX(x, y, z)); <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">4</span>: <span class="built_in">scanf</span>(<span class="string">"%d %d %d %d"</span>, &amp;x, &amp;y, &amp;z, &amp;w); <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, MAX(x, y, z, w)); <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">5</span>: <span class="built_in">scanf</span>(<span class="string">"%d %d %d %d %d"</span>, &amp;x, &amp;y, &amp;z, &amp;w, &amp;u); <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, MAX(x, y, z, w, u)); <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">default</span>: <span class="keyword">break</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>样例仅供参考</p>
-<h2 id="样例1"><a href="#样例1" class="headerlink" title="样例1"></a>样例1</h2><h3 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; 4 1 3 2 1</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p>&gt;</p>
-<blockquote>
-<h3 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; 3</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p>&gt;</p>
-<blockquote>
-<h2 id="样例2"><a href="#样例2" class="headerlink" title="样例2"></a>样例2</h2><h3 id="输入-1"><a href="#输入-1" class="headerlink" title="输入"></a>输入</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; 1 0</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p>&gt;</p>
-<blockquote>
-<h3 id="输出-1"><a href="#输出-1" class="headerlink" title="输出"></a>输出</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; 0</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p>&gt;</p>
-<blockquote>
+<h2 id="样例1"><a href="#样例1" class="headerlink" title="样例1"></a>样例1</h2><h3 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">4 1 3 2 1</span><br></pre></td></tr></table></figure>
+<h3 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">3</span><br></pre></td></tr></table></figure>
+<h2 id="样例2"><a href="#样例2" class="headerlink" title="样例2"></a>样例2</h2><h3 id="输入-1"><a href="#输入-1" class="headerlink" title="输入"></a>输入</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1 0</span><br></pre></td></tr></table></figure>
+<h3 id="输出-1"><a href="#输出-1" class="headerlink" title="输出"></a>输出</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">0</span><br></pre></td></tr></table></figure>
 <h2 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h2><ul>
 <li>具体的规则最好自己实验一下， 使用 <code>gcc -E test.c</code> 可以打印出 <code>test.c</code> 经过预处理后的代码</li>
 <li>宏函数的参数使用时在不影响语义的情况下尽量在两边加上 <code>()</code> ，一个常见的错误例子就是：</li>
 </ul>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">&gt; <span class="meta">#<span class="meta-keyword">define</span> MUL(A, B) A * B</span></span><br><span class="line">&gt; MUL(<span class="number">1</span> + <span class="number">2</span>, <span class="number">3</span> + <span class="number">4</span>) <span class="comment">// -&gt; 1 + 2 * 3 + 4 </span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p>&gt;</p>
-<blockquote>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MUL(A, B) A * B</span></span><br><span class="line">MUL(<span class="number">1</span> + <span class="number">2</span>, <span class="number">3</span> + <span class="number">4</span>) <span class="comment">// -&gt; 1 + 2 * 3 + 4 </span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>在预处理器进行处理的过程中, 可以产生一些临时参数，但它们很快就在下一次替换过程消失，而不会导致生成非法的表达式。</li>
 <li>你可能需要一个形式类似于 <code>#define FOO(_USELESS_PARAMETER, ...) BLAHBLAH</code> 的宏</li>
@@ -317,7 +307,9 @@
       
         <div id="donation_div"></div>
 
+
 <script src="/js/vdonate.js"></script>
+
 <script>
 var a = new Donate({
   title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
@@ -376,7 +368,7 @@ var a = new Donate({
       
       
         
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Grammar/">Grammar</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Grammar/" rel="tag">Grammar</a></li></ul>
 
       
 
@@ -496,8 +488,13 @@ var a = new Donate({
 </script>
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
 
 
 <script src="/js/scripts.js"></script>
@@ -505,7 +502,10 @@ var a = new Donate({
 
 
 
-  <script src="/js/dialog.js"></script>
+
+  
+<script src="/js/dialog.js"></script>
+
 
 
 

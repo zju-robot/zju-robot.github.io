@@ -1,28 +1,29 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   <title>variadic function in c | NCJ-Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="CGrammar">
+  <meta name="keywords" content="CGrammar" />
   
   
   
   
   <meta name="description" content="&amp;emsp;&amp;emsp;去年参加MSC的决赛的时候，遇到了关于变参函数的问题。其实这类函数很套路，但是考虑到之后想写的关于宏的一篇文章中有些东西跟变参函数有些类似，而且网上关于变参函数的教程都几乎是千篇一律、不中要害，因此先写一篇关于变参函数的文章，对其使用方法进行探讨。  〇、引言-常规的函数&amp;emsp;&amp;emsp;在C语言中，函数在声明时往往就要指定参数的数量与类型，编译的时候，编译器也会替我">
-<meta name="keywords" content="C,Grammar">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Variadic Function in C">
 <meta property="og:url" content="https://ncj.wiki/2019/01/20/2019-01-20_variadic-function/index.html">
 <meta property="og:site_name" content="NCJ-Blog">
 <meta property="og:description" content="&amp;emsp;&amp;emsp;去年参加MSC的决赛的时候，遇到了关于变参函数的问题。其实这类函数很套路，但是考虑到之后想写的关于宏的一篇文章中有些东西跟变参函数有些类似，而且网上关于变参函数的教程都几乎是千篇一律、不中要害，因此先写一篇关于变参函数的文章，对其使用方法进行探讨。  〇、引言-常规的函数&amp;emsp;&amp;emsp;在C语言中，函数在声明时往往就要指定参数的数量与类型，编译的时候，编译器也会替我">
-<meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-05T13:38:45.730Z">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-01-20T05:22:41.000Z">
+<meta property="article:modified_time" content="2019-09-05T13:38:45.730Z">
+<meta property="article:author" content="NCJ">
+<meta property="article:tag" content="C">
+<meta property="article:tag" content="Grammar">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Variadic Function in C">
-<meta name="twitter:description" content="&amp;emsp;&amp;emsp;去年参加MSC的决赛的时候，遇到了关于变参函数的问题。其实这类函数很套路，但是考虑到之后想写的关于宏的一篇文章中有些东西跟变参函数有些类似，而且网上关于变参函数的教程都几乎是千篇一律、不中要害，因此先写一篇关于变参函数的文章，对其使用方法进行探讨。  〇、引言-常规的函数&amp;emsp;&amp;emsp;在C语言中，函数在声明时往往就要指定参数的数量与类型，编译的时候，编译器也会替我">
   
     <link rel="alternate" href="/atom.xml" title="NCJ-Blog" type="application/atom+xml">
   
@@ -44,32 +45,40 @@
 }
 
   </style>
-  <link rel="stylesheet" href="/css/style.css">
+  
+<link rel="stylesheet" href="/css/style.css">
 
-  <script src="/js/jquery-3.1.1.min.js"></script>
-  <script src="/js/bootstrap.js"></script>
+
+  
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+  
+<script src="/js/bootstrap.js"></script>
+
 
   <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="/css/bootstrap.css">
+  <link rel="stylesheet" href="/css/bootstrap.css" >
 
   
-    <link rel="stylesheet" href="/css/dialog.css">
-  
+    
+<link rel="stylesheet" href="/css/dialog.css">
 
-  
-
-  
-    <link rel="stylesheet" href="/css/header-post.css">
   
 
   
+
   
-  
-    <link rel="stylesheet" href="/css/vdonate.css">
+    <link rel="stylesheet" href="/css/header-post.css" >
   
 
-</head>
-</html>
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
 
 
   <body data-spy="scroll" data-target="#toc" data-offset="50">
@@ -162,7 +171,9 @@
     window.INSIGHT_CONFIG = INSIGHT_CONFIG;
 })(window);
 </script>
+
 <script src="/js/insight.js"></script>
+
 
 </div></li>
             </div>
@@ -205,10 +216,10 @@
 
       </br></br>
       WordCount: 
-      <span class="post-count">4.2k</span>
+      <span class="post-count">4.1k</span>
       Min2Read: 
-      <span class="post-count">17</span>
-      <!-- <span class="post-count">33.7k</span> -->
+      <span class="post-count">16</span>
+      <!-- <span class="post-count">34.4k</span> -->
     </div>
     <div class="article-entry" itemprop="articleBody">
       
@@ -258,10 +269,7 @@
 <p>&emsp;&emsp;这就已经充分说明编译器和函数完全不知道你给它了多少给参数。它们完全不知道这些，只是按照一定的规则在试图读取这些可变的参数。那规则是什么呢？答案马上揭晓。</p>
 <h1 id="三、实现变参函数的方法"><a href="#三、实现变参函数的方法" class="headerlink" title="三、实现变参函数的方法"></a>三、实现变参函数的方法</h1><h2 id="0）搬运过来的题目背景介绍"><a href="#0）搬运过来的题目背景介绍" class="headerlink" title="0）搬运过来的题目背景介绍"></a>0）搬运过来的题目背景介绍</h2><blockquote>
 <p>&emsp;&emsp;在 C 调用约定下我们可以使用 <code>va</code> 系列宏来轻松的实现一些变参函数，例如：</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">&gt; <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdarg.h&gt;</span></span></span><br><span class="line">&gt; <span class="function"><span class="keyword">int</span> <span class="title">sum</span><span class="params">(<span class="keyword">int</span> count, ...)</span> </span></span><br><span class="line">&gt; &#123;</span><br><span class="line">&gt;    	va_list args;</span><br><span class="line">&gt;    	va_start(args, count);</span><br><span class="line">&gt;    	<span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">&gt;    	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; count; i++) </span><br><span class="line">&gt;    	&#123;</span><br><span class="line">&gt;    		<span class="keyword">int</span> val = va_arg(args, <span class="keyword">int</span>);</span><br><span class="line">&gt;    		res += val;</span><br><span class="line">&gt;    	&#125;</span><br><span class="line">&gt;    	va_end(args);</span><br><span class="line">&gt;    	<span class="keyword">return</span> res;</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p>&gt;</p>
-<blockquote>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdarg.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">sum</span><span class="params">(<span class="keyword">int</span> count, ...)</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   	va_list args;</span><br><span class="line">   	va_start(args, count);</span><br><span class="line">   	<span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">   	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; count; i++) </span><br><span class="line">   	&#123;</span><br><span class="line">   		<span class="keyword">int</span> val = va_arg(args, <span class="keyword">int</span>);</span><br><span class="line">   		res += val;</span><br><span class="line">   	&#125;</span><br><span class="line">   	va_end(args);</span><br><span class="line">   	<span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>&emsp;&emsp;代码本身很简单，这里稍微解释。</p>
 <p>&emsp;&emsp;<code>va_list args;</code> 定义一个指向可变参数列表的指针</p>
 <p>&emsp;&emsp;<code>va_start(args, count);</code> 使参数列表指针指向函数参数 <code>count</code></p>
@@ -293,10 +301,7 @@
 <p>&emsp;&emsp;引用一下<a href="http://www.cplusplus.com/reference/cstdarg/va_start/" target="_blank" rel="noopener">cplusplus</a>对于<code>va_start()</code>的介绍来证明和完善这一观点。</p>
 <blockquote>
 <p><strong>va_start</strong></p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">&gt; <span class="function"><span class="keyword">void</span> <span class="title">va_start</span> <span class="params">(va_list ap, paramN)</span></span>;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p>&gt;</p>
-<blockquote>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">va_start</span> <span class="params">(va_list ap, paramN)</span></span>;</span><br></pre></td></tr></table></figure>
 <p>Initialize a variable argument list</p>
 <p>Initializes ap to retrieve the additional arguments after parameter paramN.</p>
 <p>A function that invokes <a href="http://www.cplusplus.com/va_start" target="_blank" rel="noopener">va_start</a>, shall also invoke <a href="http://www.cplusplus.com/va_end" target="_blank" rel="noopener">va_end</a> before it returns.</p>
@@ -346,18 +351,12 @@
 <li>返回其中打印的字符个数</li>
 <li>保证 <code>&#39;$&#39;</code> 后不会出现上述提及情况以外的字符</li>
 </ol>
-<h3 id="函数接口定义"><a href="#函数接口定义" class="headerlink" title="函数接口定义"></a>函数接口定义</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">&gt; <span class="function"><span class="keyword">int</span> <span class="title">simple_printf</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span>* fmt, ...)</span></span>;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p>&gt;</p>
-<blockquote>
+<h3 id="函数接口定义"><a href="#函数接口定义" class="headerlink" title="函数接口定义"></a>函数接口定义</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">simple_printf</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span>* fmt, ...)</span></span>;</span><br></pre></td></tr></table></figure>
 <p>其中 <code>fmt</code> 为传入的格式化字符串，<code>...</code> 为传入的其它参数，返回输出的字符串长度</p>
-<h3 id="裁判测试程序样例"><a href="#裁判测试程序样例" class="headerlink" title="裁判测试程序样例"></a>裁判测试程序样例</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">&gt; <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line">&gt; <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdarg.h&gt;</span></span></span><br><span class="line">&gt; </span><br><span class="line">&gt; <span class="function"><span class="keyword">int</span> <span class="title">simple_printf</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span>* fmt, ...)</span></span>;</span><br><span class="line">&gt; </span><br><span class="line">&gt; <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">&gt;  <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, simple_printf(<span class="string">"123 "</span>));</span><br><span class="line">&gt;  <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, simple_printf(<span class="string">"$$ "</span>));</span><br><span class="line">&gt;  <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, simple_printf(<span class="string">"$d "</span>, <span class="number">123</span>));</span><br><span class="line">&gt;  <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, simple_printf(<span class="string">"$c "</span>, <span class="string">'1'</span>));</span><br><span class="line">&gt;  <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, simple_printf(<span class="string">"$s "</span>, <span class="string">"123"</span>));</span><br><span class="line">&gt;  <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, simple_printf(<span class="string">"$f "</span>, <span class="number">123.4</span>));</span><br><span class="line">&gt;  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt; </span><br><span class="line">&gt; <span class="comment">/**</span></span><br><span class="line"><span class="comment">&gt; *	your code here</span></span><br><span class="line"><span class="comment">&gt; **/</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p>&gt;</p>
-<blockquote>
+<h3 id="裁判测试程序样例"><a href="#裁判测试程序样例" class="headerlink" title="裁判测试程序样例"></a>裁判测试程序样例</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdarg.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">simple_printf</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span>* fmt, ...)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"> <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, simple_printf(<span class="string">"123 "</span>));</span><br><span class="line"> <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, simple_printf(<span class="string">"$$ "</span>));</span><br><span class="line"> <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, simple_printf(<span class="string">"$d "</span>, <span class="number">123</span>));</span><br><span class="line"> <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, simple_printf(<span class="string">"$c "</span>, <span class="string">'1'</span>));</span><br><span class="line"> <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, simple_printf(<span class="string">"$s "</span>, <span class="string">"123"</span>));</span><br><span class="line"> <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, simple_printf(<span class="string">"$f "</span>, <span class="number">123.4</span>));</span><br><span class="line"> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">*	your code here</span></span><br><span class="line"><span class="comment">**/</span></span><br></pre></td></tr></table></figure>
 <p>保证单次调用输出的长度小于 4096，输出的浮点数保留 6 位小数</p>
 <h3 id="输入样例"><a href="#输入样例" class="headerlink" title="输入样例"></a>输入样例</h3><p>没有输入</p>
-<h3 id="输出样例"><a href="#输出样例" class="headerlink" title="输出样例"></a>输出样例</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; 123 4</span><br><span class="line">&gt; $ 2</span><br><span class="line">&gt; 123 4</span><br><span class="line">&gt; 1 2</span><br><span class="line">&gt; 123 4</span><br><span class="line">&gt; 123.400000 11</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="输出样例"><a href="#输出样例" class="headerlink" title="输出样例"></a>输出样例</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">123 4</span><br><span class="line">$ 2</span><br><span class="line">123 4</span><br><span class="line">1 2</span><br><span class="line">123 4</span><br><span class="line">123.400000 11</span><br></pre></td></tr></table></figure>
 </blockquote>
 <p>&emsp;&emsp;虽然我当时一遍就AC了，但是做复杂了（比赛时没有注意到<code>printf()</code>返回值就是打印的字符的个数，自己还单独实现了这个功能…），而且代码也只是能跑而已（比赛…时间很紧……），可读性很差，所以借这个机会重新整理一下好了。</p>
 <h2 id="AC代码（标程改编）"><a href="#AC代码（标程改编）" class="headerlink" title="AC代码（标程改编）"></a>AC代码（标程改编）</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">simple_printf</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *fmt, ...)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	va_list args;</span><br><span class="line">	va_start(args, fmt);</span><br><span class="line">	<span class="keyword">int</span> counter = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span> (*fmt != <span class="string">'\0'</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (*fmt != <span class="string">'$'</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">putchar</span>(*fmt);</span><br><span class="line">			fmt++;</span><br><span class="line">			counter++;</span><br><span class="line">			<span class="keyword">continue</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		fmt++;</span><br><span class="line">		<span class="keyword">if</span> (*fmt == <span class="string">'d'</span>)</span><br><span class="line">		&#123; <span class="comment">// integer</span></span><br><span class="line">			<span class="keyword">int</span> int_val = va_arg(args, <span class="keyword">int</span>);</span><br><span class="line">			counter += <span class="built_in">printf</span>(<span class="string">"%d"</span>, int_val);</span><br><span class="line">			fmt++;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span> (*fmt == <span class="string">'f'</span>)</span><br><span class="line">		&#123; <span class="comment">// double</span></span><br><span class="line">			<span class="keyword">double</span> float_val = va_arg(args, <span class="keyword">double</span>);</span><br><span class="line">			counter += <span class="built_in">printf</span>(<span class="string">"%lf"</span>, float_val);</span><br><span class="line">			fmt++;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span> (*fmt == <span class="string">'s'</span>)</span><br><span class="line">		&#123; <span class="comment">// char*</span></span><br><span class="line">			<span class="keyword">char</span> *str = va_arg(args, <span class="keyword">char</span> *);</span><br><span class="line">			counter += <span class="built_in">printf</span>(<span class="string">"%s"</span>, str);</span><br><span class="line">			fmt++;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span> (*fmt == <span class="string">'c'</span>)</span><br><span class="line">		&#123; <span class="comment">// char</span></span><br><span class="line">			<span class="keyword">char</span> cha_val = va_arg(args, <span class="keyword">int</span>);</span><br><span class="line">			counter += <span class="number">1</span>;</span><br><span class="line">			<span class="built_in">putchar</span>(cha_val);</span><br><span class="line">			fmt++;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span> (*fmt == <span class="string">'$'</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			fmt++;</span><br><span class="line">			<span class="built_in">putchar</span>(<span class="string">'$'</span>);</span><br><span class="line">			counter += <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	va_end(args);</span><br><span class="line">	<span class="keyword">return</span> counter;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -383,7 +382,9 @@
       
         <div id="donation_div"></div>
 
+
 <script src="/js/vdonate.js"></script>
+
 <script>
 var a = new Donate({
   title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
@@ -442,7 +443,7 @@ var a = new Donate({
       
       
         
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Grammar/">Grammar</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Grammar/" rel="tag">Grammar</a></li></ul>
 
       
 
@@ -562,8 +563,13 @@ var a = new Donate({
 </script>
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
 
 
 <script src="/js/scripts.js"></script>
@@ -571,7 +577,10 @@ var a = new Donate({
 
 
 
-  <script src="/js/dialog.js"></script>
+
+  
+<script src="/js/dialog.js"></script>
+
 
 
 

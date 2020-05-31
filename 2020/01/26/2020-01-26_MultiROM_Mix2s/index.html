@@ -1,26 +1,25 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   <title>小米mix 2s多系统安装教程 | NCJ-Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="GeekAndroidROMBootARM64">
+  <meta name="keywords" content="GeekAndroidROMBootARM64" />
   
   
   
   
   <meta name="description" content="折腾了两天，总算成功实现了安卓手机的多系统，在此记录一下，权且做一个教程，给其他热爱折腾的人做一点参考。  首先要说明的是安装双系统乃至多系统，尤其是在手机上，对于很多人来说绝对是非常鸡肋的，而且安装的过程肯定会造成原先数据的丢失等等，安装之后也不能保证所有功能的正常（比如视频），但是对于爱玩机的人来说，能够经常体验不同的ROM还是很重要的。我之所以想安装多系统，就是因为发现了两个都让我非常喜欢">
-<meta name="keywords" content="Geek,Android,ROM,Boot,ARM64">
 <meta property="og:type" content="article">
 <meta property="og:title" content="小米Mix 2s多系统安装教程">
 <meta property="og:url" content="https://ncj.wiki/2020/01/26/2020-01-26_MultiROM_Mix2s/index.html">
 <meta property="og:site_name" content="NCJ-Blog">
 <meta property="og:description" content="折腾了两天，总算成功实现了安卓手机的多系统，在此记录一下，权且做一个教程，给其他热爱折腾的人做一点参考。  首先要说明的是安装双系统乃至多系统，尤其是在手机上，对于很多人来说绝对是非常鸡肋的，而且安装的过程肯定会造成原先数据的丢失等等，安装之后也不能保证所有功能的正常（比如视频），但是对于爱玩机的人来说，能够经常体验不同的ROM还是很重要的。我之所以想安装多系统，就是因为发现了两个都让我非常喜欢">
-<meta property="og:locale" content="en">
+<meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/2020.01.26.MultiROM/01.png">
-<meta property="og:image" content="https://a.fsdn.com/allura/p/dualbootpatcher/icon?1487446951?&w=90">
+<meta property="og:image" content="https://a.fsdn.com/allura/p/dualbootpatcher/icon?1487446951?&amp;w=90">
 <meta property="og:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/2020.01.26.MultiROM/02.png">
 <meta property="og:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/2020.01.26.MultiROM/03.png">
 <meta property="og:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/2020.01.26.MultiROM/04.png">
@@ -28,10 +27,15 @@
 <meta property="og:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/2020.01.26.MultiROM/06.png">
 <meta property="og:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/2020.01.26.MultiROM/07.png">
 <meta property="og:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/2020.01.26.MultiROM/08.png">
-<meta property="og:updated_time" content="2020-01-26T11:34:03.936Z">
+<meta property="article:published_time" content="2020-01-26T02:00:00.000Z">
+<meta property="article:modified_time" content="2020-01-26T11:34:03.936Z">
+<meta property="article:author" content="NCJ">
+<meta property="article:tag" content="Geek">
+<meta property="article:tag" content="Android">
+<meta property="article:tag" content="ROM">
+<meta property="article:tag" content="Boot">
+<meta property="article:tag" content="ARM64">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="小米Mix 2s多系统安装教程">
-<meta name="twitter:description" content="折腾了两天，总算成功实现了安卓手机的多系统，在此记录一下，权且做一个教程，给其他热爱折腾的人做一点参考。  首先要说明的是安装双系统乃至多系统，尤其是在手机上，对于很多人来说绝对是非常鸡肋的，而且安装的过程肯定会造成原先数据的丢失等等，安装之后也不能保证所有功能的正常（比如视频），但是对于爱玩机的人来说，能够经常体验不同的ROM还是很重要的。我之所以想安装多系统，就是因为发现了两个都让我非常喜欢">
 <meta name="twitter:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/2020.01.26.MultiROM/01.png">
   
     <link rel="alternate" href="/atom.xml" title="NCJ-Blog" type="application/atom+xml">
@@ -54,32 +58,40 @@
 }
 
   </style>
-  <link rel="stylesheet" href="/css/style.css">
+  
+<link rel="stylesheet" href="/css/style.css">
 
-  <script src="/js/jquery-3.1.1.min.js"></script>
-  <script src="/js/bootstrap.js"></script>
+
+  
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+  
+<script src="/js/bootstrap.js"></script>
+
 
   <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="/css/bootstrap.css">
+  <link rel="stylesheet" href="/css/bootstrap.css" >
 
   
-    <link rel="stylesheet" href="/css/dialog.css">
-  
+    
+<link rel="stylesheet" href="/css/dialog.css">
 
-  
-
-  
-    <link rel="stylesheet" href="/css/header-post.css">
   
 
   
+
   
-  
-    <link rel="stylesheet" href="/css/vdonate.css">
+    <link rel="stylesheet" href="/css/header-post.css" >
   
 
-</head>
-</html>
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
 
 
   <body data-spy="scroll" data-target="#toc" data-offset="50">
@@ -172,7 +184,9 @@
     window.INSIGHT_CONFIG = INSIGHT_CONFIG;
 })(window);
 </script>
+
 <script src="/js/insight.js"></script>
+
 
 </div></li>
             </div>
@@ -218,7 +232,7 @@
       <span class="post-count">2.4k</span>
       Min2Read: 
       <span class="post-count">9</span>
-      <!-- <span class="post-count">33.7k</span> -->
+      <!-- <span class="post-count">34.4k</span> -->
     </div>
     <div class="article-entry" itemprop="articleBody">
       
@@ -231,14 +245,14 @@
 <p><strong>免责声明：本人不对任何教程中的操作造成的数据丢失以及设备损坏负责，请在操作前做好数据备份</strong></p>
 </blockquote>
 <h1 id="一、常见方案"><a href="#一、常见方案" class="headerlink" title="一、常见方案"></a>一、常见方案</h1><p>折腾前当然要看看有啥现成的轮子了，大致研究了一下界内的方案，基本都在<a href="https://www.xda-developers.com/dual-boot-on-android-a-power-users-holy-grail/" target="_blank" rel="noopener">XDA的这篇文章</a>里讲到了，这里简单概括一下。</p>
-<h2 id="MultiROM"><a href="#MultiROM" class="headerlink" title="MultiROM"></a>MultiROM</h2><p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/2020.01.26.MultiROM/01.png" alt></p>
+<h2 id="MultiROM"><a href="#MultiROM" class="headerlink" title="MultiROM"></a>MultiROM</h2><p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/2020.01.26.MultiROM/01.png" alt=""></p>
 <p><a href="https://github.com/Tasssadar/multirom/wiki" target="_blank" rel="noopener">官方Wiki</a></p>
 <p>作用于bootloader之后，可以用于引导不同的系统（含Linux），XDA称这是“已知的最好的多系统解决方案”。</p>
 <p><a href="https://forum.xda-developers.com/xiaomi-mi-mix-2s/how-to/multirom-multirom-polaris-t3957428" target="_blank" rel="noopener">https://forum.xda-developers.com/xiaomi-mi-mix-2s/how-to/multirom-multirom-polaris-t3957428</a></p>
-<h2 id="DualBoot-Patcher"><a href="#DualBoot-Patcher" class="headerlink" title="DualBoot Patcher"></a>DualBoot Patcher</h2><p><img src="https://a.fsdn.com/allura/p/dualbootpatcher/icon?1487446951?&amp;w=90" alt="DualBootPatcher Icon"></p>
+<h2 id="DualBoot-Patcher"><a href="#DualBoot-Patcher" class="headerlink" title="DualBoot Patcher"></a>DualBoot Patcher</h2><p><img src="https://a.fsdn.com/allura/p/dualbootpatcher/icon?1487446951?&amp;w=90" alt="DualBootPatcher Icon" /></p>
 <p><a href="https://dbp.noobdev.io/" target="_blank" rel="noopener">官网</a></p>
 <p>非常有名的安卓引导工具，XDA高级成员，陈小龙大牛开发&amp;&amp;维护，但是在安卓10到来之后，开发者停止维护了。主要是由于新版安卓在架构上的一些调整造成了开发的困难。但是我想要安装Pixel Experience正是基于安卓10的，所以这个方案不行。</p>
-<h2 id="GRUB-for-Android"><a href="#GRUB-for-Android" class="headerlink" title="GRUB for Android"></a>GRUB for Android</h2><p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/2020.01.26.MultiROM/02.png" style="zoom:50%;"></p>
+<h2 id="GRUB-for-Android"><a href="#GRUB-for-Android" class="headerlink" title="GRUB for Android"></a>GRUB for Android</h2><p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/2020.01.26.MultiROM/02.png"  style="zoom:50%;"/></p>
 <p>GRUB是x86架构上知名的引导程序，那么GRUB4Android顾名思义也是一个原生bootloader的替代品。现在这个项目已经衍生为了<a href="http://efidroid.org/" target="_blank" rel="noopener">EFIDroid</a>，但是看了一下官网最后一次更新是2016年，现在貌似也没有对Mix 2s进行适配，所以就放弃了。</p>
 <p>综合以上，我最后选择MultiROM作为多系统的解决方案。</p>
 <h1 id="二、安装MultiROM版TWRP"><a href="#二、安装MultiROM版TWRP" class="headerlink" title="二、安装MultiROM版TWRP"></a>二、安装MultiROM版TWRP</h1><p>在安装ROM之前，我们首先需要对引导程序进行一些处理。</p>
@@ -251,16 +265,16 @@
 <h2 id="3-安装MultiROM补丁"><a href="#3-安装MultiROM补丁" class="headerlink" title="3. 安装MultiROM补丁"></a>3. 安装MultiROM补丁</h2><p>但是原版的TWRP并不支持多系统，因此我们需要安装TWRP之后打补丁，并替换MultiROM专用的TWRP版本。</p>
 <p>而且因为嵌入式的强硬件相关性，我们需要根据自己的设备选择专用的MultiROM补丁，很幸运的是Mix 2s已经有人进行了适配，所以我们直接用轮子就好了。</p>
 <p>我们打开<a href="https://forum.xda-developers.com/xiaomi-mi-mix-2s/how-to/multirom-multirom-polaris-t3957428" target="_blank" rel="noopener">相关页面</a>，下载<code>multirom_14-08-19.zip</code>和<code>recovery_3.3.1_17-08-19.img</code>两个文件，储存在手机根目录或者U盘里，然后重启手机进入Recovery模式。</p>
-<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/2020.01.26.MultiROM/03.png" style="zoom: 25%;"></p>
+<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/2020.01.26.MultiROM/03.png"  style="zoom: 25%;" /></p>
 <p>使用TWRP先刷入MultiROM补丁到原始ROM（操作与刷入Magisk类似，使用<code>Install ZIP</code>），再将recovery分区替换为MultiROM专用TWRP（使用<code>Install Image</code>）。</p>
-<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/2020.01.26.MultiROM/04.png" style="zoom:25%;"></p>
+<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/2020.01.26.MultiROM/04.png" style="zoom:25%;" /></p>
 <p>完成后再次重启手机，即可看到MultiROM已经安装完毕，此时理论上就可以使用MultiROM安装第二个ROM了。</p>
 <h1 id="三、安装第二个ROM"><a href="#三、安装第二个ROM" class="headerlink" title="三、安装第二个ROM"></a>三、安装第二个ROM</h1><p>此时进入Recovery分区，也能通过点击右上角的菜单进入MultiROM的配置菜单</p>
-<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/2020.01.26.MultiROM/05.png" style="zoom:25%;"></p>
+<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/2020.01.26.MultiROM/05.png"  style="zoom:25%;" /></p>
 <p>点击<code>Add ROM</code>，ROM类型选择<code>Android</code>，安装地点选择内置储存<code>Internal Storage</code></p>
-<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/2020.01.26.MultiROM/06.png" style="zoom:25%;"></p>
+<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/2020.01.26.MultiROM/06.png"  style="zoom:25%;" /></p>
 <p>选择你想要安装的ROM即可。</p>
-<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/2020.01.26.MultiROM/07.png" style="zoom:25%;"></p>
+<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/2020.01.26.MultiROM/07.png" style="zoom:25%;" /></p>
 <p><del>教程结束</del>。显然不会这么简单，如果你安装的两个ROM都是安卓9及以下，而且是比较轻量化的ROM或者官方系统，那么以上应该就够了。但是如果你是安装安卓10或者含有root或者大量魔改的ROM，那么你的工作，才刚刚开始……</p>
 <h1 id="四、安装Pixel-Experience"><a href="#四、安装Pixel-Experience" class="headerlink" title="四、安装Pixel Experience"></a>四、安装Pixel Experience</h1><p><del>根据XDA论坛上提供MultiROM的大神的介绍，安卓10需要作为主ROM进行安装，具体可能与安卓10的加密机制有关。（具体原因尚不清楚，但是在安装完基于安卓10的系统后，文件系统是被加密的，需要安装MultiROM的补丁才能禁用掉加密）。</del></p>
 <p>后来测试发现安卓10测试版也是可以直接刷入的……，可能只是Pixel Experience必须作为主ROM安装，或者安卓10正式版不能作为次ROM安装。</p>
@@ -269,7 +283,7 @@
 <h1 id="五、魔改并安装其他ROM"><a href="#五、魔改并安装其他ROM" class="headerlink" title="五、魔改并安装其他ROM"></a>五、魔改并安装其他ROM</h1><h2 id="1-MIUI10"><a href="#1-MIUI10" class="headerlink" title="1. MIUI10"></a>1. MIUI10</h2><p>MIUI是基于安卓9的（虽然小米修改安卓版本号为10.0.0，但是实际上还是9的底层）。</p>
 <p>使用MIUI10开发版（版本号9.8.22），可以正常作为Secondary ROM安装，没有遇到大问题。</p>
 <h2 id="2-Simplicity"><a href="#2-Simplicity" class="headerlink" title="2. Simplicity"></a>2. Simplicity</h2><p>首先尝试安装最新版的基于安卓10的Simpilicty，直接安装会触发<code>E1001: Failed to update system image.</code>的报错。</p>
-<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/2020.01.26.MultiROM/08.png" style="zoom:25%;"></p>
+<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/2020.01.26.MultiROM/08.png"  style="zoom:25%;" /></p>
 <p>然后尝试安装基于安卓9的旧版Simplicity，发现仍然会触发这个报错。考虑到Simplicity本质上就是对MIUI的破解，开始对旧版Simplicity的ROM进行魔改。</p>
 <p>因为安卓的ROM安装过程是由<code>updater-script</code>脚本控制的，它位于<code>your-ROM.zip\META-INF\com\google\android</code>目录下。打开后发现官方能够直接作为第二系统刷入的ROM是按照<code>boot</code>、<code>system</code>、<code>vendor</code>、<code>firmware</code>的顺序进行patch的，而Simplicity是按照<code>boot</code>、<code>firmware</code>、<code>system</code>、<code>vendor</code>的顺序进行patch的，于是修改<code>updater-script</code>，将patch顺序进行调换。</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">## BEFORE</span></span><br><span class="line">ui_print(<span class="string">"Patching boot image unconditionally..."</span>);</span><br><span class="line">package_extract_file(<span class="string">"boot.img"</span>, <span class="string">"/dev/block/bootdevice/by-name/boot"</span>);</span><br><span class="line">ui_print(<span class="string">"Patching firmware images..."</span>);</span><br><span class="line">package_extract_file(<span class="string">"firmware-update/dsp.img"</span>, <span class="string">"/dev/block/bootdevice/by-name/dsp"</span>);</span><br><span class="line">... <span class="comment"># details omitted</span></span><br><span class="line">package_extract_file(<span class="string">"firmware-update/hyp.img"</span>, <span class="string">"/dev/block/bootdevice/by-name/hyp_b"</span>);</span><br><span class="line">show_progress(0.600000, 250);</span><br><span class="line">ui_print(<span class="string">"Patching system image unconditionally..."</span>);</span><br><span class="line">block_image_update(<span class="string">"/dev/block/bootdevice/by-name/system"</span>, package_extract_file(<span class="string">"system.transfer.list"</span>), <span class="string">"system.new.dat"</span>, <span class="string">"system.patch.dat"</span>) ||</span><br><span class="line">  abort(<span class="string">"E1001: Failed to update system image."</span>);</span><br><span class="line">ui_print(<span class="string">"Patching vendor image unconditionally..."</span>);</span><br><span class="line">block_image_update(<span class="string">"/dev/block/bootdevice/by-name/vendor"</span>, package_extract_file(<span class="string">"vendor.transfer.list"</span>), <span class="string">"vendor.new.dat"</span>, <span class="string">"vendor.patch.dat"</span>) ||</span><br><span class="line">  abort(<span class="string">"E2001: Failed to update vendor image."</span>);</span><br><span class="line">ui_print(<span class="string">" "</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">## AFTER</span></span><br><span class="line"><span class="comment"># Patch boot first</span></span><br><span class="line">ui_print(<span class="string">"Patching boot image unconditionally..."</span>);</span><br><span class="line">package_extract_file(<span class="string">"boot.img"</span>, <span class="string">"/dev/block/bootdevice/by-name/boot"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment"># Patch system and vendor before firmware</span></span><br><span class="line">ui_print(<span class="string">"Patching system image unconditionally..."</span>);</span><br><span class="line">block_image_update(<span class="string">"/dev/block/bootdevice/by-name/system"</span>, package_extract_file(<span class="string">"system.transfer.list"</span>), <span class="string">"system.new.dat"</span>, <span class="string">"system.patch.dat"</span>) ||</span><br><span class="line">  abort(<span class="string">"E1001: Failed to update system image."</span>);</span><br><span class="line">ui_print(<span class="string">"Patching vendor image unconditionally..."</span>);</span><br><span class="line">block_image_update(<span class="string">"/dev/block/bootdevice/by-name/vendor"</span>, package_extract_file(<span class="string">"vendor.transfer.list"</span>), <span class="string">"vendor.new.dat"</span>, <span class="string">"vendor.patch.dat"</span>) ||</span><br><span class="line">  abort(<span class="string">"E2001: Failed to update vendor image."</span>);</span><br><span class="line">ui_print(<span class="string">" "</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment"># Patch firmware at last</span></span><br><span class="line">ui_print(<span class="string">"Patching firmware images..."</span>);</span><br><span class="line">package_extract_file(<span class="string">"firmware-update/dsp.img"</span>, <span class="string">"/dev/block/bootdevice/by-name/dsp"</span>);</span><br><span class="line">... <span class="comment"># details omitted</span></span><br><span class="line">package_extract_file(<span class="string">"firmware-update/hyp.img"</span>, <span class="string">"/dev/block/bootdevice/by-name/hyp_b"</span>);</span><br><span class="line">show_progress(0.600000, 250);</span><br></pre></td></tr></table></figure>
@@ -288,7 +302,9 @@
       
         <div id="donation_div"></div>
 
+
 <script src="/js/vdonate.js"></script>
+
 <script>
 var a = new Donate({
   title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
@@ -347,7 +363,7 @@ var a = new Donate({
       
       
         
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ARM64/">ARM64</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Boot/">Boot</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Geek/">Geek</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ROM/">ROM</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ARM64/" rel="tag">ARM64</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Boot/" rel="tag">Boot</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Geek/" rel="tag">Geek</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ROM/" rel="tag">ROM</a></li></ul>
 
       
 
@@ -467,8 +483,13 @@ var a = new Donate({
 </script>
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
 
 
 <script src="/js/scripts.js"></script>
@@ -476,7 +497,10 @@ var a = new Donate({
 
 
 
-  <script src="/js/dialog.js"></script>
+
+  
+<script src="/js/dialog.js"></script>
+
 
 
 

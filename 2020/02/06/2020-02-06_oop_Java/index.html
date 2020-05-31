@@ -1,28 +1,29 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   <title>oop with java | NCJ-Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="OOPJava">
+  <meta name="keywords" content="OOPJava" />
   
   
   
   
-  <meta name="description" content="1 IO打印 System.out.println() 输入 import java.util.Scanner;Scanner in = new Scanner(System.in);int a = in.nextInt();in.close(); public static void main(String[] args)是程序的入口 2 类与包类构造函数与C++一样 成员访问权限默认都是fri">
-<meta name="keywords" content="OOP,Java">
+  <meta name="description" content="1 IO打印 System.out.println() 输入 import java.util.Scanner;Scanner in &#x3D; new Scanner(System.in);int a &#x3D; in.nextInt();in.close(); public static void main(String[] args)是程序的入口 2 类与包类构造函数与C++一样 成员访问权限默认都是fri">
 <meta property="og:type" content="article">
 <meta property="og:title" content="OOP with Java">
 <meta property="og:url" content="https://ncj.wiki/2020/02/06/2020-02-06_oop_Java/index.html">
 <meta property="og:site_name" content="NCJ-Blog">
-<meta property="og:description" content="1 IO打印 System.out.println() 输入 import java.util.Scanner;Scanner in = new Scanner(System.in);int a = in.nextInt();in.close(); public static void main(String[] args)是程序的入口 2 类与包类构造函数与C++一样 成员访问权限默认都是fri">
-<meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-02-06T11:16:34.059Z">
+<meta property="og:description" content="1 IO打印 System.out.println() 输入 import java.util.Scanner;Scanner in &#x3D; new Scanner(System.in);int a &#x3D; in.nextInt();in.close(); public static void main(String[] args)是程序的入口 2 类与包类构造函数与C++一样 成员访问权限默认都是fri">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-02-05T17:01:01.000Z">
+<meta property="article:modified_time" content="2020-02-06T11:16:34.059Z">
+<meta property="article:author" content="NCJ">
+<meta property="article:tag" content="OOP">
+<meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="OOP with Java">
-<meta name="twitter:description" content="1 IO打印 System.out.println() 输入 import java.util.Scanner;Scanner in = new Scanner(System.in);int a = in.nextInt();in.close(); public static void main(String[] args)是程序的入口 2 类与包类构造函数与C++一样 成员访问权限默认都是fri">
   
     <link rel="alternate" href="/atom.xml" title="NCJ-Blog" type="application/atom+xml">
   
@@ -44,32 +45,40 @@
 }
 
   </style>
-  <link rel="stylesheet" href="/css/style.css">
+  
+<link rel="stylesheet" href="/css/style.css">
 
-  <script src="/js/jquery-3.1.1.min.js"></script>
-  <script src="/js/bootstrap.js"></script>
+
+  
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+  
+<script src="/js/bootstrap.js"></script>
+
 
   <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="/css/bootstrap.css">
+  <link rel="stylesheet" href="/css/bootstrap.css" >
 
   
-    <link rel="stylesheet" href="/css/dialog.css">
-  
+    
+<link rel="stylesheet" href="/css/dialog.css">
 
-  
-
-  
-    <link rel="stylesheet" href="/css/header-post.css">
   
 
   
+
   
-  
-    <link rel="stylesheet" href="/css/vdonate.css">
+    <link rel="stylesheet" href="/css/header-post.css" >
   
 
-</head>
-</html>
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
 
 
   <body data-spy="scroll" data-target="#toc" data-offset="50">
@@ -162,7 +171,9 @@
     window.INSIGHT_CONFIG = INSIGHT_CONFIG;
 })(window);
 </script>
+
 <script src="/js/insight.js"></script>
+
 
 </div></li>
             </div>
@@ -205,10 +216,10 @@
 
       </br></br>
       WordCount: 
-      <span class="post-count">962</span>
+      <span class="post-count">952</span>
       Min2Read: 
       <span class="post-count">3</span>
-      <!-- <span class="post-count">33.7k</span> -->
+      <!-- <span class="post-count">34.4k</span> -->
     </div>
     <div class="article-entry" itemprop="articleBody">
       
@@ -253,7 +264,34 @@
 </li>
 <li><p>前面是类名（AAA是包名，XXX是类名），后面是地址</p>
 </li>
-<li><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> AAA;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main4</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        A a = <span class="keyword">new</span> A();</span><br><span class="line">        B b = <span class="keyword">new</span> B();</span><br><span class="line">        System.out.println(a);</span><br><span class="line">        System.out.println(b);</span><br><span class="line">        b.f();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> aa = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> aa;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">f</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        a = <span class="number">1</span>;</span><br><span class="line">        aa = <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">super</span>.aa = <span class="number">3</span>;</span><br><span class="line">        A aaa = <span class="keyword">new</span> A();</span><br><span class="line">        System.out.println(aaa);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li><pre><code class="lang-java">package AAA;
+
+public class Main4 {
+    public static void main(String[] args) {
+        A a = new A();
+        B b = new B();
+        System.out.println(a);
+        System.out.println(b);
+        b.f();
+    }
+}
+
+class A {
+    int a = 0;
+    int aa = 1;
+}
+
+class B extends A {
+    int aa;
+    void f() {
+        a = 1;
+        aa = 2;
+        super.aa = 3;
+        A aaa = new A();
+        System.out.println(aaa);
+    }
+}
+</code></pre>
 </li>
 </ul>
 </li>
@@ -297,7 +335,9 @@
       
         <div id="donation_div"></div>
 
+
 <script src="/js/vdonate.js"></script>
+
 <script>
 var a = new Donate({
   title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
@@ -356,7 +396,7 @@ var a = new Donate({
       
       
         
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OOP/">OOP</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OOP/" rel="tag">OOP</a></li></ul>
 
       
 
@@ -476,8 +516,13 @@ var a = new Donate({
 </script>
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
 
 
 <script src="/js/scripts.js"></script>
@@ -485,7 +530,10 @@ var a = new Donate({
 
 
 
-  <script src="/js/dialog.js"></script>
+
+  
+<script src="/js/dialog.js"></script>
+
 
 
 

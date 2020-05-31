@@ -1,33 +1,37 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   <title>running ros on wsl | NCJ-Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="LinuxRoboticsROSGazeboEnvironment">
+  <meta name="keywords" content="LinuxRoboticsROSGazeboEnvironment" />
   
   
   
   
-  <meta name="description" content="简短版 如果根本没有出现图形界面，请禁用OpenGL的外部转发，全部在WSL内进行渲染：  export LIBGL_ALWAYS_INDIRECT=0   如果出现了图形界面，但是中间是黑屏，可以通过--verbose检查  如果是gazebo 7 (ROS Kinetic默认)，大概率是第一次模型没有下下来，自己手动下载模型放到/.gazebo/models/目录下即可  如果是gazebo">
-<meta name="keywords" content="Linux,Robotics,ROS,Gazebo,Environment">
+  <meta name="description" content="简短版 如果根本没有出现图形界面，请禁用OpenGL的外部转发，全部在WSL内进行渲染：  export LIBGL_ALWAYS_INDIRECT&#x3D;0   如果出现了图形界面，但是中间是黑屏，可以通过--verbose检查  如果是gazebo 7 (ROS Kinetic默认)，大概率是第一次模型没有下下来，自己手动下载模型放到&#x2F;.gazebo&#x2F;models&#x2F;目录下即可  如果是gazebo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Running ROS on WSL">
 <meta property="og:url" content="https://ncj.wiki/2020/02/20/2020-02-20_ROS_WSL/index.html">
 <meta property="og:site_name" content="NCJ-Blog">
-<meta property="og:description" content="简短版 如果根本没有出现图形界面，请禁用OpenGL的外部转发，全部在WSL内进行渲染：  export LIBGL_ALWAYS_INDIRECT=0   如果出现了图形界面，但是中间是黑屏，可以通过--verbose检查  如果是gazebo 7 (ROS Kinetic默认)，大概率是第一次模型没有下下来，自己手动下载模型放到/.gazebo/models/目录下即可  如果是gazebo">
-<meta property="og:locale" content="en">
+<meta property="og:description" content="简短版 如果根本没有出现图形界面，请禁用OpenGL的外部转发，全部在WSL内进行渲染：  export LIBGL_ALWAYS_INDIRECT&#x3D;0   如果出现了图形界面，但是中间是黑屏，可以通过--verbose检查  如果是gazebo 7 (ROS Kinetic默认)，大概率是第一次模型没有下下来，自己手动下载模型放到&#x2F;.gazebo&#x2F;models&#x2F;目录下即可  如果是gazebo">
+<meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2020-02-20_ROS_WSL/image-20200220225718834.png">
 <meta property="og:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2020-02-20_ROS_WSL/image-20200220230758278.png">
 <meta property="og:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2020-02-20_ROS_WSL/image-20200221101621314.png">
 <meta property="og:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2020-02-20_ROS_WSL/image-20200221101842784.png">
 <meta property="og:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2020-02-20_ROS_WSL/image-20200221103207172.png">
-<meta property="og:updated_time" content="2020-02-21T06:11:31.944Z">
+<meta property="article:published_time" content="2020-02-20T14:15:00.000Z">
+<meta property="article:modified_time" content="2020-02-21T06:11:31.944Z">
+<meta property="article:author" content="NCJ">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="Robotics">
+<meta property="article:tag" content="ROS">
+<meta property="article:tag" content="Gazebo">
+<meta property="article:tag" content="Environment">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Running ROS on WSL">
-<meta name="twitter:description" content="简短版 如果根本没有出现图形界面，请禁用OpenGL的外部转发，全部在WSL内进行渲染：  export LIBGL_ALWAYS_INDIRECT=0   如果出现了图形界面，但是中间是黑屏，可以通过--verbose检查  如果是gazebo 7 (ROS Kinetic默认)，大概率是第一次模型没有下下来，自己手动下载模型放到/.gazebo/models/目录下即可  如果是gazebo">
 <meta name="twitter:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2020-02-20_ROS_WSL/image-20200220225718834.png">
   
     <link rel="alternate" href="/atom.xml" title="NCJ-Blog" type="application/atom+xml">
@@ -50,32 +54,40 @@
 }
 
   </style>
-  <link rel="stylesheet" href="/css/style.css">
+  
+<link rel="stylesheet" href="/css/style.css">
 
-  <script src="/js/jquery-3.1.1.min.js"></script>
-  <script src="/js/bootstrap.js"></script>
+
+  
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+  
+<script src="/js/bootstrap.js"></script>
+
 
   <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="/css/bootstrap.css">
+  <link rel="stylesheet" href="/css/bootstrap.css" >
 
   
-    <link rel="stylesheet" href="/css/dialog.css">
-  
+    
+<link rel="stylesheet" href="/css/dialog.css">
 
-  
-
-  
-    <link rel="stylesheet" href="/css/header-post.css">
   
 
   
+
   
-  
-    <link rel="stylesheet" href="/css/vdonate.css">
+    <link rel="stylesheet" href="/css/header-post.css" >
   
 
-</head>
-</html>
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
 
 
   <body data-spy="scroll" data-target="#toc" data-offset="50">
@@ -168,7 +180,9 @@
     window.INSIGHT_CONFIG = INSIGHT_CONFIG;
 })(window);
 </script>
+
 <script src="/js/insight.js"></script>
+
 
 </div></li>
             </div>
@@ -214,7 +228,7 @@
       <span class="post-count">1.5k</span>
       Min2Read: 
       <span class="post-count">6</span>
-      <!-- <span class="post-count">33.7k</span> -->
+      <!-- <span class="post-count">34.4k</span> -->
     </div>
     <div class="article-entry" itemprop="articleBody">
       
@@ -309,7 +323,9 @@
       
         <div id="donation_div"></div>
 
+
 <script src="/js/vdonate.js"></script>
+
 <script>
 var a = new Donate({
   title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
@@ -368,7 +384,7 @@ var a = new Donate({
       
       
         
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Environment/">Environment</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Gazebo/">Gazebo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ROS/">ROS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Robotics/">Robotics</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Environment/" rel="tag">Environment</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Gazebo/" rel="tag">Gazebo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ROS/" rel="tag">ROS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Robotics/" rel="tag">Robotics</a></li></ul>
 
       
 
@@ -488,8 +504,13 @@ var a = new Donate({
 </script>
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
 
 
 <script src="/js/scripts.js"></script>
@@ -497,7 +518,10 @@ var a = new Donate({
 
 
 
-  <script src="/js/dialog.js"></script>
+
+  
+<script src="/js/dialog.js"></script>
+
 
 
 

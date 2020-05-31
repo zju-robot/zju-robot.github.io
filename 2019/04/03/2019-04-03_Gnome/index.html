@@ -1,24 +1,23 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   <title>在wsl上安装gnome桌面方法的正解 | NCJ-Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="LinuxWSLGnome">
+  <meta name="keywords" content="LinuxWSLGnome" />
   
   
   
   
   <meta name="description" content="网上的教程千篇一律安装的是Unity桌面，而Unity真心难用！自己折腾了一下成功了，简单记录一下方法，帮大家踩踩坑 Step1. 通过tasksel安装Ubuntu Desktop通过任务的方式安装Ubuntu Desktop tasksel有一个基于curses的GUI 用空格选择Ubuntu Desktop，回车安装即可  这样装下来的Ubuntu Desktop是Gnome版的，CSDN上">
-<meta name="keywords" content="Linux,WSL,Gnome">
 <meta property="og:type" content="article">
 <meta property="og:title" content="在WSL上安装GNOME桌面方法的正解">
 <meta property="og:url" content="https://ncj.wiki/2019/04/03/2019-04-03_Gnome/index.html">
 <meta property="og:site_name" content="NCJ-Blog">
 <meta property="og:description" content="网上的教程千篇一律安装的是Unity桌面，而Unity真心难用！自己折腾了一下成功了，简单记录一下方法，帮大家踩踩坑 Step1. 通过tasksel安装Ubuntu Desktop通过任务的方式安装Ubuntu Desktop tasksel有一个基于curses的GUI 用空格选择Ubuntu Desktop，回车安装即可  这样装下来的Ubuntu Desktop是Gnome版的，CSDN上">
-<meta property="og:locale" content="en">
+<meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2019-04-03_Gnome/1.png">
 <meta property="og:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2019-04-03_Gnome/2.png">
 <meta property="og:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2019-04-03_Gnome/3.png">
@@ -26,10 +25,13 @@
 <meta property="og:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2019-04-03_Gnome/5.png">
 <meta property="og:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2019-04-03_Gnome/6.png">
 <meta property="og:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2019-04-03_Gnome/7.png">
-<meta property="og:updated_time" content="2019-09-05T13:38:45.731Z">
+<meta property="article:published_time" content="2019-04-03T12:55:00.000Z">
+<meta property="article:modified_time" content="2019-09-05T13:38:45.731Z">
+<meta property="article:author" content="NCJ">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="WSL">
+<meta property="article:tag" content="Gnome">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="在WSL上安装GNOME桌面方法的正解">
-<meta name="twitter:description" content="网上的教程千篇一律安装的是Unity桌面，而Unity真心难用！自己折腾了一下成功了，简单记录一下方法，帮大家踩踩坑 Step1. 通过tasksel安装Ubuntu Desktop通过任务的方式安装Ubuntu Desktop tasksel有一个基于curses的GUI 用空格选择Ubuntu Desktop，回车安装即可  这样装下来的Ubuntu Desktop是Gnome版的，CSDN上">
 <meta name="twitter:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2019-04-03_Gnome/1.png">
   
     <link rel="alternate" href="/atom.xml" title="NCJ-Blog" type="application/atom+xml">
@@ -52,32 +54,40 @@
 }
 
   </style>
-  <link rel="stylesheet" href="/css/style.css">
+  
+<link rel="stylesheet" href="/css/style.css">
 
-  <script src="/js/jquery-3.1.1.min.js"></script>
-  <script src="/js/bootstrap.js"></script>
+
+  
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+  
+<script src="/js/bootstrap.js"></script>
+
 
   <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="/css/bootstrap.css">
+  <link rel="stylesheet" href="/css/bootstrap.css" >
 
   
-    <link rel="stylesheet" href="/css/dialog.css">
-  
+    
+<link rel="stylesheet" href="/css/dialog.css">
 
-  
-
-  
-    <link rel="stylesheet" href="/css/header-post.css">
   
 
   
+
   
-  
-    <link rel="stylesheet" href="/css/vdonate.css">
+    <link rel="stylesheet" href="/css/header-post.css" >
   
 
-</head>
-</html>
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
 
 
   <body data-spy="scroll" data-target="#toc" data-offset="50">
@@ -170,7 +180,9 @@
     window.INSIGHT_CONFIG = INSIGHT_CONFIG;
 })(window);
 </script>
+
 <script src="/js/insight.js"></script>
+
 
 </div></li>
             </div>
@@ -216,7 +228,7 @@
       <span class="post-count">583</span>
       Min2Read: 
       <span class="post-count">2</span>
-      <!-- <span class="post-count">33.7k</span> -->
+      <!-- <span class="post-count">34.4k</span> -->
     </div>
     <div class="article-entry" itemprop="articleBody">
       
@@ -227,26 +239,26 @@
 <blockquote>
 <p>这样装下来的Ubuntu Desktop是Gnome版的，CSDN上流传的那些指令装下来的全是Unity环境</p>
 </blockquote>
-<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2019-04-03_Gnome/1.png" alt></p>
-<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2019-04-03_Gnome/2.png" alt></p>
+<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2019-04-03_Gnome/1.png" alt=""></p>
+<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2019-04-03_Gnome/2.png" alt=""></p>
 <blockquote>
 <p>tasksel安装的好处是无需过多关心包依赖等问题，缺陷在于会安装很多我们不想要的包，比如libreoffice，但是这些多余的包可以日后卸载</p>
 </blockquote>
-<h1 id="Step2-安装并启动Xming"><a href="#Step2-安装并启动Xming" class="headerlink" title="Step2. 安装并启动Xming"></a>Step2. 安装并启动Xming</h1><p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2019-04-03_Gnome/3.png" alt></p>
+<h1 id="Step2-安装并启动Xming"><a href="#Step2-安装并启动Xming" class="headerlink" title="Step2. 安装并启动Xming"></a>Step2. 安装并启动Xming</h1><p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2019-04-03_Gnome/3.png" alt=""></p>
 <p>启动完整桌面环境时用这个（其余的参数都不用改！包括Display number！）</p>
 <p>如果你只是想用用单个程序的GUI界面，选Multiple windows就好了</p>
 <h1 id="Step3-启动GNOME桌面"><a href="#Step3-启动GNOME桌面" class="headerlink" title="Step3. 启动GNOME桌面"></a>Step3. 启动GNOME桌面</h1><p>注意四点：</p>
 <ol>
 <li>Gnome目前还不稳定，因此启动前最好确保dbus服务正在运行，最简单的方式就是start或者restart一下</li>
 <li>需要指定桌面端口以及会话类型（X11）</li>
-<li>要加<code>sudo</code>，因为Gnome启动时，<code>dconf</code>也会启动，而后者要在用户根目录下的<code>.cache</code>内创建一个文件夹<code>dconf</code>，估计是想存放一些配置参数之类的，不用<code>sudo</code>的话会在这一步进入死循环，如图<img src="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2019-04-03_Gnome/4.png" alt></li>
+<li>要加<code>sudo</code>，因为Gnome启动时，<code>dconf</code>也会启动，而后者要在用户根目录下的<code>.cache</code>内创建一个文件夹<code>dconf</code>，估计是想存放一些配置参数之类的，不用<code>sudo</code>的话会在这一步进入死循环，如图<img src="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2019-04-03_Gnome/4.png" alt=""></li>
 <li>因为已经是超级用户了，所以进入gnome环境后你的身份就是<code>root</code>，不用多说了吧，干啥都悠着点好了……</li>
 </ol>
 <p>上命令：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo service dbus start</span><br><span class="line">sudo DISPLAY=:0 XDG_SESSION_TYPE=x11 gnome-session</span><br></pre></td></tr></table></figure>
-<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2019-04-03_Gnome/5.png" alt></p>
+<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2019-04-03_Gnome/5.png" alt=""></p>
 <p>好了，现在该怎么折腾就怎么折腾吧……（比如把libreoffice等用Ubuntu Software卸载掉）</p>
-<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2019-04-03_Gnome/6.png" alt></p>
+<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2019-04-03_Gnome/6.png" alt=""></p>
 <h1 id="Step4-简化日后操作"><a href="#Step4-简化日后操作" class="headerlink" title="Step4. 简化日后操作"></a>Step4. 简化日后操作</h1><p>为了日后简单起见，其实可以通过向<code>.bashrc</code>中写入<code>export DISPLAY=:0.0</code>的方式，让每次启动bash时都运行这句话。毕竟开gnome完整桌面环境的频率还是没有开单个GUI程序的频率高，因此加上这一步可以简化日后在Xming中启动单个GUI程序的指令</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">"export DISPLAY=:0.0"</span> &gt;&gt; ~/.bashrc</span><br></pre></td></tr></table></figure>
 <p>此后我们再想启动gnome桌面时，直接输入以下命令就好</p>
@@ -254,7 +266,7 @@
 <p>而单个程序就更简单了，比如</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gedit</span><br></pre></td></tr></table></figure>
 <p>展现一下“混合系统”的效果……</p>
-<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2019-04-03_Gnome/7.png" alt></p>
+<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2019-04-03_Gnome/7.png" alt=""></p>
 <hr>
 <p>踩坑完毕</p>
 
@@ -264,7 +276,9 @@
       
         <div id="donation_div"></div>
 
+
 <script src="/js/vdonate.js"></script>
+
 <script>
 var a = new Donate({
   title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
@@ -323,7 +337,7 @@ var a = new Donate({
       
       
         
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Gnome/">Gnome</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WSL/">WSL</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Gnome/" rel="tag">Gnome</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WSL/" rel="tag">WSL</a></li></ul>
 
       
 
@@ -443,8 +457,13 @@ var a = new Donate({
 </script>
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
 
 
 <script src="/js/scripts.js"></script>
@@ -452,7 +471,10 @@ var a = new Donate({
 
 
 
-  <script src="/js/dialog.js"></script>
+
+  
+<script src="/js/dialog.js"></script>
+
 
 
 

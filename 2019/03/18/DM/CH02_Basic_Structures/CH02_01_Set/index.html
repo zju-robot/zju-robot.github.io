@@ -1,24 +1,23 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   <title>【dm】ch02-01 set | NCJ-Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="Discrete Math">
+  <meta name="keywords" content="Discrete Math" />
   
   
   
   
   <meta name="description" content="Chaptcer 02 Basic Structures 基本结构 Part 01 Set Covering2.1 ~ 2.2  Set 集合Basic 基本属性Definition 定义A set is an unordered collection of objects.  集合是对象的一个无序聚集。  Note:  The Order of elements does not matter">
-<meta name="keywords" content="Discrete Math">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【DM】CH02-01 Set">
 <meta property="og:url" content="https://ncj.wiki/2019/03/18/DM/CH02_Basic_Structures/CH02_01_Set/index.html">
 <meta property="og:site_name" content="NCJ-Blog">
 <meta property="og:description" content="Chaptcer 02 Basic Structures 基本结构 Part 01 Set Covering2.1 ~ 2.2  Set 集合Basic 基本属性Definition 定义A set is an unordered collection of objects.  集合是对象的一个无序聚集。  Note:  The Order of elements does not matter">
-<meta property="og:locale" content="en">
+<meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/DM_illustrations/img/CH02/01.png">
 <meta property="og:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/DM_illustrations/img/CH02/02.png">
 <meta property="og:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/DM_illustrations/img/CH02/03.png">
@@ -28,10 +27,11 @@
 <meta property="og:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/DM_illustrations/img/CH02/07.png">
 <meta property="og:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/DM_illustrations/img/CH02/08.png">
 <meta property="og:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/DM_illustrations/img/CH02/09.png">
-<meta property="og:updated_time" content="2019-09-05T13:38:45.735Z">
+<meta property="article:published_time" content="2019-03-18T02:45:29.000Z">
+<meta property="article:modified_time" content="2019-09-05T13:38:45.735Z">
+<meta property="article:author" content="NCJ">
+<meta property="article:tag" content="Discrete Math">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【DM】CH02-01 Set">
-<meta name="twitter:description" content="Chaptcer 02 Basic Structures 基本结构 Part 01 Set Covering2.1 ~ 2.2  Set 集合Basic 基本属性Definition 定义A set is an unordered collection of objects.  集合是对象的一个无序聚集。  Note:  The Order of elements does not matter">
 <meta name="twitter:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/DM_illustrations/img/CH02/01.png">
   
     <link rel="alternate" href="/atom.xml" title="NCJ-Blog" type="application/atom+xml">
@@ -54,32 +54,40 @@
 }
 
   </style>
-  <link rel="stylesheet" href="/css/style.css">
+  
+<link rel="stylesheet" href="/css/style.css">
 
-  <script src="/js/jquery-3.1.1.min.js"></script>
-  <script src="/js/bootstrap.js"></script>
+
+  
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+  
+<script src="/js/bootstrap.js"></script>
+
 
   <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="/css/bootstrap.css">
+  <link rel="stylesheet" href="/css/bootstrap.css" >
 
   
-    <link rel="stylesheet" href="/css/dialog.css">
-  
+    
+<link rel="stylesheet" href="/css/dialog.css">
 
-  
-
-  
-    <link rel="stylesheet" href="/css/header-post.css">
   
 
   
+
   
-  
-    <link rel="stylesheet" href="/css/vdonate.css">
+    <link rel="stylesheet" href="/css/header-post.css" >
   
 
-</head>
-</html>
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
 
 
   <body data-spy="scroll" data-target="#toc" data-offset="50">
@@ -172,7 +180,9 @@
     window.INSIGHT_CONFIG = INSIGHT_CONFIG;
 })(window);
 </script>
+
 <script src="/js/insight.js"></script>
+
 
 </div></li>
             </div>
@@ -218,7 +228,7 @@
       <span class="post-count">1.3k</span>
       Min2Read: 
       <span class="post-count">7</span>
-      <!-- <span class="post-count">33.7k</span> -->
+      <!-- <span class="post-count">34.4k</span> -->
     </div>
     <div class="article-entry" itemprop="articleBody">
       
@@ -255,7 +265,7 @@
 <p>e.g.  <em>{x | x is an odd positive integer less than 10}</em></p>
 <h5 id="Truth-Sets-真值集"><a href="#Truth-Sets-真值集" class="headerlink" title="Truth Sets 真值集"></a>Truth Sets 真值集</h5><p>Given a predicate P, and a domain D, we define the truth set of P to be the set of elements x in D for which P(x) is true. </p>
 <p>The truth set of P(x) is denoted by {x ∈ D | P(x)}.</p>
-<h3 id="Venn-Diagrams-文氏图"><a href="#Venn-Diagrams-文氏图" class="headerlink" title="Venn Diagrams 文氏图"></a>Venn Diagrams 文氏图</h3><p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/DM_illustrations/img/CH02/01.png" alt></p>
+<h3 id="Venn-Diagrams-文氏图"><a href="#Venn-Diagrams-文氏图" class="headerlink" title="Venn Diagrams 文氏图"></a>Venn Diagrams 文氏图</h3><p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/DM_illustrations/img/CH02/01.png" alt=""></p>
 <ul>
 <li>In Venn diagrams, the universal set <em>U</em> is represented by a rectangle.</li>
 <li>Inside this rectangle, circles or other geometrical figures are used to represent sets.</li>
@@ -314,23 +324,23 @@
 <p>A×∅ = ∅×A = ∅</p>
 </blockquote>
 <h2 id="Set-Operations-集合运算"><a href="#Set-Operations-集合运算" class="headerlink" title="Set Operations 集合运算"></a>Set Operations 集合运算</h2><h3 id="Intersection-交集"><a href="#Intersection-交集" class="headerlink" title="Intersection 交集"></a>Intersection 交集</h3><p>$A∩B={x|x∈A∧x∈B}​$</p>
-<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/DM_illustrations/img/CH02/02.png" alt></p>
+<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/DM_illustrations/img/CH02/02.png" alt=""></p>
 <blockquote>
 <p>Two sets are called <em>disjoint</em> if their intersection is the empty set, namely $A∩B = Ø$</p>
 </blockquote>
 <h4 id="Generalized-Intersections-拓展的交集"><a href="#Generalized-Intersections-拓展的交集" class="headerlink" title="Generalized Intersections 拓展的交集"></a>Generalized Intersections 拓展的交集</h4><p>$A<em>1∩A_2∩…∩A_n=\bigcap</em>{i=1}^{n}A_i$</p>
 <h3 id="Union-并集"><a href="#Union-并集" class="headerlink" title="Union 并集"></a>Union 并集</h3><p>$A∪B={x|x∈A∨x∈B}​$</p>
-<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/DM_illustrations/img/CH02/03.png" alt></p>
+<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/DM_illustrations/img/CH02/03.png" alt=""></p>
 <blockquote>
 <p>The cardinality of the union of two finite sets:</p>
 <p>$|A∪B|=|A|+|B|-|A∩B|$</p>
 </blockquote>
 <h4 id="Generalized-Unions-拓展的并集"><a href="#Generalized-Unions-拓展的并集" class="headerlink" title="Generalized Unions 拓展的并集"></a>Generalized Unions 拓展的并集</h4><p>$A<em>1∪A_2∪…∪A_n=\bigcup</em>{i=1}^{n}A_i$</p>
 <h3 id="Difference-差集"><a href="#Difference-差集" class="headerlink" title="Difference 差集"></a>Difference 差集</h3><p>$A-B={x|x∈A∧x∉B}​$</p>
-<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/DM_illustrations/img/CH02/04.png" alt></p>
+<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/DM_illustrations/img/CH02/04.png" alt=""></p>
 <h3 id="Complement-补集"><a href="#Complement-补集" class="headerlink" title="Complement 补集"></a>Complement 补集</h3><p>$\overline{A} = {x ∈ U | x ∉ A}​$</p>
 <p>(U is the universal set)</p>
-<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/DM_illustrations/img/CH02/05.png" alt></p>
+<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/DM_illustrations/img/CH02/05.png" alt=""></p>
 <blockquote>
 <p><strong>Note</strong>:</p>
 <p>$A-B=A∩\overline{B}​$</p>
@@ -391,19 +401,19 @@
 <h3 id="Ways-to-Prove-Set-Identities-集合恒等式的证明方法"><a href="#Ways-to-Prove-Set-Identities-集合恒等式的证明方法" class="headerlink" title="Ways to Prove Set Identities 集合恒等式的证明方法"></a>Ways to Prove Set Identities 集合恒等式的证明方法</h3><h4 id="I-Show-that-A-⊆-B-and-that-B-⊆-A"><a href="#I-Show-that-A-⊆-B-and-that-B-⊆-A" class="headerlink" title="I. Show that A ⊆ B and that B ⊆ A"></a>I. Show that A ⊆ B and that B ⊆ A</h4><blockquote>
 <p><strong>New and important</strong></p>
 </blockquote>
-<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/DM_illustrations/img/CH02/06.png" alt></p>
+<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/DM_illustrations/img/CH02/06.png" alt=""></p>
 <h4 id="II-Use-logical-equivalences-to-prove-equivalent-set-definitions"><a href="#II-Use-logical-equivalences-to-prove-equivalent-set-definitions" class="headerlink" title="II. Use logical equivalences to prove equivalent set definitions"></a>II. Use logical equivalences to prove equivalent set definitions</h4><blockquote>
 <p><strong>Easy but tedious</strong></p>
 </blockquote>
-<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/DM_illustrations/img/CH02/07.png" alt></p>
+<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/DM_illustrations/img/CH02/07.png" alt=""></p>
 <h4 id="III-Use-a-membership-table"><a href="#III-Use-a-membership-table" class="headerlink" title="III. Use a membership table"></a>III. Use a membership table</h4><blockquote>
 <p><strong>Like truth tables</strong></p>
 </blockquote>
-<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/DM_illustrations/img/CH02/08.png" alt></p>
+<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/DM_illustrations/img/CH02/08.png" alt=""></p>
 <h4 id="IV-Use-previously-proven-identities"><a href="#IV-Use-previously-proven-identities" class="headerlink" title="IV. Use previously proven identities"></a>IV. Use previously proven identities</h4><blockquote>
 <p><strong>Like ≡</strong></p>
 </blockquote>
-<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/DM_illustrations/img/CH02/09.png" alt></p>
+<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/DM_illustrations/img/CH02/09.png" alt=""></p>
 <h2 id="Computer-Representation-of-Set-集合的计算机表示"><a href="#Computer-Representation-of-Set-集合的计算机表示" class="headerlink" title="Computer Representation of Set 集合的计算机表示"></a>Computer Representation of Set 集合的计算机表示</h2><p>Using bit strings to represent sets</p>
 <ol>
 <li>Specify an arbitrary ordering of the elements of <em>U</em>, for instance $a_1,a_2,…,a_n$</li>
@@ -423,7 +433,9 @@
       
         <div id="donation_div"></div>
 
+
 <script src="/js/vdonate.js"></script>
+
 <script>
 var a = new Donate({
   title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
@@ -482,7 +494,7 @@ var a = new Donate({
       
       
         
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Discrete-Math/">Discrete Math</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Discrete-Math/" rel="tag">Discrete Math</a></li></ul>
 
       
 
@@ -602,8 +614,13 @@ var a = new Donate({
 </script>
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
 
 
 <script src="/js/scripts.js"></script>
@@ -611,7 +628,10 @@ var a = new Donate({
 
 
 
-  <script src="/js/dialog.js"></script>
+
+  
+<script src="/js/dialog.js"></script>
+
 
 
 

@@ -1,28 +1,35 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   <title>记一次奇葩的爬虫踩坑经历 | NCJ-Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="PythonCrawlPython Request">
+  <meta name="keywords" content="PythonCrawlPython Request" />
   
   
   
   
-  <meta name="description" content="function doDecrypt (pwd, onError) { 	console.log(&apos;in doDecrypt&apos;); 	const txt = document.getElementById(&apos;enc_content&apos;).innerHTML; 	let plantext; 	try { 		const bytes = CryptoJS.AES.decrypt(txt, pwd);">
-<meta name="keywords" content="Python,Crawl,Python Request">
+  <meta name="description" content="2020.05.31更新：发现自己以前好菜啊……（ 慢慢来吧……    摘要： 想利用爬虫实现半夜自动抢图书馆座位的功能，这样晚上就可以多睡一会了…… 但是提交申请时发现有一个参数很诡异…… 下面就是研究这个参数的生成方式，过程很奇葩 主要还是因为我是新手 研究过程曲折但是很有趣，因此记录一下  如果你是大佬或者懒得往下慢慢看，那我直接告诉你结论好了——就是网站自己的js代码没有生成这个参数，这">
 <meta property="og:type" content="article">
 <meta property="og:title" content="记一次奇葩的爬虫踩坑经历">
 <meta property="og:url" content="https://ncj.wiki/2019/04/04/2019-04-04_Crawl_Notes/index.html">
 <meta property="og:site_name" content="NCJ-Blog">
-<meta property="og:description" content="function doDecrypt (pwd, onError) { 	console.log(&apos;in doDecrypt&apos;); 	const txt = document.getElementById(&apos;enc_content&apos;).innerHTML; 	let plantext; 	try { 		const bytes = CryptoJS.AES.decrypt(txt, pwd);">
-<meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-05T13:38:45.732Z">
+<meta property="og:description" content="2020.05.31更新：发现自己以前好菜啊……（ 慢慢来吧……    摘要： 想利用爬虫实现半夜自动抢图书馆座位的功能，这样晚上就可以多睡一会了…… 但是提交申请时发现有一个参数很诡异…… 下面就是研究这个参数的生成方式，过程很奇葩 主要还是因为我是新手 研究过程曲折但是很有趣，因此记录一下  如果你是大佬或者懒得往下慢慢看，那我直接告诉你结论好了——就是网站自己的js代码没有生成这个参数，这">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2019-04-04_Crawl_Notes/1.png">
+<meta property="og:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2019-04-04_Crawl_Notes/2.png">
+<meta property="og:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2019-04-04_Crawl_Notes/3.png">
+<meta property="og:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2019-04-04_Crawl_Notes/4.png">
+<meta property="article:published_time" content="2019-04-03T23:56:58.000Z">
+<meta property="article:modified_time" content="2020-05-31T09:07:55.615Z">
+<meta property="article:author" content="NCJ">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="Crawl">
+<meta property="article:tag" content="Python Request">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="记一次奇葩的爬虫踩坑经历">
-<meta name="twitter:description" content="function doDecrypt (pwd, onError) { 	console.log(&apos;in doDecrypt&apos;); 	const txt = document.getElementById(&apos;enc_content&apos;).innerHTML; 	let plantext; 	try { 		const bytes = CryptoJS.AES.decrypt(txt, pwd);">
+<meta name="twitter:image" content="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2019-04-04_Crawl_Notes/1.png">
   
     <link rel="alternate" href="/atom.xml" title="NCJ-Blog" type="application/atom+xml">
   
@@ -44,32 +51,40 @@
 }
 
   </style>
-  <link rel="stylesheet" href="/css/style.css">
+  
+<link rel="stylesheet" href="/css/style.css">
 
-  <script src="/js/jquery-3.1.1.min.js"></script>
-  <script src="/js/bootstrap.js"></script>
+
+  
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+  
+<script src="/js/bootstrap.js"></script>
+
 
   <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="/css/bootstrap.css">
+  <link rel="stylesheet" href="/css/bootstrap.css" >
 
   
-    <link rel="stylesheet" href="/css/dialog.css">
-  
+    
+<link rel="stylesheet" href="/css/dialog.css">
 
-  
-
-  
-    <link rel="stylesheet" href="/css/header-post.css">
   
 
   
+
   
-  
-    <link rel="stylesheet" href="/css/vdonate.css">
+    <link rel="stylesheet" href="/css/header-post.css" >
   
 
-</head>
-</html>
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
 
 
   <body data-spy="scroll" data-target="#toc" data-offset="50">
@@ -162,7 +177,9 @@
     window.INSIGHT_CONFIG = INSIGHT_CONFIG;
 })(window);
 </script>
+
 <script src="/js/insight.js"></script>
+
 
 </div></li>
             </div>
@@ -205,60 +222,125 @@
 
       </br></br>
       WordCount: 
-      <span class="post-count">933</span>
+      <span class="post-count">1.7k</span>
       Min2Read: 
-      <span class="post-count">5</span>
-      <!-- <span class="post-count">33.7k</span> -->
+      <span class="post-count">7</span>
+      <!-- <span class="post-count">34.4k</span> -->
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <script src=/js/crypto-js.js></script>
-<script>
-function doDecrypt (pwd, onError) {
-	console.log('in doDecrypt');
-	const txt = document.getElementById('enc_content').innerHTML;
-	let plantext;
-	try {
-		const bytes = CryptoJS.AES.decrypt(txt, pwd);
-		var plaintext = bytes.toString(CryptoJS.enc.Utf8);
-	} catch(err) {
-		if(onError) {
-			onError(err);
-		}
-		return;
-	}
-	document.getElementById('enc_content').innerHTML = plaintext;
-	document.getElementById('enc_content').style.display = 'block';
-	document.getElementById('enc_passwd').style.display = 'none';
-	if(typeof MathJax !== 'undefined') {
-		MathJax.Hub.Queue(
-			['resetEquationNumbers', MathJax.InputJax.TeX],
-			['PreProcess', MathJax.Hub],
-			['Reprocess', MathJax.Hub]
-		);
-	}
-}
-</script>
-<div id="enc_content" style="display:none">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</div>
-<div id="enc_passwd"> <input id="enc_pwd_input" type="password" style="border-radius: 5px;border-style: groove;height: 30px;width: 50%;cursor: auto;font-size: 102%;color: currentColor;outline: none;text-overflow: initial;padding-left: 5px;" onkeydown="if (event.keyCode == 13) { decrypt(); return false;}"> <input type="submit" value="解&nbsp;密" onclick="decrypt()" style="width: 58px;height: 34px;border-radius: 5px;background-color: white;border-style: solid;color: currentColor;"><div id="enc_error" style="display: inline-block;color: #d84527;margin-left: 10px"></div>
-<script>
-var onError = function(error) {
-	document.getElementById("enc_error").innerHTML = "password error!"
-};
-function decrypt() {
-var passwd = document.getElementById("enc_pwd_input").value;
-console.log(passwd);
-doDecrypt(passwd, onError);
-}
-</script>
+        <blockquote>
+<p>2020.05.31更新：发现自己以前好菜啊……（</p>
+<p>慢慢来吧……</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>摘要：</p>
+<p>想利用爬虫实现半夜自动抢图书馆座位的功能，这样晚上就可以多睡一会了……</p>
+<p>但是提交申请时发现有一个参数很诡异……</p>
+<p>下面就是研究这个参数的生成方式，过程很奇葩 <del>主要还是因为我是新手</del></p>
+<p>研究过程曲折但是很有趣，因此记录一下</p>
+</blockquote>
+<p>如果你是大佬或者懒得往下慢慢看，那我直接告诉你结论好了——就是网站自己的js代码没有生成这个参数，这个参数只能是jQuery本身在提交GET请求时额外添加的，后来发现这参数其实就是时间戳……</p>
+<hr>
+<p>登陆已经解决，是一个POST，抓对包之后几乎没什么门槛</p>
+<p>提交预约申请使用了Ajax异步技术，因此只需要模拟js脚本提交GET请求即可</p>
+<p>抓包分析看到<code>&quot;act&quot;:&quot;set_resv&quot;</code>，<code>&amp;act=set_resv</code></p>
+<p>在源码<code>VM310</code>中搜索<code>set_resv</code>，看到第537行有对于<code>fRsv()</code>的调用</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">pro.j.rsv.fRsv(<span class="string">"set_resv"</span>, $(<span class="string">"form:first"</span>, dlg), <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="keyword">if</span> (uni_calendar_dft_opt.submitSuc) &#123;</span><br><span class="line">                    uni_calendar_dft_opt.submitSuc(dlg, obj);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">var</span> msg = <span class="string">'申请提交成功，是否跳转查看预约信息?'</span>;</span><br><span class="line">                    <span class="keyword">if</span> (<span class="built_in">parseInt</span>(obj.minUser) &gt; <span class="number">1</span>) &#123;</span><br><span class="line">                        msg += <span class="string">"&lt;br/&gt;&lt;br/&gt;&lt;div style='font-weight:bold;'&gt;"</span> + uni.translate(<span class="string">"注意！生效后需至少"</span>) + <span class="string">"&lt;span style='color:red;font-size:bold;'&gt;"</span> + obj.minUser + <span class="string">"&lt;/span&gt;"</span> + uni.translate(<span class="string">"人刷卡，否则将记为违约！"</span>) + <span class="string">"&lt;/div&gt;"</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    uni.confirm(msg, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                        $(<span class="string">"#user_center"</span>).trigger(<span class="string">"click"</span>);</span><br><span class="line">                    &#125;, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                        uni.reload();</span><br><span class="line">                    &#125;);</span><br><span class="line">                    $(<span class="string">".group_id"</span>, dlg).val(<span class="string">""</span>);</span><br><span class="line">                    $(<span class="string">".group_name"</span>, dlg).html(<span class="string">"小组未创建"</span>);</span><br><span class="line">                    dlg.dialog(<span class="string">"close"</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">//btn.removeAttr("disabled");</span></span><br><span class="line">            &#125;, <span class="function"><span class="keyword">function</span> (<span class="params">rlt</span>) </span>&#123;</span><br><span class="line">                </span><br><span class="line">                uni.msgBox(pro.translate(rlt.msg));</span><br><span class="line">                <span class="comment">//btn.removeAttr("disabled");</span></span><br><span class="line">            &#125;, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                uni.msgBox(uni.translate(<span class="string">"异步连接出现异常！"</span>));</span><br><span class="line">                <span class="comment">//btn.removeAttr("disabled");</span></span><br><span class="line">            &#125;);</span><br></pre></td></tr></table></figure>
+<p>其中传入的实参有一个就是我们的<code>”set_resv”</code>，另外还有一个实参是一个回调函数，用于申请成功后更新页面信息（弹窗），这就是Ajax提交申请的流程。</p>
+<p>因此猜测<code>fRsv()</code>完成了对于<code>url</code>的生成和提交</p>
+<p>在<code>pro.js</code>中1056行找到了<code>fRsv()</code>的原型</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">fRsv: <span class="function"><span class="keyword">function</span> (<span class="params">act, $f, suc, fail, err</span>) </span>&#123;</span><br><span class="line">            pro.j.fGetS(<span class="keyword">this</span>.p, act, $f, suc, fail, err);</span><br><span class="line">        &#125;,</span><br></pre></td></tr></table></figure>
+<p>它又调用了<code>fGetS</code>: (:179)</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//get方式 form提交 拓展方法</span></span><br><span class="line">fGetS: <span class="function"><span class="keyword">function</span> (<span class="params">url, act, $f, suc, fail, err</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">var</span> data = &#123;&#125;;</span><br><span class="line">            data.act = act;</span><br><span class="line">            data.$f = $f;</span><br><span class="line">            uni.j.fGet(url, data, <span class="function"><span class="keyword">function</span> (<span class="params">rlt</span>) </span>&#123;</span><br><span class="line">                pro.ckV(rlt, suc, fail);</span><br><span class="line">            &#125;, err);</span><br><span class="line">        &#125;,</span><br></pre></td></tr></table></figure>
+<p>注意<code>url</code>与<code>this.p</code>对应，因此分析p很关键，因为我们很关心<code>url</code>中的一个诡异的参数<code>_</code>，一旦知道了这个参数就🆗了</p>
+<p>类内的p出现在792行</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">pro.j.rsv = &#123;</span><br><span class="line">        <span class="comment">//路径</span></span><br><span class="line">        p: pro.dir + <span class="string">"ajax/reserve.aspx"</span>,</span><br><span class="line">    ...</span><br></pre></td></tr></table></figure>
+<p>果然见到了我们想要的ajax/reserve.aspx</p>
+<p>但是线索有断了，因为p在之后就没有变化过了……</p>
+<p>因此p内没有这个参数……</p>
+<p>再次将焦点转向<code>fRsv()</code>，看看它如何被调用的</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">pro.j.rsv.fRsv(<span class="string">"set_resv"</span>, $(<span class="string">"form:first"</span>, dlg), <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;<span class="comment">/* 成功之后的提示*/</span>&#125;,<span class="function"><span class="keyword">function</span> (<span class="params">rlt</span>) </span>&#123;uni.msgBox(pro.translate(rlt.msg));&#125;, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;uni.msgBox(uni.translate(<span class="string">"异步连接出现异常！"</span>));&#125;);</span><br></pre></td></tr></table></figure>
+<p>与原型对比分析</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>act</th>
+<th>“set_resv”</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$f</td>
+<td>$(“form:first”, dlg)</td>
+</tr>
+<tr>
+<td>suc</td>
+<td>function () {/<em> 成功之后的提示</em>/}</td>
+</tr>
+<tr>
+<td>fail</td>
+<td>function (rlt) {uni.msgBox(pro.translate(rlt.msg));}</td>
+</tr>
+<tr>
+<td>err</td>
+<td>function () {uni.msgBox(uni.translate(“异步连接出现异常！”));}</td>
+</tr>
+</tbody>
+</table>
 </div>
+<p>猜测<code>$f</code>是关键</p>
+<p><code>$(&quot;form:first&quot;, dlg)</code>是jQuery的多项选择器，匹配出来应该是在dlg中的第一个form</p>
+<p>再看看调用</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// pro.j.fGetS(this.p, act, $f, suc, fail, err);</span></span><br><span class="line">fGets(<span class="string">"http://******/ClientWeb/ajax/reserve.aspx"</span>, <span class="string">"set_resv"</span>, $f, suc, fail, err)</span><br><span class="line"><span class="comment">// http://******/ClientWeb/pro/ajax/reserve.aspx?dialogid=&amp;dev_id=685&amp;lab_id=&amp;kind_id=&amp;room_id=&amp;type=dev&amp;prop=&amp;test_id=&amp;term=&amp;number=&amp;test_name=&amp;start=2019-03-30+18%3A00&amp;end=2019-03-30+20%3A00&amp;start_time=1800&amp;end_time=2000&amp;up_file=&amp;memo=&amp;act=set_resv&amp;_=1553927422652</span></span><br></pre></td></tr></table></figure>
+<p><code>$f</code>应该对应的就是我们的申请表，也就是抓到的GET请求中的绝大多数参数的来源</p>
+<p>果然在页面中找到了它</p>
+<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2019-04-04_Crawl_Notes/1.png" alt=""></p>
+<p>完全吻合</p>
+<p>看来WebForm就是这个Form+act(“set<em>resv”)+那个诡异的参数`</em>`……</p>
+<p>然鹅<code>_</code>还是不知道如何生成的……</p>
+<p>因此又猜测生成这个参数的位置就在于<code>fGets()</code></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">fGetS: <span class="function"><span class="keyword">function</span> (<span class="params">url, act, $f, suc, fail, err</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">var</span> data = &#123;&#125;;</span><br><span class="line">            data.act = act;</span><br><span class="line">            data.$f = $f;</span><br><span class="line">            uni.j.fGet(url, data, <span class="function"><span class="keyword">function</span> (<span class="params">rlt</span>) </span>&#123;</span><br><span class="line">                pro.ckV(rlt, suc, fail);</span><br><span class="line">            &#125;, err);</span><br><span class="line">        &#125;,</span><br></pre></td></tr></table></figure>
+<p>果然它将act的参数以及form中的参数合并成了data，并传给<code>fGet()</code></p>
+<p>其中调用到的<code>ckV()</code>位于<code>pro.js</code>的114行</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//检查返回值</span></span><br><span class="line">ckV: <span class="function"><span class="keyword">function</span> (<span class="params">rlt, suc, fail</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (rlt == <span class="literal">undefined</span>) &#123;</span><br><span class="line">                uni.msgBox(<span class="string">"返回了空值！"</span>, <span class="literal">null</span>, <span class="literal">null</span>, <span class="string">"error"</span>);</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (rlt.ret == <span class="number">0</span>) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (fail == <span class="literal">undefined</span>) &#123; uni.msgBox(rlt.msg, <span class="literal">null</span>, <span class="literal">null</span>, <span class="string">"warning"</span>); uni.log.set(<span class="string">"msg"</span>, rlt.msg + <span class="string">"/"</span> + rlt.act); &#125;</span><br><span class="line">                    <span class="keyword">else</span> fail(rlt);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (rlt.ret &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (suc == <span class="literal">undefined</span>) &#123; uni.msgBox(rlt.msg, <span class="literal">null</span>, <span class="literal">null</span>, <span class="string">"success"</span>); uni.log.set(<span class="string">"msg"</span>, rlt.msg + <span class="string">"/"</span> + rlt.act); &#125;</span><br><span class="line">                    <span class="keyword">else</span> suc(rlt);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (rlt.ret == <span class="number">-1</span>) &#123;<span class="comment">//登录超时</span></span><br><span class="line">                    uni.msgBox(rlt.msg, <span class="string">""</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; location.reload(); &#125;, <span class="string">"warning"</span>);</span><br><span class="line">                    uni.log.set(<span class="string">"msg"</span>, rlt.msg + <span class="string">"/"</span> + rlt.act);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<p>估摸着这个函数主要是用于处理服务器返回信息用的，先搁在一边……</p>
+<p>回到网页源码，找到了<code>uni</code>的出处<code>uni.lib</code></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//-------------------------------------------------------------------jquery第三方 插件-----------------------------------</span></span><br><span class="line"><span class="comment">//异步上传</span></span><br></pre></td></tr></table></figure>
+<p>第三方插件可还行……</p>
+<p>果然找到<code>fGet()</code></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//get方式 form提交(data.act 操作命令 data.$f 表单Jquery对象)</span></span><br><span class="line">    fGet: <span class="function"><span class="keyword">function</span> (<span class="params">url, data, suc, err</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> e = err || <span class="keyword">this</span>._ajaxErr;</span><br><span class="line">        <span class="keyword">this</span>._get(url, data, suc, e, <span class="number">2</span>);</span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure>
+<p>进一步找到<code>_get()</code></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//基础ajax方法 get方式 flag=1 js对象转url参数 flag=2 form提交 flag=3 uri编码</span></span><br><span class="line">    _get: <span class="function"><span class="keyword">function</span> (<span class="params">url, data, suc, err, flag, type</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> d = data;</span><br><span class="line">        <span class="keyword">if</span> (flag === <span class="number">1</span>) &#123;</span><br><span class="line">            d = uni.obj2Url(data);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (flag === <span class="number">2</span>) &#123;</span><br><span class="line">            d = $(data.$f).serialize() + <span class="string">"&amp;act="</span> + data.act;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (flag === <span class="number">3</span>) &#123;</span><br><span class="line">            d = <span class="built_in">encodeURI</span>(data);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (d != <span class="literal">null</span> &amp;&amp; d != <span class="string">""</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (d.length &gt; <span class="number">2000</span>) &#123;<span class="comment">//当参数超出url长度限制，转post方式</span></span><br><span class="line">                <span class="keyword">this</span>.post(url, uni.url2Obj(d), suc, err);</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                url = url + <span class="string">"?"</span> + d;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">var</span> len = <span class="keyword">this</span>.history.length;</span><br><span class="line">        <span class="keyword">if</span> (len &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">var</span> last = <span class="keyword">this</span>.history[len - <span class="number">1</span>];</span><br><span class="line">            <span class="keyword">if</span> (last.act == url &amp;&amp; last.ajax_state == <span class="string">"sending"</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span>;<span class="comment">//重复提交 丢弃</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">var</span> sta = &#123; <span class="attr">ajax_state</span>: <span class="string">"sending"</span>, <span class="attr">act</span>: url &#125;;</span><br><span class="line">        <span class="keyword">this</span>.history.push(sta);</span><br><span class="line">        $.ajax(&#123;</span><br><span class="line">            type: <span class="string">"GET"</span>,</span><br><span class="line">            cache: <span class="literal">false</span>,</span><br><span class="line">            timeout: <span class="number">150000</span>,</span><br><span class="line">            buf: data,</span><br><span class="line">            url: url,</span><br><span class="line">            dataType: type || <span class="string">"json"</span>,</span><br><span class="line">            success: suc,</span><br><span class="line">            error: err,</span><br><span class="line">            beforeSend: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                uni.j.swit++;</span><br><span class="line">                uni.showWait();</span><br><span class="line">            &#125;,</span><br><span class="line">            complete: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                uni.j.swit--;</span><br><span class="line">                <span class="keyword">if</span> (uni.j.swit == <span class="number">0</span>) uni.hideWait();</span><br><span class="line">                sta.ajax_state = <span class="string">"complete"</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure>
+<p>看了一遍，貌似url并没有发生改变，说明<code>_</code>不是这一步加上去的……</p>
+<p><del>哭了</del>老哥加油</p>
+<p>回归本质，把网页html源码下载下来本地分析……</p>
+<p>还是没有找到<code>_</code>……</p>
+<p>回到chrome进行调试</p>
+<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2019-04-04_Crawl_Notes/2.png" alt=""></p>
+<p>意外发现第三方插件确实没有生成<code>_</code>，上面的<code>f</code>中的网址最后没有该参数！</p>
+<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2019-04-04_Crawl_Notes/3.png" alt=""></p>
+<p>emmm，看来只能是jQuery搞的鬼，可是这代码被混淆了……</p>
+<hr>
+<p>突然发现</p>
+<p><img src="https://gitee.com/iamncj/Picture_Bed/raw/master/illustrations/2019-04-04_Crawl_Notes/4.png" alt=""></p>
+<p>typora也有这个标记……</p>
+<p>原来是<strong>时间戳</strong>……</p>
+<p>破案了！</p>
+<hr>
+<p>果然还是缺乏经验，不过这一通操作算是积累了不少阅读js源码的经验……</p>
+
       
     </div>
     <footer class="article-footer">
       
         <div id="donation_div"></div>
 
+
 <script src="/js/vdonate.js"></script>
+
 <script>
 var a = new Donate({
   title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
@@ -317,7 +399,7 @@ var a = new Donate({
       
       
         
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Crawl/">Crawl</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python-Request/">Python Request</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Crawl/" rel="tag">Crawl</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python-Request/" rel="tag">Python Request</a></li></ul>
 
       
 
@@ -437,8 +519,13 @@ var a = new Donate({
 </script>
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
 
 
 <script src="/js/scripts.js"></script>
@@ -446,7 +533,10 @@ var a = new Donate({
 
 
 
-  <script src="/js/dialog.js"></script>
+
+  
+<script src="/js/dialog.js"></script>
+
 
 
 

@@ -1,28 +1,29 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
   <title>整数划分问题归纳 | NCJ-Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="AlgorithmDynamic Programming">
+  <meta name="keywords" content="AlgorithmDynamic Programming" />
   
   
   
   
-  <meta name="description" content="刷DP题目时遇到了一些整数划分问题，发现它们的思路有一些共通之处，在这里进行一个简要汇总。 一、简单的整数划分问题 将正整数n表示成一系列正整数之和，$n=n_1+n_2+…+n_k$, 其中$n_1 \geq n_2 \geq … \geq n_k \geq 1$ ，$k \geq 1$ 。 正整数n的这种表示称为正整数n的划分。 正整数n的不同的划分个数称为正整数n的划分数。 求给定的数n的划">
-<meta name="keywords" content="Algorithm,Dynamic Programming">
+  <meta name="description" content="刷DP题目时遇到了一些整数划分问题，发现它们的思路有一些共通之处，在这里进行一个简要汇总。 一、简单的整数划分问题 将正整数n表示成一系列正整数之和，$n&#x3D;n_1+n_2+…+n_k$, 其中$n_1 \geq n_2 \geq … \geq n_k \geq 1$ ，$k \geq 1$ 。 正整数n的这种表示称为正整数n的划分。 正整数n的不同的划分个数称为正整数n的划分数。 求给定的数n的划">
 <meta property="og:type" content="article">
 <meta property="og:title" content="整数划分问题归纳">
 <meta property="og:url" content="https://ncj.wiki/2019/02/23/2019-02-23_Division/index.html">
 <meta property="og:site_name" content="NCJ-Blog">
-<meta property="og:description" content="刷DP题目时遇到了一些整数划分问题，发现它们的思路有一些共通之处，在这里进行一个简要汇总。 一、简单的整数划分问题 将正整数n表示成一系列正整数之和，$n=n_1+n_2+…+n_k$, 其中$n_1 \geq n_2 \geq … \geq n_k \geq 1$ ，$k \geq 1$ 。 正整数n的这种表示称为正整数n的划分。 正整数n的不同的划分个数称为正整数n的划分数。 求给定的数n的划">
-<meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-05T13:38:45.731Z">
+<meta property="og:description" content="刷DP题目时遇到了一些整数划分问题，发现它们的思路有一些共通之处，在这里进行一个简要汇总。 一、简单的整数划分问题 将正整数n表示成一系列正整数之和，$n&#x3D;n_1+n_2+…+n_k$, 其中$n_1 \geq n_2 \geq … \geq n_k \geq 1$ ，$k \geq 1$ 。 正整数n的这种表示称为正整数n的划分。 正整数n的不同的划分个数称为正整数n的划分数。 求给定的数n的划">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-02-23T14:05:37.000Z">
+<meta property="article:modified_time" content="2019-09-05T13:38:45.731Z">
+<meta property="article:author" content="NCJ">
+<meta property="article:tag" content="Algorithm">
+<meta property="article:tag" content="Dynamic Programming">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="整数划分问题归纳">
-<meta name="twitter:description" content="刷DP题目时遇到了一些整数划分问题，发现它们的思路有一些共通之处，在这里进行一个简要汇总。 一、简单的整数划分问题 将正整数n表示成一系列正整数之和，$n=n_1+n_2+…+n_k$, 其中$n_1 \geq n_2 \geq … \geq n_k \geq 1$ ，$k \geq 1$ 。 正整数n的这种表示称为正整数n的划分。 正整数n的不同的划分个数称为正整数n的划分数。 求给定的数n的划">
   
     <link rel="alternate" href="/atom.xml" title="NCJ-Blog" type="application/atom+xml">
   
@@ -44,32 +45,40 @@
 }
 
   </style>
-  <link rel="stylesheet" href="/css/style.css">
+  
+<link rel="stylesheet" href="/css/style.css">
 
-  <script src="/js/jquery-3.1.1.min.js"></script>
-  <script src="/js/bootstrap.js"></script>
+
+  
+<script src="/js/jquery-3.1.1.min.js"></script>
+
+  
+<script src="/js/bootstrap.js"></script>
+
 
   <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="/css/bootstrap.css">
+  <link rel="stylesheet" href="/css/bootstrap.css" >
 
   
-    <link rel="stylesheet" href="/css/dialog.css">
-  
+    
+<link rel="stylesheet" href="/css/dialog.css">
 
-  
-
-  
-    <link rel="stylesheet" href="/css/header-post.css">
   
 
   
+
   
-  
-    <link rel="stylesheet" href="/css/vdonate.css">
+    <link rel="stylesheet" href="/css/header-post.css" >
   
 
-</head>
-</html>
+  
+  
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
 
 
   <body data-spy="scroll" data-target="#toc" data-offset="50">
@@ -162,7 +171,9 @@
     window.INSIGHT_CONFIG = INSIGHT_CONFIG;
 })(window);
 </script>
+
 <script src="/js/insight.js"></script>
+
 
 </div></li>
             </div>
@@ -208,7 +219,7 @@
       <span class="post-count">2k</span>
       Min2Read: 
       <span class="post-count">9</span>
-      <!-- <span class="post-count">33.7k</span> -->
+      <!-- <span class="post-count">34.4k</span> -->
     </div>
     <div class="article-entry" itemprop="articleBody">
       
@@ -315,7 +326,9 @@ cond(no)->c3</textarea><textarea id="flowchart-0-options" style="display: none">
       
         <div id="donation_div"></div>
 
+
 <script src="/js/vdonate.js"></script>
+
 <script>
 var a = new Donate({
   title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
@@ -374,7 +387,7 @@ var a = new Donate({
       
       
         
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Algorithm/">Algorithm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dynamic-Programming/">Dynamic Programming</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dynamic-Programming/" rel="tag">Dynamic Programming</a></li></ul>
 
       
 
@@ -494,8 +507,13 @@ var a = new Donate({
 </script>
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
 
 
 <script src="/js/scripts.js"></script>
@@ -503,7 +521,10 @@ var a = new Donate({
 
 
 
-  <script src="/js/dialog.js"></script>
+
+  
+<script src="/js/dialog.js"></script>
+
 
 
 
