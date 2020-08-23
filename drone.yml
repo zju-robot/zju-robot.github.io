@@ -1,0 +1,33 @@
+kind: pipeline
+type: docker
+name: default
+
+clone:
+  depth: 1
+
+steps:
+- name: deploy
+  image: drillster/drone-rsync
+  environment:
+    RSYNC_KEY:
+      from_secret: ssh_key
+  volumes:
+  - name: hosts
+    path: /etc/hosts
+  settings:
+    hosts:
+      - local_host
+    source: ./
+    target: /data/nginx/html/blog
+    recursive: true
+    delete: true
+    secrets: [ ssh_key ]
+
+trigger:
+  branch:
+  - master
+
+volumes:
+- name: hosts
+  host:
+    path: /data/hosts/hosts
